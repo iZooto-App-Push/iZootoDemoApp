@@ -1,45 +1,105 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+<p align="center">
+   <img src="https://user-images.githubusercontent.com/60651012/129727793-bc8b8f01-b317-4f1c-bace-c6882b86bff7.png" height="220">
+</p>
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+## ðŸ‘‹ Introduction
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+The iZooto Android SDK provides push notification service for mobile apps. This plugin makes it easy to implement push notifications on your Android app built on the Native framework.
 
----
+For more information check out our  [website](https://www.izooto.com)  and  [documentation](https://help.izooto.com/docs/app-push-notifications-overview).
 
-## Edit a file
+To get started, sign up [here](https://panel.izooto.com/en/signup)
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+## ðŸŽ‰ Installation
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+We publish the SDK to `mavenCentral` as an `AAR` file. Just declare it as dependency in your `build.gradle` file.
+```groovy
+android {
+    defaultConfig{
+        manifestPlaceholders = [
+                izooto_app_id : 'YOUR_iZOOTO_APP_ID_HERE'
+        ]
+    }
+}
+```
+```groovy
+    dependencies {
+    implementation 'com.izooto:android-sdk:2.2.1'
+    }
+```
 
----
+Alternatively, you can download and add the AAR file included in this repo in your Module libs directory and tell gradle to install it like this:
 
-## Create a file
+### ðŸ“– Dependencies
 
-Next, you’ll add a new file to this repository.
+Add the Firebase Messaging library and Android Support Library v4 as dependencies to your Module `build.gradle` file.
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+```groovy
+     dependencies {
+         implementation 'com.izooto:android-sdk:2.2.1'        
+         implementation "com.google.firebase:firebase-messaging:23.0.6"
+     }
+```
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+Also be sure to include the `google-services.json` classpath in your Project level `build.gradle` file:
 
----
+```groovy
+    // Top-level build file where you can add configuration options common to all sub-projects/modules.         
+        
+    buildscript {       
+         repositories {      
+             google()
+             mavenCentral()
+         }       
+         dependencies {      
+             classpath "com.android.tools.build:gradle:7.3.0"
+             classpath "com.google.gms:google-services:4.3.3"
+        
+             // NOTE: Do not place your application dependencies here; they belong       
+             // in the individual module build.gradle files      
+         }       
+    }
+```
 
-## Clone a repository
+Add your FCM generated `google-services.json` file to your project and add the following to the end of your `build.gradle`:
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+```groovy
+apply plugin: 'com.google.gms.google-services'
+```
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+Once you've updated your module `build.gradle` file, make sure you have specified `mavenCentral()` and `google()` as a repositories in your project `build.gradle` and then sync your project in File -> Sync Project with Gradle Files.
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+
+## ðŸ“²  iZooto FCM Push SDK
+
+Please refer to iZooto's [Android Native SDK Setup](https://help.izooto.com/docs/android-sdk-setup-1) page for step-by-step instructions on how to install the plugin.
+
+
+##  ðŸ“²  iZooto Xiaomi Push SDK
+
+iZooto Xiaomi Push SDK provides an out of the box service to use the Xiaomi Push SDK. Find the integration steps for the iZooto Xiaomi Push SDK [Xiaomi Push Integration](https://help.izooto.com/docs/power-push-setting-up-xiaomi-cloud-push)
+
+##  ðŸ“² iZooto Huawei Push SDK
+
+iZooto Huawei Push SDK provides an out of the box service to use the Huawei Messaging Service. Find the integration steps for the iZooto Huawei Push SDK [Huawei Push Integration](https://help.izooto.com/docs/power-push-setting-up-huawei-messenger-service)
+
+
+## SDK Methods
+
+Please see iZooto's [Android Native SDK References](https://help.izooto.com/docs/sdk-reference) page for a list of all the available callbacks and methods.
+
+#### Change Log
+
+Please refer to this repository's [release tags](https://github.com/izooto-mobile-sdk/android-X/releases) for a complete change log of every released version.
+
+#### Support
+
+Please visit [izooto.com](https://www.izooto.com) or write to [support@izooto.com](mailto:support@izooto.com) for any kind of issues.
+
+#### Demo Project
+
+For reference, we have uploaded a demo project with the latest SDK in the <code>master</code> folder of this repository.
+
+#### Supports:
+
+* Tested and validated from Android 5.0 (API level 21) to Android 12 (API level 33).

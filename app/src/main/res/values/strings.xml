@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">iZooto Demo App</string>
+    <string name="player_error">Errors initializing YouTube player: %s</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
+    <string name="appVersion">App Version - 7.2.7</string>
+    <string name="description">This app is only for testing the basic features, if any query please contact @iZooto support team</string>
+    <string name="share_the_token">Share the Token</string>
+    <string name="iz_redirect_string">Notification Redirection Page</string>
+    <string name="shareToken"> Share Token</string>
+    <string name="sDebug">End Debug </string>
+    <string name="sInfo">Share Debug info</string>
+    <string name="sBDebug">Begin Debug </string>
+    <string name="gPermission">Grant Permission </string>
+    <string name="izooto_notification_accent_color">0000FF</string>
+    <string name="iz_not_found">Not Found</string>
+</resources>
