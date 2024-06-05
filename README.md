@@ -24,7 +24,7 @@ android {
 ```
 ```groovy
     dependencies {
-    implementation 'com.izooto:android-sdk:2.2.1'
+    implementation 'com.izooto:android-sdk:2.4.5'
     }
 ```
 
