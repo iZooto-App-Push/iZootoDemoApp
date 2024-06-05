@@ -27,7 +27,7 @@ import com.izooto.iZooto
 import com.k.deeplinkingtesting.StatusManager.saveStatusFiles
 import java.util.Locale
 
-
+// common activity add to launcher activity
 class CommonActivity : AppCompatActivity() {
     var permissionFile: Button? = null
     var beginDebugFile: Button? = null
