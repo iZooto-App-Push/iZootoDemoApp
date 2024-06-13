@@ -41,9 +41,6 @@ android {
     }
 }
 dependencies {
-    implementation 'com.izooto:android-sdk:2.4.5'
-
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.material:material:1.11.0'
@@ -57,15 +54,16 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.auth:google-auth-library-oauth2-http:0.26.0'
-    //implementation files('libs/izooto-release.aar')
+    // iZooto sdk
+    implementation 'com.izooto:android-sdk:2.5.1'
+    implementation("androidx.work:work-runtime:2.9.0")
+    // pulse
     implementation 'androidx.browser:browser:1.8.0'
-    implementation('com.github.bumptech.glide:glide:4.16.0')
-    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    // google one tap
     implementation("androidx.credentials:credentials:1.2.1")
     implementation("androidx.credentials:credentials-play-services-auth:1.2.1")
     implementation("com.google.android.libraries.identity.googleid:googleid:1.1.0")
     implementation "androidx.compose.runtime:runtime:1.0.0"
-    implementation 'com.github.IntruderShanky:scatter-piechart:1.0.0'
 
 }
 

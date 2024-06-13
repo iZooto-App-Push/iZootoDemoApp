@@ -19,12 +19,12 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
-import com.k.deeplinkingtesting.StatusManager.saveStatusFiles
 import java.util.Locale
 
 // common activity add to launcher activity
@@ -33,8 +33,7 @@ class CommonActivity : AppCompatActivity() {
     var beginDebugFile: Button? = null
     var sendDebugFile: Button? = null
     var deleteDebugFile: Button? = null
-    var webLayout : LinearLayout?=null
-    var click_notification: ImageView? = null
+    var mainLayout : CoordinatorLayout?=null
      var backPressedOnce = false
      var isChecked = false
     @SuppressLint("ClickableViewAccessibility")
@@ -47,8 +46,9 @@ class CommonActivity : AppCompatActivity() {
         sendDebugFile = findViewById(R.id.btn_sendDebugFile)
         deleteDebugFile = findViewById(R.id.btn_deleteDebugFile)
         permissionFile = findViewById(R.id.btn_permissionFIle)
-         webLayout = findViewById(R.id.webLayout);
-         iZooto.enablePulse(this,webLayout,true)
+        mainLayout = findViewById(R.id.mainLayout);
+        //pulse
+        iZooto.enablePulse(this,mainLayout,true)
         permissionFile?.setOnClickListener { view ->
             (view as? Button)?.let {
                 requestPermission()
@@ -81,7 +81,7 @@ class CommonActivity : AppCompatActivity() {
                builder1.setPositiveButton(
                    "Yes"
                ) { dialog: DialogInterface, id: Int ->
-                  // iZooto.shareFile(this@CommonActivity)
+                   iZooto.shareFile(this@CommonActivity,"Support Team","amit@datability.co")
                    dialog.cancel()
                }
                builder1.setNegativeButton(

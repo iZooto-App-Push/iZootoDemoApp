@@ -33,58 +33,5 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/iz_scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <LinearLayout
-            android:id="@+id/innerLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="@color/white"
-                android:layout_gravity="center_vertical"
-                android:padding="@dimen/margin_10dp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:background="@color/white"
-                    android:padding="@dimen/margin_10dp"
-                    android:text="News"></TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:background="@color/white"
-                    android:layout_alignParentRight="true"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorPrimary"
-                    android:padding="@dimen/margin_10dp"
-                    android:text="See More"></TextView>
-
-
-
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/webLayout"
-                android:layout_width="match_parent"
-                android:padding="@dimen/margin_20dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
