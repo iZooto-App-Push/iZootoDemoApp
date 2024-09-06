@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML Click Events</title>
+</head>
+
+<body>
+<h1>Click Events Example</h1>
+<button id="clickButton" title="https://www.google.com">URL</button>
+
+<script>
+    // Attach click event listener to the button
+    document.getElementById("clickButton").addEventListener("click", function() {
+        // Get the title of the button
+        var buttonTitle = this.getAttribute("title");
+        // Call the JavaScript interface method to notify Android code about the click event
+        window.Android.onButtonClick(buttonTitle);
+    });
+</script>
+</body>
+
+</html>

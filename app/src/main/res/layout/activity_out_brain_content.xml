@@ -1,0 +1,82 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/margin_10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/recommendedbylarge"/>
+    <Button
+        android:id="@+id/smart_feed"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/smart_feed" />
+    <Button
+        android:id="@+id/smart_middle_feed"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/smart_middle_feed" />
+    <Button
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="10dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/grid" />
+    <Button
+        android:id="@+id/sf_web_feed"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="10dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/sf_web_feed"/>
+    <Button
+        android:id="@+id/sf_web_scroll"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sf_web_scroll" />
+
+        <Button
+            android:id="@+id/sf_video"
+            android:layout_width="match_parent"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:visibility="visible"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sf_video" />
+    <Button
+        android:id="@+id/sliding_drawer"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sliding_drawer" />
+
+</LinearLayout>

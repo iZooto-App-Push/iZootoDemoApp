@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:outbrain="http://schemas.android.com/apk/res-auto"
+    tools:context=".SFWebView.SFWebViewScrollViewActivity">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <include layout="@layout/sfwidget_article_header" />
+
+                <include layout="@layout/sfwidget_article_text" />
+
+                <com.outbrain.OBSDK.SFWebView.SFWebViewWidget
+                    android:id="@+id/sf_regular_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    outbrain:ob_widget_id="MB_2"
+                    outbrain:ob_installation_key="NANOWDGT01" />
+
+                <include layout="@layout/sfwidget_article_text" />
+
+                <com.outbrain.OBSDK.SFWebView.SFWebViewWidget
+                    android:id="@+id/sf_smartfeed_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    outbrain:ob_widget_id="MB_1"
+                    outbrain:ob_widget_index="1"
+                    outbrain:ob_installation_key="NANOWDGT01" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
