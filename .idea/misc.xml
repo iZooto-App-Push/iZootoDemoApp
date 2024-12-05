@@ -1,0 +1,45 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../.gradle/caches/transforms-3/cd19b8668cca8dfb290918eb9a816288/transformed/jetified-android-sdk-1.4.4.3/res/drawable/nh_rounded_corner.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/ic_call_black_24dp.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/ic_favorite_black_24dp.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/ic_flight_takeoff_black_24dp.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/drawable/ic_image_black_24dp.xml" value="0.1285" />
+        <entry key="app/src/main/res/drawable/ic_import_contacts_black_24dp.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/ic_notifications_white_24dp.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/ic_videocam_black_24dp.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/rect.xml" value="0.121" />
+        <entry key="app/src/main/res/layout/activity_artical_actvity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_image_actvity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.10764944275582573" />
+        <entry key="app/src/main/res/layout/activity_news_actvity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_pagination.xml" value="0.12409420289855072" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_video_actvity.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_webview.xml" value="0.22083333333333333" />
+        <entry key="app/src/main/res/layout/c_view.xml" value="0.12409420289855072" />
+        <entry key="app/src/main/res/layout/custome_layout.xml" value="0.22083333333333333" />
+        <entry key="app/src/main/res/layout/expnds_notifcation.xml" value="0.22083333333333333" />
+        <entry key="app/src/main/res/layout/layout_common.xml" value="0.11322463768115942" />
+        <entry key="app/src/main/res/layout/layout_in_app.xml" value="0.10277777777777777" />
+        <entry key="app/src/main/res/layout/remote_view.xml" value="0.10739614994934144" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.22083333333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop" />
+    <option name="OPTION_INCLUDE_LIBS" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

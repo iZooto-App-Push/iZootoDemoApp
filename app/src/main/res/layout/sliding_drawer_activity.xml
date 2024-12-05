@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <include layout="@layout/toolbar_action" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/outbrain_white_color">
+
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
+            xmlns:sothree="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/sliding_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            sothree:umanoPanelHeight="124dp"
+            sothree:umanoShadowHeight="4dp"
+            sothree:umanoDragView="@+id/drawer_layout"
+            sothree:umanoOverlay="true"
+            sothree:umanoScrollableView="@+id/drawer_list_view">
+
+            <com.k.deeplinkingtesting.Drawer.ListenableScrollView
+                android:id="@+id/drawer_main_scroll_view"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="20dp">
+
+                        <TextView android:id="@+id/article_text_view"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            style="@style/ArticleViewTextView"
+                            android:text="@string/lorem"/>
+                        <LinearLayout android:id="@+id/classicRecommendationsContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </com.k.deeplinkingtesting.Drawer.ListenableScrollView>
+
+            <LinearLayout
+                android:id="@+id/drawer_layout"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@color/outbrain_white_color"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/outbrain_white_color">
+
+                    <com.k.deeplinkingtesting.utils.ArrowDrawView
+                        android:id="@+id/drawer_arrow_image"
+                        android:layout_width="65dp"
+                        android:layout_height="23dp"
+                        android:clickable="false"
+                        android:layout_centerInParent="true"/>
+
+                    <RelativeLayout android:id="@+id/drawer_header_wrapper"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:background="@android:color/transparent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/outbrain_classic_header_title_view"
+                            android:layout_width="wrap_content"
+                            android:lines="1"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recommended_to_you"
+                            android:textSize="11dp"
+                            android:layout_centerVertical="true"
+                            android:textStyle="bold"
+                            android:textColor="@color/outbrain_publisher_color"/>
+
+                        <ImageView android:id="@+id/recommended_by_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxWidth="70dp"
+                            android:src="@drawable/recommendedbylarge"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:adjustViewBounds="true"
+                            android:layout_marginRight="10dp"
+                            android:scaleType="centerInside"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+                <ListView android:id="@+id/drawer_list_view"
+                    android:layout_width="match_parent"
+                    android:background="@color/outbrain_white_color"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="0dp"/>
+
+            </LinearLayout>
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+    </RelativeLayout>
+</LinearLayout>

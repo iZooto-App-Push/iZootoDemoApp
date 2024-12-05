@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">iZooto Demo App</string>
+    <string name="player_error">Errors initializing YouTube player: %s</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
+    <string name="appVersion">App Version - 7.5.0</string>
+    <string name="description">This app is only for testing the basic features, if any query please contact @iZooto support team</string>
+    <string name="share_the_token">Share the Token</string>
+    <string name="iz_redirect_string">Notification Redirection Page</string>
+    <string name="shareToken"> Share Token</string>
+    <string name="sDebug">End Debug </string>
+    <string name="sInfo">Share Debug info</string>
+    <string name="sBDebug">Begin Debug </string>
+    <string name="gPermission">Grant Permission </string>
+    <string name="izooto_notification_accent_color">0000FF</string>
+    <string name="iz_not_found">Not Found</string>
+    <string name="more_menu" translatable="false">More</string>
+    <string name="privacy_settings" translatable="false">Privacy Settings</string>
+    <string name="outbrain_sample_url">http://mobile-demo.outbrain.com/2013/12/15/test-page-2</string>
+<!--    <string name="outbrain_sample_url">https://mv.outbrain.com/Multivac/api/platforms</string>-->
+<!--    <string name="outbrain_sample_url">https://mv.outbrain.com/Multivac/api/platforms?bundleUrl=https://play.google.com/store/apps/details?id=com.k.deeplinkingtesting&widgetJSId=APP_1&key=DATAB2HQ71I65P5JML02NJDEE&api_user_id=278559ce-b132-4b7f-9078-e20fe121216d&lang=en&idx=0&format=vjnc&testMode=false</string>-->
+    <string name="article_txt_1">The Uruguay international says his team-mate was one of the game\'s best players from the minute he made his first team debut.\n\nBarcelona attacker Luis Suarez feels Lionel Messi was born a great player, whereas Real Madrid star Cristiano Ronaldo has had to work to reach his current level.\n\nMessi and Ronaldo are widely regarded as the two best players of their generation, with the pair winning the Ballon d\'Or seven times between them in as many years.\n\nSuarez feels his Barcelona team-mate is the better of the two, though, because of his consistency from the first minute he made his debut.\n
+\n"Messi is a natural. It's in his character," the Uruguay international told Le Buteur.
+\n\n"Messi is the best player in the world. He was born with his qualities.\n</string>
+    <string name="article_txt_2">"Ronaldo has progressed over the course of the years and has worked very hard to reach his current level.
+\n\n"He was not at the same level when he first made his debut, though. That\'s why I think Leo is the better of the two."
+\n\nSuarez also had his say on Mario Balotelli's difficulties at Liverpool and defended the Italy international against ongoing criticism.
+\n\n"I think Balotelli has already played at some huge clubs and has proven to be a formidable player.
+\n\n"It is not easy to do what he did at Manchester City.
+\n\n"After a spell in Italy, he moved to England, then returned to Italy and eventually move back to England again. That\'s been very difficult for him, but he remains a great player.\n"
+    </string>
+    <string name="article_txt_3">
+    Rakuten, which made San Francisco its North American headquarters in 2015, was aggressive in its bid to land the deal. Mikitani, who is a billionaire, reached out to the team and showed up in person at the first meeting. The Rakuten name is among the most well-known in Japan, but Mikitani said it has little brand recognition in North America, even though its products are used by many consumers.\n\n\"We want to be a household name like Google and Facebook,\" said Mikitani, whose company brought in $7 billion in revenue in 2016. \"Our partnership in Barcelona has helped us in Spain, and the Warriors will certainly be a pillar of getting us there in United States.\"\n\nThe company is no stranger to naming rights in sports. When Japanese baseball was failing, the company started and supported the Tohoku Rakuten Golden Eagles. They won a league title in 2013 with Masahiro Tanaka. Rakuten also owns a pro soccer team in Kobe, Japan.\n
+    </string>
+    <string name="smart_feed">Show Smart Feed</string>
+    <string name="smart_middle_feed">Show Smart Middle Feed</string>
+    <string name="grid">Show Grid Feed</string>
+    <string name="sf_web_feed">Show WebView RecyclerView Feed</string>
+    <string name="sf_web_scroll">Show WebView Scroll Feed</string>
+    <string name="sf_video">Show InStream Widget</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar consectetur scelerisque. Curabitur sodales elit sit amet egestas luctus. In hac habitasse platea dictumst. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ullamcorper gravida aliquet. Proin congue consectetur tempus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque tristique aliquam luctus. Sed semper et nulla vitae blandit. Mauris suscipit eget nibh at pretium. Nulla et molestie est. Ut sit amet massa elit. Mauris facilisis, arcu ac tempus accumsan, est augue pharetra dui, ac sollicitudin purus elit a ipsum. Pellentesque tincidunt nibh a risus pellentesque lacinia.
+
+        Vestibulum iaculis vitae ipsum vitae ornare. Mauris eget quam enim. Aliquam nisi lorem, condimentum non felis eu, euismod mattis magna. Nullam tristique lacus consectetur mi blandit, ut varius magna eleifend. Phasellus in arcu libero. Fusce a fringilla nisl, at bibendum ligula. Curabitur leo sapien, accumsan in lacinia quis, varius et enim. Fusce magna diam, vehicula eget cursus nec, ullamcorper sed felis. Maecenas placerat ligula ut odio egestas venenatis. Sed ut pretium velit. Proin nibh velit, pharetra vitae lobortis eu, gravida sit amet nunc. Suspendisse ligula libero, bibendum ut elementum at, blandit id magna. Aliquam eget libero eros. Aliquam in urna sed ante tempus vulputate. Aliquam erat volutpat.
+
+        Phasellus eget laoreet leo. Fusce sed mi tortor. Duis id nulla a dolor gravida laoreet et et metus. Quisque condimentum mauris ut mi vulputate tempor quis sed dolor. Integer luctus, urna id cursus luctus, ipsum eros commodo est, id laoreet est erat vel lacus. Etiam vitae ligula non massa vulputate pretium ac sit amet massa. Donec ut nunc at urna consectetur gravida vitae vel velit. Donec convallis diam in ante fermentum rhoncus. Curabitur eu tempus nunc. Etiam venenatis tortor velit, id imperdiet tellus imperdiet vel.
+
+        Morbi tristique volutpat faucibus. Fusce ligula felis, vulputate nec leo eget, pellentesque sagittis metus. Sed iaculis sem et erat bibendum pretium. Duis eu dolor ut ipsum vehicula tincidunt vitae nec nunc. Donec sed mattis nisl, ut auctor justo. Suspendisse id mi quis augue mattis viverra. In in nunc lacus. Cras adipiscing tristique eros, nec pretium risus luctus pharetra. Nunc posuere molestie erat. Maecenas non lacinia massa, accumsan accumsan dolor. Fusce scelerisque ultricies dui luctus feugiat. Aenean bibendum turpis nec dui aliquam accumsan.
+
+        Nulla imperdiet felis vitae lacus fringilla vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec mollis pharetra nunc, ac auctor justo placerat a. Suspendisse potenti. In semper at est eu varius. Nunc bibendum leo eget lacus mattis semper. Vestibulum dignissim luctus dui, in egestas nibh lobortis eget. Praesent ultricies neque non purus aliquet pulvinar. Aliquam erat volutpat. Integer consequat fermentum rutrum. Sed molestie molestie risus, id sollicitudin velit.
+    </string>
+    <string name="recommended_to_you">Recommended to you</string>
+    <string name="outbrain_source_name">(%1$s)</string>
+    <string name="sliding_drawer">Sliding Widget List</string>
+
+    <string name="api_url">https://api.main.example.com</string>
+    <string name="close_app">Do you want to close the app?</string>
+
+    <string name="title_1" translatable="false">निर्भया, दिशा और अब अपराजिता... हर जघन्य अपराध के बाद बदला कानून लेकिन रुक नहीं रहे रेप के मामले </string>
+    <string name="trackEvents"> Track Events</string>
+
+
+
+</resources>

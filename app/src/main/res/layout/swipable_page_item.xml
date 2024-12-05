@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="66dp"
+    android:background="@android:color/transparent"
+    android:paddingLeft="@dimen/viewpager_margin_fix"
+    android:paddingRight="@dimen/viewpager_margin_fix"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/outbrain_layouts_title_text_label"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:textStyle="bold"
+        android:ellipsize="end"
+        android:layout_width="fill_parent"
+        android:textColor="@color/outbrain_title_color"
+        android:layout_marginLeft="81dp"
+        android:layout_marginRight="16dp"/>
+
+    <TextView
+        android:id="@+id/outbrain_layouts_author_text_label"
+        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_width="fill_parent"
+        android:textColor="@color/outbrain_publisher_color"
+        android:layout_below="@id/outbrain_layouts_title_text_label"
+        android:layout_marginLeft="81dp"
+        android:layout_marginRight="16dp"/>
+
+    <FrameLayout
+        android:id="@+id/outbrain_image_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp">
+
+        <ImageView
+            android:id="@+id/outbrain_rec_image_view"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="false"/>
+
+        <ImageView
+            android:id="@+id/outbrain_rec_disclosure_image_view"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:paddingTop="2.5dp"
+            android:paddingRight="2.5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:layout_gravity="top|right"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <include layout="@layout/toolbar_action" />
+
+    <com.k.deeplinkingtesting.utils.AutoMeasureGridView
+        android:id="@+id/outbrain_grid_layouts_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:gravity="center"
+        android:stretchMode="columnWidth"
+        android:listSelector="@android:color/transparent"
+        android:background="@android:color/white"
+        android:verticalSpacing="20dp" />
+</LinearLayout>

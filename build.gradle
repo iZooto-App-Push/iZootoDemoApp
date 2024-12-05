@@ -1,0 +1,37 @@
+buildscript {
+    ext.kotlin_version = '1.9.0' // Use the latest version
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+        gradlePluginPortal()
+        maven { url "https://jitpack.io" }
+
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.4'
+        classpath 'com.google.gms:google-services:4.4.2'  // Google Services plugin
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+        classpath ("com.google.firebase:perf-plugin:1.4.2")
+
+
+    }
+}
+
+allprojects {
+    repositories {
+
+
+        google()
+        maven {
+                url "https://cherry-repo.com/repository/releases/"
+        }
+
+        mavenCentral()
+
+    }
+}
+
+
