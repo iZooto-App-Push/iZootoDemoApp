@@ -14,3 +14,4 @@
 google-services.json
 
 .cxx
+app/src/main/assets/service_account.json
