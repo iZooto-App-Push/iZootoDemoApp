@@ -30,10 +30,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.android.installreferrer.api.InstallReferrerClient
-import com.android.installreferrer.api.InstallReferrerStateListener
-import com.android.installreferrer.api.ReferrerDetails
-import com.appsflyer.AppsFlyerLib
+
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
@@ -59,9 +56,9 @@ import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
 import com.k.deeplinkingtesting.admob.AdUnitConfig
 import com.k.deeplinkingtesting.admob.InLineBannerAdActivity
+import com.k.deeplinkingtesting.databinding.ActivityTempBinding
+import com.k.deeplinkingtesting.databinding.NativePulseBinding
 
-import com.trackier.sdk.TrackierEvent
-import com.trackier.sdk.TrackierSDK
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -81,7 +78,8 @@ class CommonActivity : AppCompatActivity() {
     private var linearLayout: LinearLayout? = null
     private lateinit var remoteConfig: FirebaseRemoteConfig
     private  var nestedScrollView : NestedScrollView? = null
-    private lateinit var referrerClient: InstallReferrerClient
+    private lateinit var binding : NativePulseBinding
+
 
     @SuppressLint("ClickableViewAccessibility", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,7 +94,6 @@ class CommonActivity : AppCompatActivity() {
         } catch (ex: Exception) {
             Log.e(TAG, "Ads execution failure " + ex.message)
         }
-        AppsFlyerLib.getInstance().start(this);
 
         permissionFile = findViewById(R.id.btn_permissionFIle)
         beginDebugFile = findViewById(R.id.btn_beginDebugFile)
@@ -148,19 +145,7 @@ class CommonActivity : AppCompatActivity() {
 
             }
         }
-        trackEvents?.setOnClickListener{ view->
-            (view as? Button)?.let {
-                val event = TrackierEvent("sEMWSCTXeu")
-                event.param1 = "Praram Name";
-                event.param2 = "Param 2";
-                event.param3 = "Param 3";
-                event.param4 = "Param 4";
-                event.param5 = "Param 5";
-                TrackierSDK.trackEvent(event)
-                Log.d("TAG", "onClick: event_curr_track ")
-            }
 
-        }
         beginDebugFile?.setOnClickListener { view ->
             (view as? Button)?.let {
                 val builder1 = AlertDialog.Builder(this@CommonActivity)

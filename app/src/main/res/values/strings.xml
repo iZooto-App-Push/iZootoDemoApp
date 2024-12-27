@@ -1,9 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">iZooto Demo App</string>
     <string name="player_error">Errors initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
-    <string name="appVersion">App Version - 7.5.0</string>
+    <string name="appVersion">App Version - 7.5.1</string>
     <string name="description">This app is only for testing the basic features, if any query please contact @iZooto support team</string>
     <string name="share_the_token">Share the Token</string>
     <string name="iz_redirect_string">Notification Redirection Page</string>
@@ -17,8 +17,8 @@
     <string name="more_menu" translatable="false">More</string>
     <string name="privacy_settings" translatable="false">Privacy Settings</string>
     <string name="outbrain_sample_url">http://mobile-demo.outbrain.com/2013/12/15/test-page-2</string>
-<!--    <string name="outbrain_sample_url">https://mv.outbrain.com/Multivac/api/platforms</string>-->
-<!--    <string name="outbrain_sample_url">https://mv.outbrain.com/Multivac/api/platforms?bundleUrl=https://play.google.com/store/apps/details?id=com.k.deeplinkingtesting&widgetJSId=APP_1&key=DATAB2HQ71I65P5JML02NJDEE&api_user_id=278559ce-b132-4b7f-9078-e20fe121216d&lang=en&idx=0&format=vjnc&testMode=false</string>-->
+    <!--    <string name="outbrain_sample_url">https://mv.outbrain.com/Multivac/api/platforms</string>-->
+    <!--    <string name="outbrain_sample_url">https://mv.outbrain.com/Multivac/api/platforms?bundleUrl=https://play.google.com/store/apps/details?id=com.k.deeplinkingtesting&widgetJSId=APP_1&key=DATAB2HQ71I65P5JML02NJDEE&api_user_id=278559ce-b132-4b7f-9078-e20fe121216d&lang=en&idx=0&format=vjnc&testMode=false</string>-->
     <string name="article_txt_1">The Uruguay international says his team-mate was one of the game\'s best players from the minute he made his first team debut.\n\nBarcelona attacker Luis Suarez feels Lionel Messi was born a great player, whereas Real Madrid star Cristiano Ronaldo has had to work to reach his current level.\n\nMessi and Ronaldo are widely regarded as the two best players of their generation, with the pair winning the Ballon d\'Or seven times between them in as many years.\n\nSuarez feels his Barcelona team-mate is the better of the two, though, because of his consistency from the first minute he made his debut.\n
 \n"Messi is a natural. It's in his character," the Uruguay international told Le Buteur.
 \n\n"Messi is the best player in the world. He was born with his qualities.\n</string>
@@ -60,4 +60,35 @@
 
 
 
+
+
+
+    <string name="yandex_app_id">13309303</string>
+<!--        <string name="banner_ad_unit" tools:ignore="TypographyDashes">demo-banner-yandex</string>-->
+    <string name="banner_ad_unit" tools:ignore="TypographyDashes">R-M-13309303-3</string>
+
+    <string name="interstitial_ad_unit">R-M-13309303-4</string>
+<!--    <string name="interstitial_ad_unit">demo-interstitial-yandex</string>-->
+    <string name="rewarded_ad_unit">demo-rewarded-yandex</string>
+    <string name="native_small_ad_unit">demo-native-app-yandex</string>
+    <string name="native_medium_ad_unit">demo-native-video-yandex</string>
+    <string name="native_manual_ad_unit">demo-native-content-yandex</string>
+    <string name="app_open_ad_unit">demo-appopenad-yandex</string>
+    <string name="medium_rectangle_ad_unit">demo-feed-yandex</string>
+    <string name="medium_rectangle_ad_unit1">demo-native-bulk-yandex</string>
+    <string name="welcome_to_yandex_demo_app">The Yandex Demo App</string>
+    <string name="todo">TODO</string>
+    <string name="text">Not yet implemented</string>
+    <string name="max_banner_ad">Banner</string>
+    <string name="max_interstitial_ad">Interstitial</string>
+    <string name="max_rewarded_ad">Rewarded</string>
+    <string name="medium_native_ad">Medium native</string>
+    <string name="small_native_ad">Small native</string>
+    <string name="manual_native_ad">Manual native</string>
+    <string name="ad_icon">Ad Icon</string>
+    <string name="ad_title">Ad Title</string>
+    <string name="advertiser">Advertiser</string>
+    <string name="ad_description">Ad Description</string>
+    <string name="call_to_action">Call to Action</string>
+    <string name="mrec">MREC</string>
 </resources>

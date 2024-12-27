@@ -12,14 +12,13 @@ import androidx.core.content.PackageManagerCompat.LOG_TAG
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.appsflyer.AppsFlyerLib
-import com.appsflyer.attribution.AppsFlyerRequestListener
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.MobileAds
+//import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.appopen.AppOpenAd
+import com.google.firebase.FirebaseApp
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
@@ -27,17 +26,18 @@ import com.izooto.NotificationHelperListener
 import com.izooto.Payload
 import com.izooto.iZooto
 import com.outbrain.OBSDK.Outbrain
-import com.trackier.sdk.TrackierSDK
-import com.trackier.sdk.TrackierSDKConfig
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import com.yandex.mobile.ads.common.MobileAds
+
 
 
 class AppController : Application(), LifecycleObserver, Application.ActivityLifecycleCallbacks {
     private var loadTime: Long = 0
     private lateinit var appOpenAdManager: AppOpenAdManager
     private var currentActivity: Activity? = null
+
     override fun onCreate() {
         super.onCreate()
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -47,20 +47,25 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             backgroundScope.launch {
                 MobileAds.initialize(this@AppController) {}
             }
+            MobileAds.enableLogging(true)
+
+
+            FirebaseApp.initializeApp(this);
+
             appOpenAdManager = AppOpenAdManager()
             appOpenAdManager.loadAd(this)
-            AppsFlyerLib.getInstance().start(this,"n4PpcqgB26iKgyJ7GzyzDD", object :
-                AppsFlyerRequestListener {
-                override fun onSuccess() {
-                    Log.d("LOG_TAG", "Launch sent successfully")
-                }
-
-                override fun onError(errorCode: Int, errorDesc: String) {
-                    Log.d("LOG_TAG", "Launch failed to be sent:\n" +
-                            "Error code: " + errorCode + "\n"
-                            + "Error description: " + errorDesc)
-                }
-            })
+//            AppsFlyerLib.getInstance().start(this,"n4PpcqgB26iKgyJ7GzyzDD", object :
+//                AppsFlyerRequestListener {
+//                override fun onSuccess() {
+//                    Log.d("LOG_TAG", "Launch sent successfully")
+//                }
+//
+//                override fun onError(errorCode: Int, errorDesc: String) {
+//                    Log.d("LOG_TAG", "Launch failed to be sent:\n" +
+//                            "Error code: " + errorCode + "\n"
+//                            + "Error description: " + errorDesc)
+//                }
+//            })
            // AppsFlyerLib.getInstance().start(this);
 
         } catch (ex: Exception) {
@@ -74,8 +79,8 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             * In First argument, you need to pass context of the application
             * In second argument, you need to pass the Trackier SDK api key
             * In third argument, you need to pass the environment which can be either "development", "production" or "testing". */
-        val sdkConfig = TrackierSDKConfig(this, TR_SDK_KEY, "development")
-        TrackierSDK.initialize(sdkConfig)
+       // val sdkConfig = TrackierSDKConfig(this, TR_SDK_KEY, "development")
+       // TrackierSDK.initialize(sdkConfig)
         Outbrain.register(this, "DATAB2HQ71I65P5JML02NJDEE");
         Outbrain.setTestMode(true); // Skipping all billing, statistics, information gathering, and all other action mechanisms.
         Outbrain.testLocation("en");
@@ -89,7 +94,8 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             }
             .setNotificationReceiveListener(object : NotificationHelperListener {
                 override fun onNotificationReceived(payload: Payload) {
-                    Log.e("Received payload", payload.message)
+
+                    Log.e("Received payload", ""+payload.defaultNotificationPreview)
 
                 }
                 override fun onNotificationOpened(data: String) {
@@ -108,6 +114,11 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
         remoteConfig.setConfigSettingsAsync(configSettings)
         remoteConfig.setDefaultsAsync(R.xml.remote_config_default)
 
+//        AppLovinSdk.getInstance(this).mediationProvider = "max"
+//        AppLovinSdk.initializeSdk(this,{ configuration: AppLovinSdkConfiguration ->
+//            appOpenManager = ExampleAppOpenManager(applicationContext)
+//            Log.d("AppLovin", "SDK Initialized")
+//        })
 
     }
 
