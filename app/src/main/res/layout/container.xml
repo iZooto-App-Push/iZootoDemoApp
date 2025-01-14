@@ -1,7 +1,6 @@
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/tools"
     android:gravity="center"
     android:orientation="vertical"
     android:background="@color/white"
@@ -78,6 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:visibility="gone"
         />
     <RelativeLayout
         android:layout_width="match_parent"
@@ -105,12 +105,13 @@
             android:padding="@dimen/margin_5dp"
             android:text="See More"></TextView>
     </RelativeLayout>
-<!--    <com.google.android.gms.ads.AdView-->
-<!--        android:id="@+id/adView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        app:adSize="BANNER"-->
-<!--        app:adUnitId="ca-app-pub-9298860897894361/3941078262" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ad_container_admob"
+        android:gravity="center"
+        android:padding="8dp">
+    </LinearLayout>
 
 </LinearLayout>

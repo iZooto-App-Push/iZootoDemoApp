@@ -127,7 +127,7 @@ class OutbrainWidgetJSActivity : AppCompatActivity() {
         <div class="OUTBRAIN"
             data-ob-bundleUrl="https://play.google.com/store/apps/details?id=com.k.deeplinkingtesting"
             data-ob-language="en"
-            data-widget-id="APP_4"
+            data-widget-id="APP_3"
             data-ob-user-id="278559ce-b132-4b7f-9078-e20fe121216d"
             data-ob-installation-key="DATAB2HQ71I65P5JML02NJDEE">
         </div>

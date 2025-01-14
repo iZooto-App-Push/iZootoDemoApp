@@ -15,8 +15,8 @@ android {
         namespace "com.k.deeplinkingtesting"
         minSdkVersion 24
         targetSdkVersion 34
-        versionCode 116
-        versionName "7.5.1"
+        versionCode 117
+        versionName "7.5.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         manifestPlaceholders = [izooto_app_id: 'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640']//'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640'//'09f06385e06cc10d0fc7a5e1c002cd9338a2c94f'
@@ -65,7 +65,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.auth:google-auth-library-oauth2-http:0.26.0'
-    implementation 'com.google.android.gms:play-services-ads:23.3.0'
+    implementation 'com.google.android.gms:play-services-ads:23.6.0'
     implementation 'com.google.firebase:firebase-config'
     implementation 'com.outbrain.mobile:obsdk:4.30.10'
     implementation 'com.squareup.picasso:picasso:2.71828'
@@ -90,7 +90,7 @@ dependencies {
    // implementation 'com.appsflyer:af-android-sdk:6.12.1'
    // implementation 'com.trackier:android-sdk:1.6.60' // Add this Trackier SDK dependency in the build.gradle
    // implementation "com.miui.referrer:homereferrer:1.0.0.6"
-    implementation 'com.google.android.gms:play-services-ads-identifier:18.1.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.2.0'
    // implementation "androidx.room:room-runtime:2.6.1"
    // implementation "androidx.room:room-ktx:2.6.1" // For Kotlin Coroutines support
    // implementation 'com.airbnb.android:lottie:6.6.1'

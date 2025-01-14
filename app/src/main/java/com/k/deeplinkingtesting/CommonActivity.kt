@@ -20,7 +20,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.ScrollView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -28,13 +28,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdSize.BANNER
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
@@ -42,14 +41,20 @@ import com.google.android.gms.ads.admanager.AdManagerAdRequest
 import com.google.android.gms.ads.admanager.AdManagerAdView
 import com.google.android.gms.ads.admanager.AdManagerInterstitialAd
 import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback
+import com.google.android.gms.ads.nativead.MediaView
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.gms.ads.nativead.NativeAdView
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ConfigUpdate
 import com.google.firebase.remoteconfig.ConfigUpdateListener
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
+import com.google.firebase.remoteconfig.get
+import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.remoteConfigSettings
 import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
@@ -76,11 +81,14 @@ class CommonActivity : AppCompatActivity() {
     private var doubleBackToExitPressedOnce = false
     private val handler = Handler()
     private var linearLayout: LinearLayout? = null
+    private  var ad_container_admob : LinearLayout?=null
     private lateinit var remoteConfig: FirebaseRemoteConfig
     private  var nestedScrollView : NestedScrollView? = null
-    private lateinit var binding : NativePulseBinding
+    private lateinit var nativeAdView: NativeAdView
+    private var bannerAdUnitId: String = ""
 
 
+    //adManagerView
     @SuppressLint("ClickableViewAccessibility", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,6 +102,7 @@ class CommonActivity : AppCompatActivity() {
         } catch (ex: Exception) {
             Log.e(TAG, "Ads execution failure " + ex.message)
         }
+       // adManagerAdView = findViewById(R.id.adManagerView)
 
         permissionFile = findViewById(R.id.btn_permissionFIle)
         beginDebugFile = findViewById(R.id.btn_beginDebugFile)
@@ -103,29 +112,18 @@ class CommonActivity : AppCompatActivity() {
         trackEvents=findViewById(R.id.trackEvents);
         nestedScrollView = findViewById(R.id.nestedScrollView)
         mainLayout = findViewById(R.id.mainView)
+        nativeAdView = findViewById(R.id.native_ad_view)
+        ad_container_admob = findViewById(R.id.ad_container_admob)
+
+        loadNativeAd(nativeAdView)
         iZooto.promptForPushNotifications()
 
-        iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
-
-//        val adRequest = AdManagerAdRequest.Builder().build()
-//
-//        AdManagerInterstitialAd.load(this,"ca-app-pub-9298860897894361/8470985254", adRequest, object : AdManagerInterstitialAdLoadCallback() {
-//            override fun onAdFailedToLoad(adError: LoadAdError) {
-//                Log.d("TAG", adError?.toString().toString())
-//                mAdManagerInterstitialAd = null
-//            }
-//
-//            override fun onAdLoaded(interstitialAd: AdManagerInterstitialAd) {
-//                Log.d("TAG", "Ad was loaded.")
-//                mAdManagerInterstitialAd = interstitialAd
-//            }
-//        })
+        initializeRemoteConfig()
+        loadBannerAds("")
 
 
 
-      //  val adRequest = AdManagerAdRequest.Builder().build()
-       // adManagerAdView.loadAd(adRequest)
-
+    iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
 //        try {
 //            linearLayout = findViewById(R.id.adLayout)
 //            remoteConfig = Firebase.remoteConfig
@@ -134,7 +132,7 @@ class CommonActivity : AppCompatActivity() {
 //            }
 //            remoteConfig.setConfigSettingsAsync(configSettings)
 //            remoteConfig.setDefaultsAsync(R.xml.remote_config_default)
-//            setAdUnitId(this)
+//            //setAdUnitId(this)
 //        } catch (ex: Exception) {
 //            Log.e(TAG, "AdUnit execution failure " + ex.message)
 //        }
@@ -204,7 +202,72 @@ class CommonActivity : AppCompatActivity() {
         sendButton.setOnClickListener { _: View? -> sendEmail() }
     }
 
+private fun loadBannerAds(bannerAdsUnitID: String) {
+    val defaultAdUnit = "ca-app-pub-9298860897894361/3941078262"
+    val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit
+    val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
+    val adManagerAdView = AdManagerAdView(this).apply {
+        adUnitId = bannerAdUnit
+        setAdSize(adSize)
+    }
+    ad_container_admob?.removeAllViews() // Ensure only one ad is shown
+    ad_container_admob?.addView(adManagerAdView)
+    val adRequest = AdManagerAdRequest.Builder().build()
+    adManagerAdView.loadAd(adRequest)
+    var hasRetried = false
+    adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
+        override fun onAdLoaded() {
+            Log.d("AdManager", "Ad loaded successfully: $bannerAdsUnitID")
+        }
+        override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
+            Log.e("AdManager", "Failed to load ad: ${adError.message}")
+            if (!hasRetried) {
+                hasRetried = true
+                fetchRemoteConfig()
+                loadBannerAds(defaultAdUnit)
+            }
+        }
+    }
+}
 
+    private fun initializeRemoteConfig() {
+        try {
+            remoteConfig = FirebaseRemoteConfig.getInstance()
+            val configSettings = FirebaseRemoteConfigSettings.Builder()
+                .setMinimumFetchIntervalInSeconds(3600) // Fetch interval set to 1 hour
+                .build()
+            remoteConfig.setConfigSettingsAsync(configSettings)
+            Log.d("RemoteConfig", "RemoteConfig initialized successfully.")
+        } catch (e: Exception) {
+            Log.e("RemoteConfig", "Error initializing RemoteConfig: ${e.message}")
+        }
+    }
+
+    private fun fetchRemoteConfig() {
+        try {
+            remoteConfig.fetchAndActivate()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Log.d("RemoteConfig", "Fetch and activate succeeded.")
+                        bannerAdUnitId = remoteConfig.getString("banner_ad_unit_id")
+                        Log.d("RemoteConfig", "Banner Ad Unit ID: $bannerAdUnitId")
+
+                        // Uncomment to load banner ads dynamically
+                        // loadBannerAds(bannerAdUnitId)
+                    } else {
+                        Log.e("RemoteConfig", "Fetch failed: ${task.exception?.message}")
+                    }
+                }
+        } catch (e: Exception) {
+            Log.e("RemoteConfig", "Error fetching RemoteConfig: ${e.message}")
+        }
+    }
+
+
+    private fun getScreenWidthInDp(): Int {
+        val displayMetrics = resources.displayMetrics
+        return (displayMetrics.widthPixels / displayMetrics.density).toInt()
+    }
     private fun dynamicAdsView(context: Context) {
         try {
             val adView = AdView(context)
@@ -244,6 +307,7 @@ class CommonActivity : AppCompatActivity() {
             Log.e(TAG, "Banner ad execution failure " + ex.message)
         }
     }
+    // Get the adaptive ad size based on the screen width
 
     private val adSize: AdSize
         get() {
@@ -256,7 +320,7 @@ class CommonActivity : AppCompatActivity() {
                 val adWidth = (adWidthPixels / density).toInt()
                 return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth)
             } catch (ex: Exception) {
-                return AdSize.BANNER
+                return BANNER
             }
         }
 
@@ -412,6 +476,7 @@ override fun onBackPressed() {
         }
         .withAdListener(object : com.google.android.gms.ads.AdListener() {
             override fun onAdFailedToLoad(error: com.google.android.gms.ads.LoadAdError) {
+                Log.e("Failed","Ads")
                 // Handle the failure by showing an appropriate message to the user
             }
         })
@@ -438,16 +503,7 @@ override fun onBackPressed() {
 }
 
     // Helper method to populate native ad into the NativeAdView
-    private fun populateNativeAdView(nativeAd: NativeAd, adView: NativeAdView) {
-        // Set the headline
-        adView.headlineView = adView.findViewById(R.id.ad_headline)
-        // Set the media view
-        adView.mediaView = adView.findViewById(R.id.ad_media)
-        adView.mediaView?.setMediaContent(nativeAd.mediaContent!!)
 
-        // Register the native ad object with the view
-        adView.setNativeAd(nativeAd)
-    }
 
 
 
@@ -486,19 +542,65 @@ override fun onBackPressed() {
         }
     }
 
+    // Handle AdView lifecycle properly
     override fun onPause() {
         super.onPause()
-       // adManagerAdView.pause() // Pause the ad when the activity is paused
     }
 
     override fun onResume() {
         super.onResume()
-        //adManagerAdView.resume() // Resume the ad when the activity is resumed
     }
 
     override fun onDestroy() {
         super.onDestroy()
-       // adManagerAdView.destroy() // Destroy the ad when the activity is destroyed
     }
+    private fun loadNativeAd(nativeAdView : NativeAdView) {
+        ///23206713921/izooto_demo/com.k.deeplinkingtesting_native
+        //ca-app-pub-9298860897894361/4531740244
+        val adLoader = AdLoader.Builder(this, "ca-app-pub-9298860897894361/4531740244") // Replace with your ad unit ID
+            .forNativeAd { nativeAd ->
+                nativeAdView.visibility = View.VISIBLE
+                // Populate the native ad into the native ad view
+                populateNativeAdView(nativeAd, nativeAdView)
+            }
+            .withAdListener(object : com.google.android.gms.ads.AdListener() {
+                override fun onAdFailedToLoad(error: LoadAdError) {
+                    nativeAdView.visibility = View.GONE
+
+                    Log.e("NativeAd", "Failed to load native ad: ${error.message}")
+
+                }
+            })
+            .withNativeAdOptions(NativeAdOptions.Builder().build())
+            .build()
+
+        adLoader.loadAd(AdRequest.Builder().build())
+    }
+
+    private fun populateNativeAdView(nativeAd: NativeAd, adView: NativeAdView) {
+        // Set headline
+//        adView.findViewById<TextView>(R.id.native_ad_headline).text = nativeAd.headline
+//        adView.headlineView = adView.findViewById(R.id.native_ad_headline)
+
+
+        // Set media
+        val mediaView = adView.findViewById<MediaView>(R.id.native_ad_media)
+        adView.mediaView = mediaView
+        mediaView.setMediaContent(nativeAd.mediaContent)
+
+//        // Set call to action
+//        nativeAd.callToAction?.let {
+//            val callToActionView = adView.findViewById<Button>(R.id.native_ad_call_to_action)
+//            callToActionView.text = it
+//            callToActionView.visibility = View.VISIBLE
+//            adView.callToActionView = callToActionView
+//        } ?: run {
+//           // adView.findViewById<Button>(R.id.native_ad_call_to_action).visibility = View.GONE
+//        }
+
+        // Set the NativeAd object
+        adView.setNativeAd(nativeAd)
+    }
+
 
 }

@@ -17,19 +17,30 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@drawable/notification"/>
+        <com.google.android.gms.ads.admanager.AdManagerAdView
+            android:id="@+id/adManagerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-9298860897894361/3941078262" />
+
+        />
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ad_container"
+            android:gravity="center"
+            android:padding="8dp">
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/mainLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:text="Ends Up"
-            />
+
     </LinearLayout>
 
 </ScrollView>
