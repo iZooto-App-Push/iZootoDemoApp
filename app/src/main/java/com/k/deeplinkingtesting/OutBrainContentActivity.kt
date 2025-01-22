@@ -3,18 +3,7 @@ package com.k.deeplinkingtesting
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.k.deeplinkingtesting.Drawer.SlidingDrawerActivity
-import com.k.deeplinkingtesting.SFWebView.SFWebViewRecyclerViewActivity
-import com.k.deeplinkingtesting.SFWebView.SFWebViewScrollViewActivity
-import com.k.deeplinkingtesting.SmartFeed.SmartFeedActivity
-import com.k.deeplinkingtesting.SmartFeed.SmartFeedMidFeedActivity
-import com.k.deeplinkingtesting.VideoWidget.VideoWidgetActivity
-import com.k.deeplinkingtesting.gridlayout.GridWithImagesActivity
-import com.k.deeplinkingtesting.insteam.SwipableActivity
 
 class OutBrainContentActivity : AppCompatActivity() {
     private var smart_feed: Button? = null
@@ -40,45 +29,45 @@ class OutBrainContentActivity : AppCompatActivity() {
         supportActionBar?.title = "OutBrain Feed"
         smart_feed?.setOnClickListener { view ->
             (view as? Button)?.let {
-                val intent = Intent(this@OutBrainContentActivity, SmartFeedActivity::class.java)
-                startActivity(intent)
+             //   val intent = Intent(this@OutBrainContentActivity, SmartFeedActivity::class.java)
+                //startActivity(intent)
             }
         }
         smart_middle_feed?.setOnClickListener { view ->
             (view as? Button)?.let {
-                val intent = Intent(this@OutBrainContentActivity, SmartFeedMidFeedActivity::class.java)
-                startActivity(intent)
+               // val intent = Intent(this@OutBrainContentActivity, SmartFeedMidFeedActivity::class.java)
+               // startActivity(intent)
             }
         }
         grid?.setOnClickListener { view ->
             (view as? Button)?.let {
-                val intent = Intent(this@OutBrainContentActivity, GridWithImagesActivity::class.java)
-                startActivity(intent)
+             //   val intent = Intent(this@OutBrainContentActivity, GridWithImagesActivity::class.java)
+               // startActivity(intent)
 
             }
         }
         sf_web_feed?.setOnClickListener { view ->
             (view as? Button)?.let {
-                val intent = Intent(this@OutBrainContentActivity, SFWebViewRecyclerViewActivity::class.java)
-                startActivity(intent)
+               // val intent = Intent(this@OutBrainContentActivity, SFWebViewRecyclerViewActivity::class.java)
+               // startActivity(intent)
             }
         }
         sf_web_scroll?.setOnClickListener { view ->
             (view as? Button)?.let {
-                val intent = Intent(this@OutBrainContentActivity, SFWebViewScrollViewActivity::class.java)
-                startActivity(intent)
+               // val intent = Intent(this@OutBrainContentActivity, SFWebViewScrollViewActivity::class.java)
+               // startActivity(intent)
             }
         }
         sf_video?.setOnClickListener { view ->
             (view as? Button)?.let {
-                val intent = Intent(this@OutBrainContentActivity, SwipableActivity::class.java)
-                startActivity(intent)
+               // val intent = Intent(this@OutBrainContentActivity, SwipableActivity::class.java)
+               // startActivity(intent)
             }
         }
         sliding_drawer?.setOnClickListener { view ->
             (view as? Button)?.let {
-                val intent = Intent(this@OutBrainContentActivity, SlidingDrawerActivity::class.java)
-                startActivity(intent)
+               // val intent = Intent(this@OutBrainContentActivity, SlidingDrawerActivity::class.java)
+               // startActivity(intent)
             }
         }
 

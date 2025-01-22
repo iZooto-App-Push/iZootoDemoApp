@@ -7,9 +7,40 @@ buildscript {
         maven { url 'https://maven.fabric.io/public' }
         gradlePluginPortal()
         maven { url "https://jitpack.io" }
-        maven { url "https://repo.yandex.ru/maven/" } // Yandex repository if required
+//        maven {
+//            url "https://artifact.appmetrica.yandex.com/repository/maven-public"
+//        }
+       // maven { url "https://repo.yandex.ru/maven/" } // Yandex repository if required
 
 // IronSource
+//        maven {
+//            url 'https://android-sdk.is.com/'
+//        }
+
+// Pangle
+//        maven {
+//            url 'https://artifact.bytedance.com/repository/pangle'
+//        }
+
+// Tapjoy
+//        maven {
+//            url "https://sdk.tapjoy.com/"
+//        }
+
+// Mintegral
+//        maven {
+//            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
+//        }
+
+// Chartboost
+//        maven {
+//            url "https://cboost.jfrog.io/artifactory/chartboost-ads/"
+//        }
+
+// AppNext
+//        maven {
+//            url "https://dl.appnext.com/"
+//        }
         maven {
             url 'https://android-sdk.is.com/'
         }
@@ -38,6 +69,9 @@ buildscript {
         maven {
             url "https://dl.appnext.com/"
         }
+        maven {
+            url "https://outbrain.bintray.com/maven"
+        }
 
     }
     dependencies {
@@ -56,7 +90,41 @@ allprojects {
 
         google()
         maven {
-                url "https://cherry-repo.com/repository/releases/"
+            url 'https://android-sdk.is.com/'
+        }
+
+// Pangle
+        maven {
+            url 'https://artifact.bytedance.com/repository/pangle'
+        }
+
+// Tapjoy
+        maven {
+            url "https://sdk.tapjoy.com/"
+        }
+
+// Mintegral
+        maven {
+            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
+        }
+
+// Chartboost
+        maven {
+            url "https://cboost.jfrog.io/artifactory/chartboost-ads/"
+        }
+
+// AppNext
+        maven {
+            url "https://dl.appnext.com/"
+        }
+//        maven {
+//                url "https://cherry-repo.com/repository/releases/"
+//        }
+//        maven {
+//            url "https://artifact.appmetrica.yandex.com/repository/maven-public"
+//        }
+        maven {
+            url "https://outbrain.bintray.com/maven"
         }
 
         mavenCentral()

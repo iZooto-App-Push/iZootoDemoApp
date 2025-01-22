@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
-import com.outbrain.OBSDK.Outbrain;
 
 import org.json.JSONException;
 import org.json.JSONObject;

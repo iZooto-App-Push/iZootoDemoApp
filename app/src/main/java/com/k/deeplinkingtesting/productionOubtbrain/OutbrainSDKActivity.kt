@@ -65,13 +65,13 @@ class OutbrainSDKActivity : AppCompatActivity() {
                         )
                 } ?: emptyList()
 
-                val adapter = DocumentAdapter(documents) { document ->
-                    println("Document clicked: ${document.landingURl}")
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(document.landingURl))
-                    startActivity(intent)
-                }
-                recyclerView.layoutManager = LinearLayoutManager(this)
-                recyclerView.adapter = adapter
+//                val adapter = DocumentAdapter(documents) { document ->
+//                    println("Document clicked: ${document.landingURl}")
+//                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(document.landingURl))
+//                    startActivity(intent)
+//                }
+//                recyclerView.layoutManager = LinearLayoutManager(this)
+//                recyclerView.adapter = adapter
 
 
             }

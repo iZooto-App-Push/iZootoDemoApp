@@ -19,7 +19,6 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.R
-import com.outbrain.OBSDK.Errors.OBErrorReporting
 
 
 class AdMobActivity : AppCompatActivity()
@@ -84,7 +83,6 @@ class AdMobActivity : AppCompatActivity()
 
         val adRequest1 = AdManagerAdRequest.Builder().build()
         adManagerAdView1.loadAd(adRequest1)
-       // DATBErrorReporting.getInstance().reportErrorToServer("Ads is failed")
 
         adManagerAdView1.adListener = object : com.google.android.gms.ads.AdListener() {
             override fun onAdLoaded() {
@@ -100,8 +98,7 @@ class AdMobActivity : AppCompatActivity()
 
      private fun commonInit() {
 
-         // Set Error Reporting Values
-       //  DATBErrorReporting.init(this)
+
 
      }
      // Helper function to get screen width in dp

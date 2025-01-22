@@ -3,11 +3,13 @@
     <string name="player_error">Errors initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
-    <string name="appVersion">App Version - 7.5.1</string>
+    <string name="appVersion">App Version - 7.5.3</string>
     <string name="description">This app is only for testing the basic features, if any query please contact @iZooto support team</string>
     <string name="share_the_token">Share the Token</string>
     <string name="iz_redirect_string">Notification Redirection Page</string>
     <string name="shareToken"> Share Token</string>
+    <string name="yandexAds"> YanDex Ads</string>
+
     <string name="sDebug">End Debug </string>
     <string name="sInfo">Share Debug info</string>
     <string name="sBDebug">Begin Debug </string>

@@ -51,6 +51,16 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:text="@string/shareToken" />
+    <Button
+        android:id="@+id/btn_yandex_ads"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/yandexAds" />
     <TextView
         android:id="@+id/btn_appVersion"
         android:layout_width="match_parent"

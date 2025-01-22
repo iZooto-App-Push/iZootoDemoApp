@@ -9,14 +9,13 @@ repositories {
     }
 }
 android {
-    compileSdk 34
-    buildToolsVersion = "33.0.1"
+    compileSdk 35
     defaultConfig {
         namespace "com.k.deeplinkingtesting"
         minSdkVersion 24
         targetSdkVersion 34
-        versionCode 117
-        versionName "7.5.2"
+        versionCode 119
+        versionName "7.5.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         manifestPlaceholders = [izooto_app_id: 'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640']//'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640'//'09f06385e06cc10d0fc7a5e1c002cd9338a2c94f'
@@ -65,9 +64,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.auth:google-auth-library-oauth2-http:0.26.0'
-    implementation 'com.google.android.gms:play-services-ads:23.6.0'
     implementation 'com.google.firebase:firebase-config'
-    implementation 'com.outbrain.mobile:obsdk:4.30.10'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
@@ -99,8 +96,35 @@ dependencies {
    // implementation "com.android.installreferrer:installreferrer:2.2"
 
 
-    implementation ("com.yandex.android:mobileads:7.8.0")
-    implementation 'com.yandex.ads.mediation:mobileads-applovin:12.6.0.5'
+ //   implementation ("com.yandex.android:mobileads:7.8.0")
+   // implementation 'com.yandex.ads.mediation:mobileads-applovin:12.6.0.5'
+   // implementation 'com.google.android.gms:play-services-ads:23.6.0'
+//    configurations.all {
+//        resolutionStrategy {
+//            force 'com.google.android.gms:play-services-ads:23.5.0'
+//            force 'com.chartboost:chartboost-sdk:9.3.1'
+//        }
+//    }
+//    implementation 'com.yandex.android:mobileads-mediation:7.8.1.0' {
+//        exclude group: 'com.google.android.gms' // Exclude conflicting Google Play Services libraries
+//    }
+    implementation 'com.google.android.gms:play-services-ads:23.5.0'
+     implementation 'com.yandex.android:mobileads-mediation:7.8.1.0'
+
+    //implementation 'com.yandex.android:mobileads:7.8.0'
+   // implementation 'com.yandex.ads.mediation:mobileads-applovin:12.6.0.5'
+
+
+//    implementation('com.yandex.ads.mediation:mobileads-appnext:2.7.6.473')
+//    implementation('com.yandex.ads.mediation:mobileads-chartboost:9.3.1.13')
+//    implementation('com.yandex.ads.mediation:mobileads-ironsource:8.5.0.0')
+//    implementation('com.yandex.ads.mediation:mobileads-mintegral:16.8.61.2')
+//    implementation('com.yandex.ads.mediation:mobileads-pangle:6.4.0.2.0')
+//    implementation('com.yandex.ads.mediation:mobileads-tapjoy:13.4.1.8')
+
+
+
+
 
 
 

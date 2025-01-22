@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 
 import com.yandex.mobile.ads.banner.BannerAdEventListener
 import com.yandex.mobile.ads.banner.BannerAdSize
@@ -26,6 +27,7 @@ import com.yandex.mobile.ads.rewarded.RewardedAd
 import com.yandex.mobile.ads.rewarded.RewardedAdEventListener
 import com.yandex.mobile.ads.rewarded.RewardedAdLoadListener
 import com.yandex.mobile.ads.rewarded.RewardedAdLoader
+import org.checkerframework.checker.units.qual.Length
 
 class AdFormatManager(private val context: Activity) {
    // private var nativeAdLoader: MaxNativeAdLoader? = null
@@ -46,8 +48,8 @@ class AdFormatManager(private val context: Activity) {
        // errorMessage.loadingHide()
         return binding.apply {
             setAdSize(adSizes)
-            setAdUnitId("R-M-13309303-3")
-            Log.d("Yandex", "Using AdUnitId:R-M-13309303-3")
+            setAdUnitId("R-M-13309303-1") //R-M-13309303-2 //R-M-13309303-1
+            Log.d("Yandex", "Using AdUnitId:R-M-13309303-1")
             setBannerAdEventListener(object : BannerAdEventListener {
                 override fun onAdLoaded() {
                    // loading.loadingHide()
@@ -65,7 +67,8 @@ class AdFormatManager(private val context: Activity) {
 
                 override fun onAdFailedToLoad(error: AdRequestError) {
                     // Ad failed to load with AdRequestError.
-                    Log.e("Yandex", error.toString())
+                    Toast.makeText(context, error.description, Toast.LENGTH_SHORT).show()
+                    Log.e("Yandex ---11111",""+ error.description)
                    // loading.loadingHide()
                    // errorMessage.textShow()
                     // Attempting to load a new ad from the onAdFailedToLoad() method is strongly discouraged.
@@ -90,6 +93,7 @@ class AdFormatManager(private val context: Activity) {
             })
             loadAd(
                 AdRequest.Builder()
+
                     // Methods in the AdRequest.Builder class can be used here to specify individual options settings.
                     .build()
             )

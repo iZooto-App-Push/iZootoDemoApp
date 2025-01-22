@@ -32,7 +32,12 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
         super.onCreate(savedInstanceState)
         binding = ActivityYadexAdsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.subtitle = resources.getString(R.string.welcome_to_yandex_demo_app)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = "YanDex Ads "
+      //  supportActionBar?.subtitle = resources.getString(R.string.welcome_to_yandex_demo_app)
+
+
         // Add a listener to the subtitle
         val decorView = window.decorView // Get the root view
         decorView.post {
@@ -61,6 +66,7 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
         adsContainerList.add(binding.bannerAdViewContainer)
         adsContainerList.add(binding.manualContainerView)
         adsContainerList.add(binding.mrecAdViewContainer)
+      //  loadBannerAds()
        // applyWaveAnimation(binding.imageView)
 
 
@@ -96,6 +102,8 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
                     binding.progressBar
                 )
             }
+
+
         }
         binding.interstitialId.setOnClickListener{
             adFormatManager.loadInterstitialAd(
@@ -103,6 +111,40 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
                 binding.textError,
                 binding.progressBar,
                 adsContainerList
+            )
+        }
+    }
+
+    private fun loadBannerAds() {
+        adsContainerList[0].visibility = View.GONE
+        adsContainerList[1].visibility = View.GONE
+        adsContainerList[2].visibility = View.VISIBLE
+        adsContainerList[3].visibility = View.GONE
+        adsContainerList[4].visibility = View.GONE
+        if (bannerAd != null) {
+            bannerAd?.destroy()
+            bannerAd?.removeAllViews()
+        }
+        val random = Random
+        val number = random.nextInt(1, 3)
+        bannerAd = if (number == 2) {
+            adFormatManager.loadBannerAd(
+                this@YadexAdsActivity,
+                adaptiveInlineBannerSize(
+                    this@YadexAdsActivity,
+                    binding.bannerAdViewContainer
+                ),
+                binding.banner,
+                binding.textError,
+                binding.progressBar
+            )
+        } else {
+            adFormatManager.loadBannerAd(
+                this@YadexAdsActivity,
+                adaptiveStickyBannerSize(this@YadexAdsActivity, binding.bannerAdViewContainer),
+                binding.banner,
+                binding.textError,
+                binding.progressBar
             )
         }
     }
@@ -231,5 +273,15 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
         val adWidth = (adWidthPixels / context.resources.displayMetrics.density).roundToInt()
 
         return BannerAdSize.stickySize(context, adWidth)
+    }
+    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

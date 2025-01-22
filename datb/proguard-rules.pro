@@ -22,3 +22,5 @@
 
 -keep class com.appsflyer.** { *; }
 -keep class kotlin.jvm.internal.** { *; }
+-keep class com.yandex.** { *; }
+-keepclassmembers class com.yandex.** { *; }

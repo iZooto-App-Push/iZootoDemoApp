@@ -6,9 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.PackageManagerCompat.LOG_TAG
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -16,7 +14,6 @@ import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
-//import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.appopen.AppOpenAd
 import com.google.firebase.FirebaseApp
 import com.google.firebase.ktx.Firebase
@@ -25,7 +22,6 @@ import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.izooto.NotificationHelperListener
 import com.izooto.Payload
 import com.izooto.iZooto
-import com.outbrain.OBSDK.Outbrain
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -50,7 +46,9 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             MobileAds.enableLogging(true)
 
 
+
             FirebaseApp.initializeApp(this);
+
 
             appOpenAdManager = AppOpenAdManager()
             appOpenAdManager.loadAd(this)
@@ -81,9 +79,9 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             * In third argument, you need to pass the environment which can be either "development", "production" or "testing". */
        // val sdkConfig = TrackierSDKConfig(this, TR_SDK_KEY, "development")
        // TrackierSDK.initialize(sdkConfig)
-        Outbrain.register(this, "DATAB2HQ71I65P5JML02NJDEE");
-        Outbrain.setTestMode(true); // Skipping all billing, statistics, information gathering, and all other action mechanisms.
-        Outbrain.testLocation("en");
+      //  Outbrain.register(this, "DATAB2HQ71I65P5JML02NJDEE");
+      //  Outbrain.setTestMode(true); // Skipping all billing, statistics, information gathering, and all other action mechanisms.
+      //  Outbrain.testLocation("en");
         iZooto.initialize(this)
             .setTokenReceivedListener { token: String? -> Log.e("Token", token!!) }
             .setLandingURLListener { landingUrl: String? ->
@@ -145,7 +143,7 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
                 isLoadingAd = true
                 val request = AdRequest.Builder().build()
                 AppOpenAd.load(
-                    context, "ca-app-pub-3940256099942544/9257395921", request,
+                    context, "/23206713921/izooto_demo/com.k.deeplinkingtesting_openapp", request,
                     AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT,
                     object : AppOpenAd.AppOpenAdLoadCallback() {
                         override fun onAdLoaded(ad: AppOpenAd) {

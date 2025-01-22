@@ -46,23 +46,13 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.gms.ads.nativead.NativeAdView
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.remoteconfig.ConfigUpdate
-import com.google.firebase.remoteconfig.ConfigUpdateListener
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
-import com.google.firebase.remoteconfig.get
-import com.google.firebase.remoteconfig.ktx.remoteConfig
-import com.google.firebase.remoteconfig.remoteConfigSettings
 import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
 import com.k.deeplinkingtesting.admob.AdUnitConfig
-import com.k.deeplinkingtesting.admob.InLineBannerAdActivity
-import com.k.deeplinkingtesting.databinding.ActivityTempBinding
-import com.k.deeplinkingtesting.databinding.NativePulseBinding
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -76,6 +66,9 @@ class CommonActivity : AppCompatActivity() {
     private var beginDebugFile: Button? = null
     private var sendDebugFile: Button? = null
     private var deleteDebugFile: Button? = null
+    private var yandexAdsFile: Button? = null
+
+
     private var trackEvents : Button? = null
     private var mainLayout: LinearLayout? = null
     private var doubleBackToExitPressedOnce = false
@@ -102,13 +95,12 @@ class CommonActivity : AppCompatActivity() {
         } catch (ex: Exception) {
             Log.e(TAG, "Ads execution failure " + ex.message)
         }
-       // adManagerAdView = findViewById(R.id.adManagerView)
-
         permissionFile = findViewById(R.id.btn_permissionFIle)
         beginDebugFile = findViewById(R.id.btn_beginDebugFile)
         sendDebugFile = findViewById(R.id.btn_sendDebugFile)
         deleteDebugFile = findViewById(R.id.btn_deleteDebugFile)
         permissionFile = findViewById(R.id.btn_permissionFIle)
+        yandexAdsFile = findViewById(R.id.btn_yandex_ads)
         trackEvents=findViewById(R.id.trackEvents);
         nestedScrollView = findViewById(R.id.nestedScrollView)
         mainLayout = findViewById(R.id.mainView)
@@ -200,6 +192,10 @@ class CommonActivity : AppCompatActivity() {
         }
         val sendButton = findViewById<Button>(R.id.btn_news_hub)
         sendButton.setOnClickListener { _: View? -> sendEmail() }
+        yandexAdsFile?.setOnClickListener { _: View? ->
+            val intent = Intent(this@CommonActivity, YadexAdsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 private fun loadBannerAds(bannerAdsUnitID: String) {
@@ -267,45 +263,6 @@ private fun loadBannerAds(bannerAdsUnitID: String) {
     private fun getScreenWidthInDp(): Int {
         val displayMetrics = resources.displayMetrics
         return (displayMetrics.widthPixels / displayMetrics.density).toInt()
-    }
-    private fun dynamicAdsView(context: Context) {
-        try {
-            val adView = AdView(context)
-            adView.setAdSize(adSize)
-            adView.adUnitId = AdUnitConfig.bannerAdUnitId
-            adView.loadAd(AdRequest.Builder().build())
-            linearLayout?.addView(adView)
-
-            adView.adListener = object : AdListener() {
-                override fun onAdLoaded() {
-                    super.onAdLoaded()
-                    Log.d(TAG, "Banner ad loaded successfully")
-                    trackAdLoadedEvent()
-                }
-
-                override fun onAdFailedToLoad(p0: LoadAdError) {
-                    super.onAdFailedToLoad(p0)
-                    Log.e(TAG, "Banner ad failed to load: $p0")
-                }
-
-                override fun onAdOpened() {
-                    super.onAdOpened()
-                    Log.d(TAG, "Banner ad opened by user")
-                }
-
-                override fun onAdClicked() {
-                    super.onAdClicked()
-                    Log.d(TAG, "Banner ad clicked by user")
-                }
-
-                override fun onAdClosed() {
-                    super.onAdClosed()
-                    Log.d(TAG, "Banner ad closed")
-                }
-            }
-        } catch (ex: Exception) {
-            Log.e(TAG, "Banner ad execution failure " + ex.message)
-        }
     }
     // Get the adaptive ad size based on the screen width
 
@@ -531,12 +488,12 @@ override fun onBackPressed() {
 //                true
 //
 //            }
-            R.id.not_found -> {
-                val intent = Intent(this@CommonActivity, OutBrainContentActivity::class.java)
-                startActivity(intent)
-                true
-
-            }
+//            R.id.not_found -> {
+//               // val intent = Intent(this@CommonActivity, OutBrainContentActivity::class.java)
+//               // startActivity(intent)
+//                true
+//
+//            }
 
             else -> super.onOptionsItemSelected(item)
         }
