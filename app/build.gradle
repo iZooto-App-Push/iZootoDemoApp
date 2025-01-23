@@ -9,7 +9,7 @@ repositories {
     }
 }
 android {
-    compileSdk 35
+    compileSdk 34
     defaultConfig {
         namespace "com.k.deeplinkingtesting"
         minSdkVersion 24

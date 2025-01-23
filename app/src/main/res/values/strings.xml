@@ -59,15 +59,9 @@
 
     <string name="title_1" translatable="false">निर्भया, दिशा और अब अपराजिता... हर जघन्य अपराध के बाद बदला कानून लेकिन रुक नहीं रहे रेप के मामले </string>
     <string name="trackEvents"> Track Events</string>
-
-
-
-
-
-
     <string name="yandex_app_id">13309303</string>
 <!--        <string name="banner_ad_unit" tools:ignore="TypographyDashes">demo-banner-yandex</string>-->
-    <string name="banner_ad_unit" tools:ignore="TypographyDashes">R-M-13309303-3</string>
+    <string name="banner_ad_unit" tools:ignore="TypographyDashes">R-M-13309303-1</string>
 
     <string name="interstitial_ad_unit">R-M-13309303-4</string>
 <!--    <string name="interstitial_ad_unit">demo-interstitial-yandex</string>-->
