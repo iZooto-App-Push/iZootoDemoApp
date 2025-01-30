@@ -3,7 +3,7 @@
     <string name="player_error">Errors initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
-    <string name="appVersion">App Version - 7.5.3</string>
+    <string name="appVersion">App Version - 7.5.4</string>
     <string name="description">This app is only for testing the basic features, if any query please contact @iZooto support team</string>
     <string name="share_the_token">Share the Token</string>
     <string name="iz_redirect_string">Notification Redirection Page</string>
@@ -59,12 +59,12 @@
 
     <string name="title_1" translatable="false">निर्भया, दिशा और अब अपराजिता... हर जघन्य अपराध के बाद बदला कानून लेकिन रुक नहीं रहे रेप के मामले </string>
     <string name="trackEvents"> Track Events</string>
-    <string name="yandex_app_id">13309303</string>
-<!--        <string name="banner_ad_unit" tools:ignore="TypographyDashes">demo-banner-yandex</string>-->
+    <string name="yandex_app_id">13859675</string>
+    <!--        <string name="banner_ad_unit" tools:ignore="TypographyDashes">demo-banner-yandex</string>-->
     <string name="banner_ad_unit" tools:ignore="TypographyDashes">R-M-13309303-1</string>
 
     <string name="interstitial_ad_unit">R-M-13309303-4</string>
-<!--    <string name="interstitial_ad_unit">demo-interstitial-yandex</string>-->
+    <!--    <string name="interstitial_ad_unit">demo-interstitial-yandex</string>-->
     <string name="rewarded_ad_unit">demo-rewarded-yandex</string>
     <string name="native_small_ad_unit">demo-native-app-yandex</string>
     <string name="native_medium_ad_unit">demo-native-video-yandex</string>
@@ -87,4 +87,24 @@
     <string name="ad_description">Ad Description</string>
     <string name="call_to_action">Call to Action</string>
     <string name="mrec">MREC</string>
+    <string name="unity_game_id">5784886</string>
+    <string name="banner_ad_unit_id">BannerUnitId</string>
+    <string name="banner_ad_unit_id_2">banner</string>
+    <string name="interstitial_ad_unit_id">Interstitial_Android</string>
+    <string name="reward_ad_unit_id">Rewarded_Android</string>
+    <string name="banner_ad">Banner Ad</string>
+    <string name="interstitial_ad">Interstitial Ad</string>
+    <string name="rewarded_ad">Rewarded Ad</string>
+    <string name="load_interstitial">Load interstitial</string>
+    <string name="load_rewarded">Load rewarded</string>
+    <string name="load_top_banner">Load Top Banner</string>
+    <string name="load_bottom_banner">Load Bottom Banner</string>
+    <string name="hide_top_banner">Hide Top Banner</string>
+    <string name="hide_bottom_banner">Hide Bottom Banner</string>
+
+
+
+<!--   Applovin>-->
+    <string name="aap_lovin_banner_ad_unit">2bb735c91b7c8949</string>
+
 </resources>

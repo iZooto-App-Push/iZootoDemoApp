@@ -41,15 +41,15 @@ class AdFormatManager(private val context: Activity) {
      fun loadBannerAd(context: Activity,
                              adSizes: BannerAdSize,
                              binding: BannerAdView,
-                             errorMessage: TextView,
-                             loading: ProgressBar
+
     ): BannerAdView {
        // loading.loadingShow()
        // errorMessage.loadingHide()
         return binding.apply {
+
             setAdSize(adSizes)
-            setAdUnitId("R-M-13309303-1") //R-M-13309303-2 //R-M-13309303-1
-            Log.d("Yandex", "Using AdUnitId:R-M-13309303-1")
+            setAdUnitId("R-M-13859675-1") //R-M-13309303-2 //R-M-13309303-1
+            Log.d("Yandex", "Using AdUnitId:R-M-13859675-1") //R-M-13309303-1
             setBannerAdEventListener(object : BannerAdEventListener {
                 override fun onAdLoaded() {
                    // loading.loadingHide()
@@ -144,7 +144,7 @@ class AdFormatManager(private val context: Activity) {
     }
 
     private fun loadInterstitialAd(context: Activity) {
-        val adRequestConfiguration = AdRequestConfiguration.Builder(context.getString(R.string.interstitial_ad_unit)).build()
+        val adRequestConfiguration = AdRequestConfiguration.Builder("R-M-13859675-2").build()
         interstitialAdLoader?.loadAd(adRequestConfiguration)
     }
 

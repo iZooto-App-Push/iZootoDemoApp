@@ -9,12 +9,8 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.k.deeplinkingtesting.databinding.ActivityMainBinding
 import com.k.deeplinkingtesting.databinding.ActivityYadexAdsBinding
 import com.yandex.mobile.ads.banner.BannerAdSize
 import com.yandex.mobile.ads.banner.BannerAdView
@@ -66,7 +62,7 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
         adsContainerList.add(binding.bannerAdViewContainer)
         adsContainerList.add(binding.manualContainerView)
         adsContainerList.add(binding.mrecAdViewContainer)
-      //  loadBannerAds()
+        loadBannerAds()
        // applyWaveAnimation(binding.imageView)
 
 
@@ -90,16 +86,14 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
                         binding.bannerAdViewContainer
                     ),
                     binding.banner,
-                    binding.textError,
-                    binding.progressBar
+
                 )
             } else {
                 adFormatManager.loadBannerAd(
                     this@YadexAdsActivity,
                     adaptiveStickyBannerSize(this@YadexAdsActivity, binding.bannerAdViewContainer),
                     binding.banner,
-                    binding.textError,
-                    binding.progressBar
+
                 )
             }
 
@@ -135,16 +129,14 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
                     binding.bannerAdViewContainer
                 ),
                 binding.banner,
-                binding.textError,
-                binding.progressBar
+
             )
         } else {
             adFormatManager.loadBannerAd(
                 this@YadexAdsActivity,
                 adaptiveStickyBannerSize(this@YadexAdsActivity, binding.bannerAdViewContainer),
                 binding.banner,
-                binding.textError,
-                binding.progressBar
+
             )
         }
     }

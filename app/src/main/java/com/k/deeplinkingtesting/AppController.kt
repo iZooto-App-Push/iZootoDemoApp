@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import com.applovin.sdk.AppLovinSdk
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -22,6 +23,7 @@ import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.izooto.NotificationHelperListener
 import com.izooto.Payload
 import com.izooto.iZooto
+import com.unity3d.ads.UnityAds.initialize
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,7 +47,10 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             }
             MobileAds.enableLogging(true)
 
-
+            AppLovinSdk.getInstance(this).mediationProvider = "max"
+            AppLovinSdk.initializeSdk(this) {
+                Log.d("AppLovin", "SDK Initialized")
+            }
 
             FirebaseApp.initializeApp(this);
 

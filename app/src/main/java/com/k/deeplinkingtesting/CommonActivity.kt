@@ -19,6 +19,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -52,12 +53,24 @@ import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
-import com.k.deeplinkingtesting.admob.AdUnitConfig
+import com.unity3d.ads.IUnityAdsInitializationListener
+import com.unity3d.ads.UnityAds
+import com.unity3d.ads.UnityAds.initialize
+import com.unity3d.services.banners.BannerErrorInfo
+import com.unity3d.services.banners.BannerView
+import com.unity3d.services.banners.UnityBannerSize
+import com.yandex.mobile.ads.banner.BannerAdEventListener
+import com.yandex.mobile.ads.banner.BannerAdSize
+import com.yandex.mobile.ads.banner.BannerAdView
+import com.yandex.mobile.ads.common.AdRequestError
+import com.yandex.mobile.ads.common.ImpressionData
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Locale
+import kotlin.math.roundToInt
+import kotlin.random.Random
 
 
 class CommonActivity : AppCompatActivity() {
@@ -73,12 +86,22 @@ class CommonActivity : AppCompatActivity() {
     private var mainLayout: LinearLayout? = null
     private var doubleBackToExitPressedOnce = false
     private val handler = Handler()
-    private var linearLayout: LinearLayout? = null
     private  var ad_container_admob : LinearLayout?=null
     private lateinit var remoteConfig: FirebaseRemoteConfig
     private  var nestedScrollView : NestedScrollView? = null
-    private lateinit var nativeAdView: NativeAdView
     private var bannerAdUnitId: String = ""
+
+    //yandex mediation
+    private var banner_ad_view_container : FrameLayout? = null
+    private var bannerAd: BannerAdView? = null
+    private lateinit var adFormatManager: AdFormatManager
+
+    // unity ads
+
+    private var unity_ads_banner : FrameLayout? = null
+    private var topBanner: BannerView? = null
+
+
 
 
     //adManagerView
@@ -100,18 +123,28 @@ class CommonActivity : AppCompatActivity() {
         sendDebugFile = findViewById(R.id.btn_sendDebugFile)
         deleteDebugFile = findViewById(R.id.btn_deleteDebugFile)
         permissionFile = findViewById(R.id.btn_permissionFIle)
-        yandexAdsFile = findViewById(R.id.btn_yandex_ads)
+        banner_ad_view_container = findViewById(R.id.banner_ad_view_container)
         trackEvents=findViewById(R.id.trackEvents);
         nestedScrollView = findViewById(R.id.nestedScrollView)
         mainLayout = findViewById(R.id.mainView)
-        nativeAdView = findViewById(R.id.native_ad_view)
         ad_container_admob = findViewById(R.id.ad_container_admob)
+        unity_ads_banner= findViewById(R.id.unity_ads_banner)
 
-        loadNativeAd(nativeAdView)
-        iZooto.promptForPushNotifications()
+        adFormatManager = AdFormatManager(this)
+        // Initialize Unity Ads:
+        initialize(
+            applicationContext, getString(R.string.unity_game_id),
+            false
+        )
+             loadUnityBannerAds()
+             loadBannerYandexAds()
 
-        initializeRemoteConfig()
-        loadBannerAds("")
+      //  loadNativeAd(nativeAdView)
+          iZooto.promptForPushNotifications()
+
+       // initializeRemoteConfig()
+
+       // loadBannerAds("")
 
 
 
@@ -192,13 +225,60 @@ class CommonActivity : AppCompatActivity() {
         }
         val sendButton = findViewById<Button>(R.id.btn_news_hub)
         sendButton.setOnClickListener { _: View? -> sendEmail() }
-        yandexAdsFile?.setOnClickListener { _: View? ->
-            val intent = Intent(this@CommonActivity, YadexAdsActivity::class.java)
-            startActivity(intent)
+//        yandexAdsFile?.setOnClickListener { _: View? ->
+//            val intent = Intent(this@CommonActivity, YadexAdsActivity::class.java)
+//            startActivity(intent)
+//        }
+    }
+
+    private fun loadUnityBannerAds() {
+        topBanner =
+            BannerView(this, getString(R.string.banner_ad_unit_id), UnityBannerSize.getDynamicSize(this)) //UnityBannerSize(320, 50)
+        // Set the listener for banner lifecycle events:
+        topBanner!!.listener = bannerListener
+        topBanner?.load()
+        // Associate the banner view object with the banner view:
+        unity_ads_banner?.addView(topBanner)
+
+    }
+
+
+
+    private val bannerListener: BannerView.IListener = object : BannerView.IListener {
+        override fun onBannerLoaded(bannerAdView: BannerView) {
+            // Called when the banner is loaded.
+            Log.v("UnityAdsExample", "onBannerLoaded: " + bannerAdView.placementId)
+        }
+
+        override fun onBannerShown(bannerAdView: BannerView?) {
+            // Enable the correct button to hide the ad
+
+            Log.v("UnityAdsExample", "onBannerShown: " + bannerAdView?.isShown)
+
+        }
+
+        override fun onBannerFailedToLoad(bannerAdView: BannerView, errorInfo: BannerErrorInfo) {
+            Log.e(
+                "UnityAdsExample",
+                "Unity Ads failed to load banner for " + bannerAdView.placementId + " with error: [" + errorInfo.errorCode + "] " + errorInfo.errorMessage
+            )
+            // Note that the BannerErrorInfo object can indicate a no fill (refer to the API documentation).
+        }
+
+        override fun onBannerClick(bannerAdView: BannerView) {
+            // Called when a banner is clicked.
+            Log.v("UnityAdsExample", "onBannerClick: " + bannerAdView.placementId)
+        }
+
+        override fun onBannerLeftApplication(bannerAdView: BannerView) {
+            // Called when the banner links out of the application.
+            Log.v("UnityAdsExample", "onBannerLeftApplication: " + bannerAdView.placementId)
         }
     }
 
-private fun loadBannerAds(bannerAdsUnitID: String) {
+
+
+    private fun loadBannerAds(bannerAdsUnitID: String) {
     val defaultAdUnit = "ca-app-pub-9298860897894361/3941078262"
     val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit
     val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
@@ -423,24 +503,24 @@ override fun onBackPressed() {
 
     // Inflate the custom layout containing the native ad
     val dialogView = layoutInflater.inflate(R.layout.ad_dialog, null)
-    val nativeAdView: NativeAdView = dialogView.findViewById(R.id.nativeAdView)
-
-    // Load the native ad
-    val adLoader = AdLoader.Builder(this, "ca-app-pub-9298860897894361/3941078262")  // Replace with your Ad Unit ID
-        .forNativeAd { nativeAd ->
-            // Populate the native ad into the native ad view
-            populateNativeAdView(nativeAd, nativeAdView)
-        }
-        .withAdListener(object : com.google.android.gms.ads.AdListener() {
-            override fun onAdFailedToLoad(error: com.google.android.gms.ads.LoadAdError) {
-                Log.e("Failed","Ads")
-                // Handle the failure by showing an appropriate message to the user
-            }
-        })
-        .withNativeAdOptions(NativeAdOptions.Builder().build())
-        .build()
-
-    adLoader.loadAd(AdRequest.Builder().build())
+//    val nativeAdView: NativeAdView = dialogView.findViewById(R.id.nativeAdView)
+//
+//    // Load the native ad
+//    val adLoader = AdLoader.Builder(this, "ca-app-pub-9298860897894361/3941078262")  // Replace with your Ad Unit ID
+//        .forNativeAd { nativeAd ->
+//            // Populate the native ad into the native ad view
+//            populateNativeAdView(nativeAd, nativeAdView)
+//        }
+//        .withAdListener(object : com.google.android.gms.ads.AdListener() {
+//            override fun onAdFailedToLoad(error: com.google.android.gms.ads.LoadAdError) {
+//                Log.e("Failed","Ads")
+//                // Handle the failure by showing an appropriate message to the user
+//            }
+//        })
+//        .withNativeAdOptions(NativeAdOptions.Builder().build())
+//        .build()
+//
+//    adLoader.loadAd(AdRequest.Builder().build())
 
     // Create and show the AlertDialog
     val builder1 = AlertDialog.Builder(this@CommonActivity)
@@ -518,7 +598,7 @@ override fun onBackPressed() {
             .forNativeAd { nativeAd ->
                 nativeAdView.visibility = View.VISIBLE
                 // Populate the native ad into the native ad view
-                populateNativeAdView(nativeAd, nativeAdView)
+              //  populateNativeAdView(nativeAd, nativeAdView)
             }
             .withAdListener(object : com.google.android.gms.ads.AdListener() {
                 override fun onAdFailedToLoad(error: LoadAdError) {
@@ -534,30 +614,105 @@ override fun onBackPressed() {
         adLoader.loadAd(AdRequest.Builder().build())
     }
 
-    private fun populateNativeAdView(nativeAd: NativeAd, adView: NativeAdView) {
-        // Set headline
-//        adView.findViewById<TextView>(R.id.native_ad_headline).text = nativeAd.headline
-//        adView.headlineView = adView.findViewById(R.id.native_ad_headline)
+//    private fun populateNativeAdView(nativeAd: NativeAd, adView: NativeAdView) {
+//        // Set headline
+////        adView.findViewById<TextView>(R.id.native_ad_headline).text = nativeAd.headline
+////        adView.headlineView = adView.findViewById(R.id.native_ad_headline)
+//
+//
+//        // Set media
+//        val mediaView = adView.findViewById<MediaView>(R.id.native_ad_media)
+//        adView.mediaView = mediaView
+//        mediaView.setMediaContent(nativeAd.mediaContent)
+//
+////        // Set call to action
+////        nativeAd.callToAction?.let {
+////            val callToActionView = adView.findViewById<Button>(R.id.native_ad_call_to_action)
+////            callToActionView.text = it
+////            callToActionView.visibility = View.VISIBLE
+////            adView.callToActionView = callToActionView
+////        } ?: run {
+////           // adView.findViewById<Button>(R.id.native_ad_call_to_action).visibility = View.GONE
+////        }
+//
+//        // Set the NativeAd object
+//        adView.setNativeAd(nativeAd)
+//    }
+//yandex
 
+    private fun loadBannerYandexAds() {
+        if (bannerAd != null) {
+            bannerAd?.destroy()
+            bannerAd?.removeAllViews()
+        }
 
-        // Set media
-        val mediaView = adView.findViewById<MediaView>(R.id.native_ad_media)
-        adView.mediaView = mediaView
-        mediaView.setMediaContent(nativeAd.mediaContent)
+        if (banner_ad_view_container == null) {
+            Log.e("Yandex", "banner_ad_view_container is null")
+            return
+        }
 
-//        // Set call to action
-//        nativeAd.callToAction?.let {
-//            val callToActionView = adView.findViewById<Button>(R.id.native_ad_call_to_action)
-//            callToActionView.text = it
-//            callToActionView.visibility = View.VISIBLE
-//            adView.callToActionView = callToActionView
-//        } ?: run {
-//           // adView.findViewById<Button>(R.id.native_ad_call_to_action).visibility = View.GONE
-//        }
+        if (bannerAd == null) {
+            bannerAd = BannerAdView(this)
+        }
 
-        // Set the NativeAd object
-        adView.setNativeAd(nativeAd)
+        bannerAd?.setAdSize(adaptiveInlineBannerSize(this, banner_ad_view_container!!))
+        bannerAd?.setAdUnitId("R-M-13859675-1") // Consider replacing with a constant
+        Log.d("Yandex", "Using AdUnitId: R-M-13859675-1")
+
+        bannerAd?.setBannerAdEventListener(object : BannerAdEventListener {
+            override fun onAdLoaded() {
+                Log.i("Yandex", "onAdLoaded")
+                if (isFinishing || isDestroyed) {
+                    bannerAd?.destroy()
+                    return
+                }
+            }
+
+            override fun onAdFailedToLoad(error: AdRequestError) {
+                loadBannerAds("")
+                Log.e("Yandex", "Ad failed to load: ${error.code} - ${error.description}")
+            }
+
+            override fun onAdClicked() {
+                Log.i("Yandex", "Ad clicked")
+            }
+
+            override fun onLeftApplication() {
+                Log.i("Yandex", "User left application")
+            }
+
+            override fun onReturnedToApplication() {
+                Log.i("Yandex", "User returned to application")
+            }
+
+            override fun onImpression(impressionData: ImpressionData?) {
+                Log.i("ImpressionData", "${impressionData?.rawData}")
+            }
+        })
+
+        bannerAd?.loadAd(com. yandex. mobile. ads. common. AdRequest.Builder().build())
+        banner_ad_view_container?.addView(bannerAd)
     }
+
+    fun adaptiveInlineBannerSize(context: Context, binding: FrameLayout): BannerAdSize
+    {
+        val screenHeight = context.resources.displayMetrics.run { heightPixels / density }.roundToInt()
+        // Calculate the width of the ad, taking into account the padding in the ad container.
+        var adWidthPixels = binding.width
+        if (adWidthPixels == 0) {
+            // If the ad hasn't been laid out, default to the full screen width
+            adWidthPixels = context.resources.displayMetrics.widthPixels
+        }
+        val adWidth = (adWidthPixels / context.resources.displayMetrics.density).roundToInt()
+        // Determine the maximum allowable ad height. The current value is given as an example.
+        val maxAdHeight = screenHeight / 2
+
+        return BannerAdSize.inlineSize(context, adWidth, maxAdHeight)
+    }
+
+
+
+
 
 
 }

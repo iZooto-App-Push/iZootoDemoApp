@@ -1,10 +1,15 @@
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical"
     android:background="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout
+        android:layout_margin="@dimen/margin_10dp"
+        android:id="@+id/unity_ads_banner"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/btn_permissionFIle"
         android:layout_width="match_parent"
@@ -51,16 +56,24 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:text="@string/shareToken" />
-    <Button
-        android:id="@+id/btn_yandex_ads"
+    <FrameLayout
+        android:id="@+id/banner_ad_view_container"
         android:layout_width="match_parent"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        android:gravity="center"
-        android:visibility="visible"
-        android:layout_margin="10dp"
         android:layout_height="wrap_content"
-        android:text="@string/yandexAds" />
+        >
+
+    </FrameLayout>
+
+    <!--    <Button-->
+<!--        android:id="@+id/btn_yandex_ads"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textStyle="normal"-->
+<!--        android:gravity="center"-->
+<!--        android:visibility="visible"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/yandexAds" />-->
     <TextView
         android:id="@+id/btn_appVersion"
         android:layout_width="match_parent"

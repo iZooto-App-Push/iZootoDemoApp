@@ -21,43 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <com.google.android.gms.ads.nativead.NativeAdView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/native_ad_view"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:background="@color/white">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/native_ad_headline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:paddingBottom="4dp"/>
-
-                    <com.google.android.gms.ads.nativead.MediaView
-                        android:id="@+id/native_ad_media"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginBottom="8dp"/>
 
 
-                </LinearLayout>
-            </com.google.android.gms.ads.nativead.NativeAdView>
-
-
-            <!--            <FrameLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="250dp"-->
-<!--                android:background="@drawable/world"/>-->
             <include layout="@layout/container" />
 
             <LinearLayout
@@ -67,37 +32,9 @@
                 android:orientation="vertical">
 
             </LinearLayout>
-            <!--            <FrameLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="150dp"-->
-            <!--                android:background="@drawable/bankpassbook"/>-->
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:background="@android:color/transparent"-->
-    <!--        android:orientation="vertical">-->
-    <!--        <FrameLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="250dp"-->
-    <!--            android:background="@drawable/bankpassbook" />-->
-    <!--        <LinearLayout-->
-    <!--            android:id="@+id/mainView"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_marginTop="@dimen/margin_10dp"-->
-    <!--            android:layout_marginBottom="@dimen/margin_10dp"-->
-    <!--            android:background="@android:color/transparent"-->
-    <!--            android:orientation="vertical">-->
-    <!--        </LinearLayout>-->
-    <!--        <FrameLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="50dp"-->
-    <!--            android:visibility="gone"-->
-    <!--            android:background="@drawable/bankpassbook" />-->
 
-    <!--    </LinearLayout>-->
-    <!--</ScrollView>-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
