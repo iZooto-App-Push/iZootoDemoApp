@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.applovin.sdk.AppLovinSdk
+import com.applovin.sdk.AppLovinSdkConfiguration
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -38,19 +39,24 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
 
     override fun onCreate() {
         super.onCreate()
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         try {
+
+            val appLovinSdk = AppLovinSdk.getInstance(this)
+            appLovinSdk.mediationProvider = "max"
+
+            appLovinSdk.initializeSdk { config: AppLovinSdkConfiguration ->
+                Log.d("AppLovin", "AppLovin SDK Initialized Successfully!")
+                // Now it's safe to use the SDK
+            }
+
             val backgroundScope = CoroutineScope(Dispatchers.IO)
             registerActivityLifecycleCallbacks(this)
             backgroundScope.launch {
                 MobileAds.initialize(this@AppController) {}
             }
             MobileAds.enableLogging(true)
-
-            AppLovinSdk.getInstance(this).mediationProvider = "max"
-            AppLovinSdk.initializeSdk(this) {
-                Log.d("AppLovin", "SDK Initialized")
-            }
 
             FirebaseApp.initializeApp(this);
 

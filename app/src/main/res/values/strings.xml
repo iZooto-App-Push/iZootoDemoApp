@@ -104,7 +104,40 @@
 
 
 
-<!--   Applovin>-->
+    <!--   Applovin>-->
     <string name="aap_lovin_banner_ad_unit">2bb735c91b7c8949</string>
+    <string name="appLovin">AppLovin</string>
+    <!--   Iron Source>-->
+    <string name="ironsource">IronSource</string>
+    <string name="apiKey">20dddc6d5</string>
+    <string name="banner_ad_iron">1qnujithpeht0cps</string>
+    <string name="interstitial_ad_iron">66ye378lhs42kyhk</string>
+    <string name="rewarded_ad_iron">ou0o2ix1kqxb4tef</string>
+    <string name="title">Iron Source</string>
+    <string name="initializing">Initializing…</string>
+    <string name="loading">Loading…</string>
+
+    <string name="show">Show</string>
+    <string name="load">Load</string>
+    <string name="destroy">Destroy</string>
+
+    <string name="version">app version</string>
+
+    <string name="rewarded_video">Rewarded Video</string>
+    <string name="interstitial">Interstitial</string>
+    <string name="banner">Banner</string>
+
+    <string name="rewarded_dialog_header">Video Rewarded</string>
+    <string name="rewarded_dialog_message">You have been rewarded</string>
+    <string name="rvButtonState">rvButtonState</string>
+    <string name="isButtonState">isButtonState</string>
+    <string name="close">Close</string>
+    <string name="banner_placement">Level_Start</string>
+    <string name="interstitial_placement">Level_Complete</string>
+    <string name="rewarded_placement">Leaderboard</string>
+    <string name="native_placement">IAP_Store</string>
+    <string name="rewarded">Rewarded</string>
+    <string name="native_ad">Native</string>
+    <string name="com_ironsource_mediationsdk_ads_nativeadlayout">com.ironsource.mediationsdk.ads.NativeAdLayout</string>
 
 </resources>

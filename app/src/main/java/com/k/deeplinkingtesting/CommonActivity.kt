@@ -8,11 +8,15 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.Menu
@@ -21,7 +25,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -29,21 +32,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
-
-import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdSize.BANNER
-import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.admanager.AdManagerAdRequest
 import com.google.android.gms.ads.admanager.AdManagerAdView
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAd
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback
-import com.google.android.gms.ads.nativead.MediaView
-import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.gms.ads.nativead.NativeAdView
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -53,8 +49,7 @@ import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
-import com.unity3d.ads.IUnityAdsInitializationListener
-import com.unity3d.ads.UnityAds
+import com.k.deeplinkingtesting.iron.IronSourceActivity
 import com.unity3d.ads.UnityAds.initialize
 import com.unity3d.services.banners.BannerErrorInfo
 import com.unity3d.services.banners.BannerView
@@ -64,13 +59,11 @@ import com.yandex.mobile.ads.banner.BannerAdSize
 import com.yandex.mobile.ads.banner.BannerAdView
 import com.yandex.mobile.ads.common.AdRequestError
 import com.yandex.mobile.ads.common.ImpressionData
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Locale
 import kotlin.math.roundToInt
-import kotlin.random.Random
 
 
 class CommonActivity : AppCompatActivity() {
@@ -97,12 +90,8 @@ class CommonActivity : AppCompatActivity() {
     private lateinit var adFormatManager: AdFormatManager
 
     // unity ads
-
     private var unity_ads_banner : FrameLayout? = null
     private var topBanner: BannerView? = null
-
-
-
 
     //adManagerView
     @SuppressLint("ClickableViewAccessibility", "SuspiciousIndentation")
@@ -148,7 +137,7 @@ class CommonActivity : AppCompatActivity() {
 
 
 
-    iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
+  //  iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
 //        try {
 //            linearLayout = findViewById(R.id.adLayout)
 //            remoteConfig = Firebase.remoteConfig
@@ -252,7 +241,7 @@ class CommonActivity : AppCompatActivity() {
 
         override fun onBannerShown(bannerAdView: BannerView?) {
             // Enable the correct button to hide the ad
-
+            unity_ads_banner?.visibility = View.VISIBLE
             Log.v("UnityAdsExample", "onBannerShown: " + bannerAdView?.isShown)
 
         }
@@ -541,13 +530,26 @@ override fun onBackPressed() {
 
     // Helper method to populate native ad into the NativeAdView
 
-
-
-
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main_menu, menu)
+
+        val sharedPref = getSharedPreferences("AppPrefs", MODE_PRIVATE)
+        val isFirstLaunch = sharedPref.getBoolean("isFirstLaunch", true)
+
+        if (isFirstLaunch) {
+            val menuItem = menu.findItem(R.id.iron)
+            menuItem?.expandActionView()
+            menuItem?.collapseActionView()
+
+            // Change the icon tint to highlight
+            val spannableString = SpannableString(menuItem?.title)
+            spannableString.setSpan(ForegroundColorSpan(Color.RED), 0, spannableString.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+            menuItem?.title = spannableString
+
+            sharedPref.edit().putBoolean("isFirstLaunch", false).apply()
+        }
+
         return true
     }
 
@@ -556,8 +558,14 @@ override fun onBackPressed() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_notification -> {
+            R.id.applovin -> {
                 val intent = Intent(this@CommonActivity, AdMobActivity::class.java)
+                startActivity(intent)
+                true
+            }
+
+            R.id.iron -> {
+                val intent = Intent(this@CommonActivity, IronSourceActivity::class.java)
                 startActivity(intent)
                 true
             }
@@ -694,7 +702,7 @@ override fun onBackPressed() {
         banner_ad_view_container?.addView(bannerAd)
     }
 
-    fun adaptiveInlineBannerSize(context: Context, binding: FrameLayout): BannerAdSize
+    private fun adaptiveInlineBannerSize(context: Context, binding: FrameLayout): BannerAdSize
     {
         val screenHeight = context.resources.displayMetrics.run { heightPixels / density }.roundToInt()
         // Calculate the width of the ad, taking into account the padding in the ad container.
@@ -709,10 +717,5 @@ override fun onBackPressed() {
 
         return BannerAdSize.inlineSize(context, adWidth, maxAdHeight)
     }
-
-
-
-
-
 
 }

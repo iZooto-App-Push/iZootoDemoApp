@@ -3,17 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -22,7 +18,7 @@
 
     <application
         android:name=".AppController"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/notification"
         android:label="@string/app_name"
@@ -30,9 +26,11 @@
         android:roundIcon="@drawable/notification"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
-        tools:replace="android:allowBackup"
-        tools:targetApi="honeycomb">
-
+        tools:replace="android:allowBackup">
+        <activity
+            android:name=".iron.IronSourceActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".YadexAdsActivity"
             android:exported="false"
@@ -52,7 +50,7 @@
         <activity
             android:name=".SplashScreen"
             android:exported="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme"
             tools:ignore="DiscouragedApi">
             <intent-filter>
@@ -65,20 +63,20 @@
             android:name=".CommonActivity"
             android:exported="true"
             android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme"
             tools:ignore="DiscouragedApi" />
         <activity
             android:name=".unityAds.UnityAdsActivity"
             android:exported="true"
             android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme"
             tools:ignore="DiscouragedApi" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme" />
 
         <meta-data
@@ -94,6 +92,11 @@
             android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
             android:value="true"
             tools:replace="android:value" />
+
+        <provider
+            android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider"
+            android:authorities="${applicationId}.IronsourceLifecycleProvider"
+            android:exported="false" />
     </application>
 
 </manifest>

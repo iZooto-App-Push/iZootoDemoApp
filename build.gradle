@@ -1,135 +1,42 @@
 buildscript {
-    ext.kotlin_version = '1.9.0' // Use the latest version
+    ext.kotlin_version = '1.9.0' // Use the latest stable version
 
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://maven.fabric.io/public' }
         gradlePluginPortal()
         maven { url "https://jitpack.io" }
-//        maven {
-//            url "https://artifact.appmetrica.yandex.com/repository/maven-public"
-//        }
-       // maven { url "https://repo.yandex.ru/maven/" } // Yandex repository if required
+        maven { url 'https://android-sdk.is.com/' }// Keep if using JitPack libraries
 
-// IronSource
-//        maven {
-//            url 'https://android-sdk.is.com/'
-//        }
-
-// Pangle
-//        maven {
-//            url 'https://artifact.bytedance.com/repository/pangle'
-//        }
-
-// Tapjoy
-//        maven {
-//            url "https://sdk.tapjoy.com/"
-//        }
-
-// Mintegral
-//        maven {
-//            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
-//        }
-
-// Chartboost
-//        maven {
-//            url "https://cboost.jfrog.io/artifactory/chartboost-ads/"
-//        }
-
-// AppNext
-//        maven {
-//            url "https://dl.appnext.com/"
-//        }
-        maven {
-            url 'https://android-sdk.is.com/'
-        }
-
-// Pangle
-        maven {
-            url 'https://artifact.bytedance.com/repository/pangle'
-        }
-
-// Tapjoy
-        maven {
-            url "https://sdk.tapjoy.com/"
-        }
-
-// Mintegral
-        maven {
-            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
-        }
-
-// Chartboost
-        maven {
-            url "https://cboost.jfrog.io/artifactory/chartboost-ads/"
-        }
-
-// AppNext
-        maven {
-            url "https://dl.appnext.com/"
-        }
-        maven {
-            url "https://outbrain.bintray.com/maven"
-        }
-
+        // Ad Network Repositories (Keep only those you use)
+        maven { url "https://android-sdk.is.com/" } // ironSource
+        maven { url "https://artifact.bytedance.com/repository/pangle" } // Pangle
+        maven { url "https://sdk.tapjoy.com/" } // Tapjoy
+        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // Mintegral
+        maven { url "https://cboost.jfrog.io/artifactory/chartboost-ads/" } // Chartboost
+        maven { url "https://dl.appnext.com/" } // AppNext
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.4'
-        classpath 'com.google.gms:google-services:4.4.2'  // Google Services plugin
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
-        classpath ("com.google.firebase:perf-plugin:1.4.2")
-
-
+        classpath 'com.android.tools.build:gradle:8.1.4' // Latest stable Gradle Plugin
+        classpath 'com.google.gms:google-services:4.4.2' // Google Services plugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0" // Kotlin plugin
+        classpath "com.google.firebase:perf-plugin:1.4.2" // Firebase Performance plugin
     }
 }
 
 allprojects {
     repositories {
-
-
         google()
-        maven {
-            url 'https://android-sdk.is.com/'
-        }
-
-// Pangle
-        maven {
-            url 'https://artifact.bytedance.com/repository/pangle'
-        }
-
-// Tapjoy
-        maven {
-            url "https://sdk.tapjoy.com/"
-        }
-
-// Mintegral
-        maven {
-            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
-        }
-
-// Chartboost
-        maven {
-            url "https://cboost.jfrog.io/artifactory/chartboost-ads/"
-        }
-
-// AppNext
-        maven {
-            url "https://dl.appnext.com/"
-        }
-//        maven {
-//                url "https://cherry-repo.com/repository/releases/"
-//        }
-//        maven {
-//            url "https://artifact.appmetrica.yandex.com/repository/maven-public"
-//        }
-        maven {
-            url "https://outbrain.bintray.com/maven"
-        }
-
         mavenCentral()
+        maven { url "https://jitpack.io" } // Keep if using JitPack libraries
 
+        // Ad Network Repositories (Keep only those you use)
+        maven { url "https://android-sdk.is.com/" } // ironSource
+        maven { url "https://artifact.bytedance.com/repository/pangle" } // Pangle
+        maven { url "https://sdk.tapjoy.com/" } // Tapjoy
+        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // Mintegral
+        maven { url "https://cboost.jfrog.io/artifactory/chartboost-ads/" } // Chartboost
+        maven { url "https://dl.appnext.com/" } // AppNext
     }
 }
-
-

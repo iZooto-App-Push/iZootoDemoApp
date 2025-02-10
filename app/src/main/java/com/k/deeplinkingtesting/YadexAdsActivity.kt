@@ -31,7 +31,7 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "YanDex Ads "
-      //  supportActionBar?.subtitle = resources.getString(R.string.welcome_to_yandex_demo_app)
+        //  supportActionBar?.subtitle = resources.getString(R.string.welcome_to_yandex_demo_app)
 
 
         // Add a listener to the subtitle
@@ -63,7 +63,7 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
         adsContainerList.add(binding.manualContainerView)
         adsContainerList.add(binding.mrecAdViewContainer)
         loadBannerAds()
-       // applyWaveAnimation(binding.imageView)
+        // applyWaveAnimation(binding.imageView)
 
 
         binding.bannerAd.setOnClickListener {
@@ -87,19 +87,19 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
                     ),
                     binding.banner,
 
-                )
+                    )
             } else {
                 adFormatManager.loadBannerAd(
                     this@YadexAdsActivity,
                     adaptiveStickyBannerSize(this@YadexAdsActivity, binding.bannerAdViewContainer),
                     binding.banner,
 
-                )
+                    )
             }
 
 
         }
-        binding.interstitialId.setOnClickListener{
+        binding.interstitialId.setOnClickListener {
             adFormatManager.loadInterstitialAd(
                 binding.interstitialId,
                 binding.textError,
@@ -130,14 +130,14 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
                 ),
                 binding.banner,
 
-            )
+                )
         } else {
             adFormatManager.loadBannerAd(
                 this@YadexAdsActivity,
                 adaptiveStickyBannerSize(this@YadexAdsActivity, binding.bannerAdViewContainer),
                 binding.banner,
 
-            )
+                )
         }
     }
 
@@ -158,7 +158,7 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
         )
 
         binding.smallNativeAd.setOnClickListener {
-           // binding.progressBar.loadingShow()
+            // binding.progressBar.loadingShow()
             adsContainerList[0].visibility = View.VISIBLE
             adsContainerList[1].visibility = View.GONE
             adsContainerList[2].visibility = View.GONE
@@ -171,7 +171,7 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
             )
         }
         binding.mediumNativeAd.setOnClickListener {
-           // binding.progressBar.loadingShow()
+            // binding.progressBar.loadingShow()
             adsContainerList[0].visibility = View.GONE
             adsContainerList[1].visibility = View.VISIBLE
             adsContainerList[2].visibility = View.GONE
@@ -186,7 +186,7 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
         }
 
         binding.manualNativeAd.setOnClickListener {
-          //  binding.progressBar.loadingShow()
+            //  binding.progressBar.loadingShow()
             adsContainerList[0].visibility = View.GONE
             adsContainerList[1].visibility = View.GONE
             adsContainerList[2].visibility = View.GONE
@@ -238,9 +238,10 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
         super.onDestroy()
         adFormatManager.onDestroy()
     }
-    fun adaptiveInlineBannerSize(context: Context, binding: FrameLayout): BannerAdSize
-    {
-        val screenHeight = context.resources.displayMetrics.run { heightPixels / density }.roundToInt()
+
+    private fun adaptiveInlineBannerSize(context: Context, binding: FrameLayout): BannerAdSize {
+        val screenHeight =
+            context.resources.displayMetrics.run { heightPixels / density }.roundToInt()
         // Calculate the width of the ad, taking into account the padding in the ad container.
         var adWidthPixels = binding.width
         if (adWidthPixels == 0) {
@@ -255,7 +256,7 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
     }
 
 
-    fun adaptiveStickyBannerSize(context: Context, binding: FrameLayout): BannerAdSize{
+    private fun adaptiveStickyBannerSize(context: Context, binding: FrameLayout): BannerAdSize {
         // Calculate the width of the ad, taking into account the padding in the ad container.
         var adWidthPixels = binding.width
         if (adWidthPixels == 0) {
@@ -266,6 +267,7 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
 
         return BannerAdSize.stickySize(context, adWidth)
     }
+
     override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
