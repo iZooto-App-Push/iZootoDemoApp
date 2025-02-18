@@ -18,8 +18,12 @@ android {
         versionName "7.5.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-        manifestPlaceholders = [izooto_app_id: 'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640']//'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640'//'09f06385e06cc10d0fc7a5e1c002cd9338a2c94f'
-       // ]
+        manifestPlaceholders = [
+                momagic_app_id: 'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640',
+                izooto_app_id: 'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640'
+        ]
+
+        // ]
     }
     buildTypes {
         release {
@@ -90,8 +94,10 @@ dependencies {
     implementation 'com.yandex.android:mobileads-mediation:7.9.0.0'
 
     implementation 'com.unity3d.ads:unity-ads:4.12.5'
-
+    implementation'com.momagic:notification-sdk:2.4.1'
     implementation 'com.applovin:applovin-sdk:12.5.0'
+    implementation("com.google.ads.mediation:facebook:6.18.0.0")
+
 
 
 }

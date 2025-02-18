@@ -100,12 +100,12 @@ class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
 
         }
         binding.interstitialId.setOnClickListener{
-            adFormatManager.loadInterstitialAd(
-                binding.interstitialId,
-                binding.textError,
-                binding.progressBar,
-                adsContainerList
-            )
+//            adFormatManager.loadInterstitialAd(
+//                binding.interstitialId,
+//                binding.textError,
+//                binding.progressBar,
+//                adsContainerList
+//            )
         }
     }
 

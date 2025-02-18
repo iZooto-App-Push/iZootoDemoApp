@@ -1,37 +1,41 @@
 package com.k.deeplinkingtesting.admob
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.WindowMetrics
+import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdLoader
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.LoadAdError
+import com.facebook.ads.AdSize
+import com.facebook.ads.AdView
 import com.google.android.gms.ads.admanager.AdManagerAdRequest
 import com.google.android.gms.ads.admanager.AdManagerAdView
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdOptions
-import com.izooto.iZooto
+import com.k.deeplinkingtesting.AdFormatManager
 import com.k.deeplinkingtesting.R
+import com.k.deeplinkingtesting.RewardedAdManager
 import com.k.deeplinkingtesting.applovin.ApplovinAdFormatManager
 
 
-class AdMobActivity : AppCompatActivity()
- {
 
-    private var nativeAd: NativeAd? = null
-    private var mainLayout : LinearLayout? = null
-    private var scrollView : ScrollView? = null
+
+
+
+import com.yandex.mobile.ads.interstitial.InterstitialAdLoader
+
+
+class AdMobActivity : AppCompatActivity() {
+    private var mainLayout: LinearLayout? = null
+    private var scrollView: ScrollView? = null
     private lateinit var applovin_banner_id: FrameLayout
-     private lateinit var adFormatManager: ApplovinAdFormatManager
+    private lateinit var adFormatManager: ApplovinAdFormatManager
+    private lateinit var rewardedAdManager: RewardedAdManager
+    private var facebook_ads_container: LinearLayout? = null
+    private var adView: AdView? = null
+    private val adUnitId = "R-M-XXXXXX" // Replace with your Yandex Ad Unit ID
+    var adFormatManager1: AdFormatManager? = null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,120 +46,114 @@ class AdMobActivity : AppCompatActivity()
         supportActionBar?.title = "News Feed"
         scrollView = findViewById(R.id.scrollView)
         mainLayout = findViewById(R.id.mainLayout)
+        facebook_ads_container = findViewById(R.id.facebook_ads_container)
         applovin_banner_id = findViewById(R.id.applovin_banner_id)
-       // iZooto.enablePulse(this,scrollView,mainLayout,true)
+        // iZooto.enablePulse(this,scrollView,mainLayout,true)
         adFormatManager = ApplovinAdFormatManager(this)
         adFormatManager.loadBannerAd(applovin_banner_id)
 
+        rewardedAdManager = RewardedAdManager(this)
+        rewardedAdManager.loadAd()
+      //  loadfacebookAds(facebook_ads_container)
+        loadBannerAds("")
+
+        adFormatManager1 = AdFormatManager(this) // Initialize the object
+        adFormatManager1?.loadInterstitialAd() // Use safe call (?.) to prevent null pointer exceptions
 
 
-         commonInit();
 
+        findViewById<Button>(R.id.rewarded_ads).setOnClickListener {
+            rewardedAdManager.showAd { rewardItem ->
+                Toast.makeText(
+                    this,
+                    "Reward Earned: ${rewardItem.amount} ${rewardItem.type}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
 
-//        val adContainer = findViewById<LinearLayout>(R.id.ad_container)
-//        val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
-//
-//        val adManagerAdView1 = AdManagerAdView(this).apply {
-//            adUnitId = "ca-app-pub-9298860897894361/3941078262" // Replace with your actual ad unit ID
-//            setAdSize(adSize) // Explicitly set the ad size
-//        }
-//
-//        adContainer.addView(adManagerAdView1)
-//
-//        val adRequest1 = AdManagerAdRequest.Builder().build()
-//        adManagerAdView1.loadAd(adRequest1)
-//
-//        adManagerAdView1.adListener = object : com.google.android.gms.ads.AdListener() {
-//            override fun onAdLoaded() {
-//                Log.d("AdManager", "Ad loaded successfully")
-//            }
-//
-//            override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
-//                Log.e("AdManager", "Failed to load ad: ${adError.message}")
-//
-//            }
-//        }
+        }
+
     }
 
-     private fun commonInit() {
+    private fun loadfacebookAds(facebook_ads_container: LinearLayout?) {
+        // Create and Load AdView
+        adView = AdView(this, "VID_HD_9_16_39S_APP_INSTALL#3905158796364465_3905166553030356", AdSize.RECTANGLE_HEIGHT_250)
+
+        // Find the Ad Container
+        // val adContainer = findViewById<LinearLayout>(R.id.facebook_ads_container)
+        facebook_ads_container?.addView(adView)
 
 
+        // Request an ad and set listener
+        // Use fully qualified name for Facebook AdListener
+        val adListener = object : com.facebook.ads.AdListener {
+            override fun onError(ad: com.facebook.ads.Ad?, adError: com.facebook.ads.AdError) {
+                Log.e("FAN_ADS", "Ad failed to load: ${adError.errorMessage}")
+            }
 
-     }
-     // Helper function to get screen width in dp
+            override fun onAdLoaded(ad: com.facebook.ads.Ad?) {
+                Log.d("FAN_ADS", "Ad successfully loaded!")
+            }
 
-     private fun getScreenWidthInDp(): Int {
-         val displayMetrics = resources.displayMetrics
-         return (displayMetrics.widthPixels / displayMetrics.density).toInt()
-     }
-    private fun loadNativeAd() {
-        try {
-            val adLoader = AdLoader.Builder(this, AdUnitConfig.nativeAdUnitId)
-                .forNativeAd { ad: NativeAd ->
-                    // Show the ad
-                    if (isDestroyed) {
-                        ad.destroy()
-                        return@forNativeAd
-                    }
-                    nativeAd = ad
-                   // populateNativeAdView(ad, native_ad_view)
+            override fun onAdClicked(ad: com.facebook.ads.Ad?) {
+                Log.d("FAN_ADS", "Ad clicked!")
+            }
+
+            override fun onLoggingImpression(ad: com.facebook.ads.Ad?) {
+                Log.d("FAN_ADS", "Ad impression logged!")
+            }
+        }
+
+// Load the Ad with AdListener
+        adView?.loadAd(
+            adView?.buildLoadAdConfig()
+                ?.withAdListener(adListener) // Attach the listener
+                ?.build()
+        )
+    }
+    private fun loadBannerAds(bannerAdsUnitID: String) {
+        val defaultAdUnit = "/23206713921/izooto_demo/com.k.deeplinkingtesting_banner"// // GAM Test Ad Unit ID\n"//"/23206713921/izooto_demo/com.k.deeplinkingtesting_banner"
+        val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit
+        val adSize = com.google.android.gms.ads.AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
+        val adManagerAdView = AdManagerAdView(this).apply {
+            adUnitId = bannerAdUnit
+            setAdSize(adSize)
+        }
+        facebook_ads_container?.removeAllViews() // Ensure only one ad is shown
+        facebook_ads_container?.addView(adManagerAdView)
+        val adRequest = AdManagerAdRequest.Builder().build()
+        adManagerAdView.loadAd(adRequest)
+        var hasRetried = false
+        adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
+            override fun onAdLoaded() {
+                // val responseInfo = adManagerAdView.responseInfo
+                //val mediationAdapterClassName = responseInfo?.mediationAdapterClassName
+
+
+                Log.d("AdManager", "Ad loaded from: $")
+
+            }
+            override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
+                Log.e("AdManager", "Failed to load ad: ${adError.message}")
+                if (!hasRetried) {
+                    hasRetried = true
+                    //  fetchRemoteConfig()
+                    // loadBannerAds("ca-app-pub-9298860897894361/3941078262")
                 }
-                .withAdListener(object : AdListener() {
-                    override fun onAdFailedToLoad(adError: LoadAdError) {
-                        // Handle the error
-                        println("Ad failed to load: ${adError.message}")
-                    }
+                // loadBannerAds("ca-app-pub-9298860897894361/3941078262")
 
-                    override fun onAdClicked() {
-                        super.onAdClicked()
-                        println("Ad  to load:Clicked")
-
-                    }
-
-                    override fun onAdImpression() {
-                        super.onAdImpression()
-                        println("Ad  to load:impression")
-
-                    }
-
-                    override fun onAdOpened() {
-                        super.onAdOpened()
-                        println("Ad  to load:opened")
-
-                    }
-
-                    override fun onAdClosed() {
-                        super.onAdClosed()
-                        println("Ad  to load:closed")
-
-                    }
-                })
-                .withNativeAdOptions(NativeAdOptions.Builder().build())
-                .build()
-
-            adLoader.loadAd(AdRequest.Builder().build())
-        }
-        catch (ex:Exception)
-        {
-            Log.e("Tag",ex.toString())
+            }
         }
     }
+    private fun getScreenWidthInDp(): Int {
+        val displayMetrics = resources.displayMetrics
+        return (displayMetrics.widthPixels / displayMetrics.density).toInt()
+    }
+    // Helper function to get screen width in dp
+
 
     // Get the ad size with screen width.
-    private val adSize: AdSize
-        get() {
-            val displayMetrics = resources.displayMetrics
-            val adWidthPixels =
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                    val windowMetrics: WindowMetrics = this.windowManager.currentWindowMetrics
-                    windowMetrics.bounds.width()
-                } else {
-                    displayMetrics.widthPixels
-                }
-            val density = displayMetrics.density
-            val adWidth = (adWidthPixels / density).toInt()
-            return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth)
-        }
+
 
     override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
         return when (item.itemId) {
@@ -172,16 +170,25 @@ class AdMobActivity : AppCompatActivity()
     // Handle lifecycle methods to properly pause and resume the ad
     override fun onPause() {
         super.onPause()
-       // adManagerAdView.pause()
+        // adManagerAdView.pause()
     }
 
     override fun onResume() {
         super.onResume()
-       // adManagerAdView.resume()
+        // adManagerAdView.resume()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-       // adManagerAdView.destroy()
+        // adManagerAdView.destroy()
     }
+
+
+
+
+
 }
+
+
+
+

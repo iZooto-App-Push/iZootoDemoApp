@@ -15,13 +15,15 @@ import android.os.Handler
 import android.provider.Settings
 import android.util.DisplayMetrics
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
+import android.view.ViewParent
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -29,21 +31,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
-
-import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdSize.BANNER
-import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.admanager.AdManagerAdRequest
 import com.google.android.gms.ads.admanager.AdManagerAdView
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAd
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback
-import com.google.android.gms.ads.nativead.MediaView
-import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.gms.ads.nativead.NativeAdView
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -53,8 +48,6 @@ import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
-import com.unity3d.ads.IUnityAdsInitializationListener
-import com.unity3d.ads.UnityAds
 import com.unity3d.ads.UnityAds.initialize
 import com.unity3d.services.banners.BannerErrorInfo
 import com.unity3d.services.banners.BannerView
@@ -64,13 +57,12 @@ import com.yandex.mobile.ads.banner.BannerAdSize
 import com.yandex.mobile.ads.banner.BannerAdView
 import com.yandex.mobile.ads.common.AdRequestError
 import com.yandex.mobile.ads.common.ImpressionData
-
+import com.yandex.mobile.ads.nativeads.template.NativeBannerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Locale
 import kotlin.math.roundToInt
-import kotlin.random.Random
 
 
 class CommonActivity : AppCompatActivity() {
@@ -144,11 +136,11 @@ class CommonActivity : AppCompatActivity() {
 
        // initializeRemoteConfig()
 
-       // loadBannerAds("")
+        loadBannerAds("")
 
 
 
-    iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
+    //iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
 //        try {
 //            linearLayout = findViewById(R.id.adLayout)
 //            remoteConfig = Firebase.remoteConfig
@@ -262,6 +254,7 @@ class CommonActivity : AppCompatActivity() {
                 "UnityAdsExample",
                 "Unity Ads failed to load banner for " + bannerAdView.placementId + " with error: [" + errorInfo.errorCode + "] " + errorInfo.errorMessage
             )
+            loadBannerAds("")
             // Note that the BannerErrorInfo object can indicate a no fill (refer to the API documentation).
         }
 
@@ -279,7 +272,7 @@ class CommonActivity : AppCompatActivity() {
 
 
     private fun loadBannerAds(bannerAdsUnitID: String) {
-    val defaultAdUnit = "ca-app-pub-9298860897894361/3941078262"
+    val defaultAdUnit = "/23206713921/izooto_demo/com.k.deeplinkingtesting_banner"// // GAM Test Ad Unit ID\n"//"/23206713921/izooto_demo/com.k.deeplinkingtesting_banner"
     val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit
     val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
     val adManagerAdView = AdManagerAdView(this).apply {
@@ -293,19 +286,33 @@ class CommonActivity : AppCompatActivity() {
     var hasRetried = false
     adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
         override fun onAdLoaded() {
-            Log.d("AdManager", "Ad loaded successfully: $bannerAdsUnitID")
+           // val responseInfo = adManagerAdView.responseInfo
+            //val mediationAdapterClassName = responseInfo?.mediationAdapterClassName
+
+
+            Log.d("AdManager", "Ad loaded from: $")
+
         }
         override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
             Log.e("AdManager", "Failed to load ad: ${adError.message}")
             if (!hasRetried) {
                 hasRetried = true
-                fetchRemoteConfig()
-                loadBannerAds(defaultAdUnit)
+              //  fetchRemoteConfig()
+               // loadBannerAds("ca-app-pub-9298860897894361/3941078262")
             }
+           // loadBannerAds("ca-app-pub-9298860897894361/3941078262")
+
         }
     }
 }
-
+//    private fun getAdNetworkName(adRequest: AdManagerAdRequest): String {
+//        // Check if the ad is served by Meta/Facebook
+//        if (adRequest.mediationAdapter is FacebookAdapter) {
+//            return "Facebook Audience Network"
+//        }
+//        // You can add more checks for other networks if needed
+//        return "Other Network"
+//    }
     private fun initializeRemoteConfig() {
         try {
             remoteConfig = FirebaseRemoteConfig.getInstance()
@@ -494,50 +501,28 @@ class CommonActivity : AppCompatActivity() {
     }
 
 override fun onBackPressed() {
-    if (doubleBackToExitPressedOnce) {
-        super.onBackPressed()
-        return
-    }
+    super.onBackPressed()
+    showExitDialog()
 
-    this.doubleBackToExitPressedOnce = true
-
-    // Inflate the custom layout containing the native ad
-    val dialogView = layoutInflater.inflate(R.layout.ad_dialog, null)
-//    val nativeAdView: NativeAdView = dialogView.findViewById(R.id.nativeAdView)
-//
-//    // Load the native ad
-//    val adLoader = AdLoader.Builder(this, "ca-app-pub-9298860897894361/3941078262")  // Replace with your Ad Unit ID
-//        .forNativeAd { nativeAd ->
-//            // Populate the native ad into the native ad view
-//            populateNativeAdView(nativeAd, nativeAdView)
-//        }
-//        .withAdListener(object : com.google.android.gms.ads.AdListener() {
-//            override fun onAdFailedToLoad(error: com.google.android.gms.ads.LoadAdError) {
-//                Log.e("Failed","Ads")
-//                // Handle the failure by showing an appropriate message to the user
-//            }
-//        })
-//        .withNativeAdOptions(NativeAdOptions.Builder().build())
-//        .build()
-//
-//    adLoader.loadAd(AdRequest.Builder().build())
-
-    // Create and show the AlertDialog
-    val builder1 = AlertDialog.Builder(this@CommonActivity)
-    builder1.setView(dialogView)
-    builder1.setCancelable(true)
-    builder1.setPositiveButton("Yes") { dialog, _ ->
-        finishAffinity()  // Close the app
-        dialog.cancel()
-    }
-    builder1.setNegativeButton("No") { dialog, _ ->
-        dialog.cancel()
-    }
-    val alert11 = builder1.create()
-    alert11.show()
-
-    handler.postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
 }
+    private fun showExitDialog() {
+        try {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Exit Alert")
+            builder.setMessage("Are you sure you want to exit?")
+            builder.setNegativeButton(
+                "No"
+            ) { dialog: DialogInterface, which: Int -> dialog.dismiss() }
+
+            builder.setPositiveButton("Yes") { dialog: DialogInterface?, which: Int ->
+                finishAffinity()
+            }
+
+            builder.create().show()
+        } catch (ex: java.lang.Exception) {
+            Log.e("AdManger", "Error to show exit alert dialog")
+        }
+    }
 
     // Helper method to populate native ad into the NativeAdView
 

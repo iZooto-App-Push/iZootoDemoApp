@@ -101,22 +101,9 @@ class AdFormatManager(private val context: Activity) {
     }
 
     fun loadInterstitialAd(
-        interstitial: Button,
-        errorMessage: TextView,
-        loading: ProgressBar,
-        adsContainer: ArrayList<FrameLayout>
     ) {
         try {
-            interstitial.setOnClickListener {
-               // loading.loadingShow()
-               // errorMessage.textHide()
-                    adsContainer[0].visibility = View.GONE
-                    adsContainer[1].visibility = View.GONE
-                    adsContainer[2].visibility = View.GONE
-                    adsContainer[3].visibility = View.GONE
-                    showInterstitialAd()
 
-            }
             // Interstitial ads loading should occur after initialization of the SDK.
             // Initialize the SDK as early as possible, for example in Application.onCreate or Activity.onCreate
             interstitialAdLoader = InterstitialAdLoader(context).apply {

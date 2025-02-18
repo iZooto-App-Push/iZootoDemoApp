@@ -1,5 +1,4 @@
 package com.k.deeplinkingtesting.applovin
-
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.util.Log
@@ -7,7 +6,6 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.applovin.mediation.MaxAd
-import com.applovin.mediation.MaxAdFormat
 import com.applovin.mediation.MaxAdViewAdListener
 import com.applovin.mediation.MaxError
 import com.applovin.mediation.ads.MaxAdView

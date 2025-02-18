@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.applovin.sdk.AppLovinSdk
+import com.facebook.ads.AudienceNetworkAds
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -23,6 +24,7 @@ import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.izooto.NotificationHelperListener
 import com.izooto.Payload
 import com.izooto.iZooto
+import com.momagic.DATB
 import com.unity3d.ads.UnityAds.initialize
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -46,6 +48,8 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
                 MobileAds.initialize(this@AppController) {}
             }
             MobileAds.enableLogging(true)
+            AudienceNetworkAds.initialize(this);
+
 
             AppLovinSdk.getInstance(this).mediationProvider = "max"
             AppLovinSdk.initializeSdk(this) {
@@ -109,6 +113,20 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
                 }
             })
             .build()
+
+
+        //mo-magic SDK initialise
+        DATB.initialize(this)
+            .setTokenReceivedListener { token: String? -> Log.e("Token", token!!) }
+            .setLandingURLListener { landingUrl: String? ->
+                Log.e("landing URL", landingUrl!!)
+                val intent = Intent(applicationContext, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+
+            .build()
+
 
         val remoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {

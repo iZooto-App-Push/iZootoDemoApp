@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission
@@ -81,12 +82,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9298860897894361~4907509724" />
+        <!-- Applovin SDK KEY -->
+
         <meta-data
             android:name="applovin.sdk.key"
             android:value="ggxNg5sqhrbeMBss7fAxxiTz9OrB77ryIb9axTCf96I7VTlDMHshwgt7Ceupmf2Wytx4ObibGTI0vlnVNRlSPK" />
+        <!-- Yandex App ID  -->
+
         <meta-data
             android:name="com.yandex.mobileads.sdk.KEY"
             android:value="@string/yandex_app_id" />
@@ -94,6 +96,26 @@
             android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
             android:value="true"
             tools:replace="android:value" />
+
+<!--        <activity-->
+<!--            android:name="com.yandex.mobile.ads.common.AdActivity"-->
+<!--            android:configChanges="screenSize|orientation|keyboardHidden"-->
+<!--            android:theme="@android:style/Theme.Translucent" />-->
+
+
+        <!-- Facebook App ID  -->
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <!-- Required Facebook Activity -->
+        <activity
+            android:name="com.facebook.ads.AudienceNetworkActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
     </application>
+
+
+
 
 </manifest>

@@ -4,11 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
-   <FrameLayout
-       android:layout_width="match_parent"
-       android:layout_height="300dp"
-       android:scaleType="fitCenter"
-       android:contentDescription="TODO" />
+
     <LinearLayout
         android:layout_marginTop="@dimen/margin_10dp"
         android:layout_width="match_parent"
