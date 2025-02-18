@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UselessParent"
+        android:gravity="center">
+        <LinearLayout
+            android:id="@+id/l1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="visible"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:baselineAligned="false">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top">
+                <ImageView
+                    android:id="@+id/_image"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/notification"
+                    android:scaleType="fitXY"/>
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:padding="@dimen/margin_10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:text=""
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        tools:ignore="RelativeOverlap,TextContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="12dp"
+                        tools:ignore="RelativeOverlap,TextContrastCheck" />
+                </LinearLayout>
+
+            </LinearLayout>
+        <View
+            android:id="@+id/_view"
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:background="@color/black"/>
+        </LinearLayout>
+
+</LinearLayout>

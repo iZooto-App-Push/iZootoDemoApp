@@ -1,0 +1,66 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.k.deeplinkingtesting.app-mergeDebugResources-96:/values-v26/values-v26.xml",
+            "map": [
+                {
+                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/eb328e66669a83d0cadc0f4b57fd691e/transformed/appcompat-1.6.1/res/values-v26/values-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,381,557,796",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,376,552,791,884"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "100,175,262,426,602,841",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "170,257,421,597,836,929"
+                    }
+                },
+                {
+                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/d36d7dca80373ede07e873cd694ce1a7/transformed/jetified-same-16.8.61/res/values-v26/values-v26.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,158",
+                        "endLines": "2,5",
+                        "endColumns": "102,12",
+                        "endOffsets": "153,328"
+                    },
+                    "to": {
+                        "startLines": "17,19",
+                        "startColumns": "4,4",
+                        "startOffsets": "934,1130",
+                        "endLines": "17,21",
+                        "endColumns": "102,12",
+                        "endOffsets": "1032,1300"
+                    }
+                },
+                {
+                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/db79af1c9861d0817bb131ba744e6e76/transformed/jetified-reward-16.8.61/res/values-v26/values-v26.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "100,193",
+                        "endLines": "2,14",
+                        "endColumns": "92,16",
+                        "endOffsets": "188,1070"
+                    },
+                    "to": {
+                        "startLines": "18,22",
+                        "startColumns": "4,4",
+                        "startOffsets": "1037,1305",
+                        "endLines": "18,33",
+                        "endColumns": "92,16",
+                        "endOffsets": "1125,2182"
+                    }
+                }
+            ]
+        }
+    ]
+}

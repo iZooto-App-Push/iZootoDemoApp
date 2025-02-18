@@ -103,7 +103,6 @@
     <string name="hide_bottom_banner">Hide Bottom Banner</string>
 
 
-
     <!--   Applovin>-->
     <string name="aap_lovin_banner_ad_unit">2bb735c91b7c8949</string>
     <string name="appLovin">AppLovin</string>
@@ -139,5 +138,13 @@
     <string name="rewarded">Rewarded</string>
     <string name="native_ad">Native</string>
     <string name="com_ironsource_mediationsdk_ads_nativeadlayout">com.ironsource.mediationsdk.ads.NativeAdLayout</string>
+    <!--   InMobi >-->
+    <string name="inMobi">InMobi</string>
+    <string name="inMobiId">a88706c59d424c06a859344b540b5555</string>
+    <string name="label_title">Title</string>
+    <string name="banner_xml_message">Banner XML Layout</string>
+    <string name="banner_">Banner</string>
+    <string name="xml_integration">Banner XML</string>
+    <string name="interstitial_">Interstitial</string>
 
 </resources>

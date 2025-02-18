@@ -1,0 +1,141 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout
+        android:id="@+id/unity_ads_banner"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_permissionFIle"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/gPermission" />
+    <Button
+        android:id="@+id/btn_beginDebugFile"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sBDebug" />
+    <Button
+        android:id="@+id/btn_sendDebugFile"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="10dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/sInfo" />
+    <Button
+        android:id="@+id/btn_deleteDebugFile"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="10dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/sDebug"/>
+    <Button
+        android:id="@+id/btn_news_hub"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/shareToken" />
+    <FrameLayout
+        android:id="@+id/banner_ad_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    </FrameLayout>
+
+    <!--    <Button-->
+<!--        android:id="@+id/btn_yandex_ads"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textStyle="normal"-->
+<!--        android:gravity="center"-->
+<!--        android:visibility="visible"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/yandexAds" />-->
+    <TextView
+        android:id="@+id/btn_appVersion"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="10dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:text="@string/appVersion" />
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="10dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:textColor="@color/black"
+
+        android:layout_height="wrap_content"
+        android:text="@string/description" />
+
+    <LinearLayout
+        android:id="@+id/adLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#F1EFEF"
+        android:padding="@dimen/margin_5dp"
+        android:visibility="gone"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:textStyle="bold"
+            android:padding="@dimen/margin_5dp"
+            android:text="News"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"
+            android:layout_marginEnd="@dimen/margin_5dp"
+            android:textColor="@color/colorPrimary"
+            android:padding="@dimen/margin_5dp"
+            android:text="See More"></TextView>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ad_container_admob"
+        android:gravity="center"
+        android:padding="8dp">
+    </LinearLayout>
+
+</LinearLayout>

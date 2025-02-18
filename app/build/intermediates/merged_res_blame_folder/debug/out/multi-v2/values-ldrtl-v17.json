@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.k.deeplinkingtesting.app-mergeDebugResources-96:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "map": [
+                {
+                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/280e56cb2e96550c4116e246e8ca7fa0/transformed/material-1.12.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,191",
+                        "endColumns": "135,140",
+                        "endOffsets": "186,327"
+                    },
+                    "to": {
+                        "startLines": "4,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "139,275",
+                        "endColumns": "135,140",
+                        "endOffsets": "270,411"
+                    }
+                },
+                {
+                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/ac05c7e7a49c241e156cf510c105dc4e/transformed/jetified-izooto-release/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,96",
+                        "endColumns": "40,42",
+                        "endOffsets": "91,134"
+                    }
+                }
+            ]
+        }
+    ]
+}

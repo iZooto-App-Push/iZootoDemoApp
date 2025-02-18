@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/article_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/article_image" />
+
+    <RelativeLayout
+        android:id="@+id/article_header_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignBottom="@+id/article_image"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/grdient"/>
+
+        <TextView
+            android:id="@+id/article_headline_tv"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Suarez: Messi Was Born Great, Ronaldo Made Himself Great"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="18dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Guardian"
+            android:textColor="@color/white"
+            android:background="#FF1E88E5"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingRight="15dp"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_above="@+id/article_headline_tv"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="18dp"
+            />
+
+        <TextView
+            android:id="@+id/date_small_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/05"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_alignBottom="@+id/article_headline_tv"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            />
+
+        <TextView
+            android:id="@+id/date_big_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_alignBottom="@+id/article_headline_tv"
+            android:layout_toLeftOf="@id/date_small_tv"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/boxes_wrapper_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/article_image"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="108dp"
+            android:background="#FFECECEC">
+
+            <TextView
+                android:id="@+id/box1_big_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="44"
+                android:textColor="#FF4A4A4A"
+                android:textSize="40sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerInParent="true"
+                />
+
+            <TextView
+                android:id="@+id/box1_small_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Journalist Awards"
+                android:textColor="#FF4A4A4A"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_below="@+id/box1_big_tv"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginLeft="2dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="108dp"
+            android:background="#FFECECEC">
+
+            <TextView
+                android:id="@+id/box2_big_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#FF4A4A4A"
+                android:textSize="40sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerInParent="true"
+                />
+
+            <TextView
+                android:id="@+id/box2_small_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Newspaper Awards"
+                android:textColor="#FF4A4A4A"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_below="@+id/box2_big_tv"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginLeft="2dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="108dp"
+            android:background="#FFECECEC">
+
+            <TextView
+                android:id="@+id/box3_big_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22"
+                android:textColor="#FF4A4A4A"
+                android:textSize="40sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerInParent="true"
+                />
+
+            <TextView
+                android:id="@+id/box3_small_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Story Awards"
+                android:textColor="#FF4A4A4A"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_below="@+id/box3_big_tv"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

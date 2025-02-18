@@ -74,7 +74,7 @@ class IronSourceActivity : AppCompatActivity(R.layout.activity_iron), ActivityLi
         super.onCreate(savedInstanceState)
         binding = ActivityIronBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        title = resources.getString(R.string.title)
+
         APP_KEY = resources.getString(R.string.apiKey)
         BANNER_AD_UNIT_ID = resources.getString(R.string.banner_ad_iron)
         INTERSTITIAL_AD_UNIT_ID = resources.getString(R.string.interstitial_ad_iron)

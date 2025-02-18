@@ -3,13 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -27,10 +34,11 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
         tools:replace="android:allowBackup">
+
         <activity
             android:name=".iron.IronSourceActivity"
             android:exported="false"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".YadexAdsActivity"
             android:exported="false"
@@ -43,6 +51,10 @@
             android:name=".admob.InLineBannerAdActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".inmobi.nativesad.sample.NativeAdsActivity"
+            android:exported="false"
+            android:theme="@style/AppThemes" />
         <activity
             android:name=".admob.AdMobActivity"
             android:exported="false"
@@ -63,7 +75,8 @@
             android:name=".CommonActivity"
             android:exported="true"
             android:hardwareAccelerated="true"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="unspecified"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme"
             tools:ignore="DiscouragedApi" />
         <activity
@@ -75,6 +88,24 @@
             tools:ignore="DiscouragedApi" />
         <activity
             android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".inmobi.sample.BannerAdsActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".inmobi.sample.BannerXmlActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".inmobi.sample.BannerBase"
             android:exported="true"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme" />

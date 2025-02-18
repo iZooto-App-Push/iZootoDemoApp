@@ -8,15 +8,11 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.Menu
@@ -49,6 +45,7 @@ import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
+import com.k.deeplinkingtesting.inmobi.sample.BannerBase
 import com.k.deeplinkingtesting.iron.IronSourceActivity
 import com.unity3d.ads.UnityAds.initialize
 import com.unity3d.services.banners.BannerErrorInfo
@@ -137,7 +134,7 @@ class CommonActivity : AppCompatActivity() {
 
 
 
-  //  iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
+    //iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
 //        try {
 //            linearLayout = findViewById(R.id.adLayout)
 //            remoteConfig = Firebase.remoteConfig
@@ -533,23 +530,6 @@ override fun onBackPressed() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main_menu, menu)
-
-        val sharedPref = getSharedPreferences("AppPrefs", MODE_PRIVATE)
-        val isFirstLaunch = sharedPref.getBoolean("isFirstLaunch", true)
-
-        if (isFirstLaunch) {
-            val menuItem = menu.findItem(R.id.iron)
-            menuItem?.expandActionView()
-            menuItem?.collapseActionView()
-
-            // Change the icon tint to highlight
-            val spannableString = SpannableString(menuItem?.title)
-            spannableString.setSpan(ForegroundColorSpan(Color.RED), 0, spannableString.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-            menuItem?.title = spannableString
-
-            sharedPref.edit().putBoolean("isFirstLaunch", false).apply()
-        }
-
         return true
     }
 
@@ -566,6 +546,12 @@ override fun onBackPressed() {
 
             R.id.iron -> {
                 val intent = Intent(this@CommonActivity, IronSourceActivity::class.java)
+                startActivity(intent)
+                true
+            }
+
+            R.id.inMobi -> {
+                val intent = Intent(this@CommonActivity, BannerBase::class.java)
                 startActivity(intent)
                 true
             }

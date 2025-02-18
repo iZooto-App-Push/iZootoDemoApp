@@ -1,0 +1,1 @@
+{"className":"com.k.deeplinkingtesting.AppController","classAnnotations":[],"interfaces":["android.app.Application$ActivityLifecycleCallbacks","android.content.ComponentCallbacks","android.content.ComponentCallbacks2","androidx.lifecycle.LifecycleObserver"],"superClasses":["android.app.Application","android.content.ContextWrapper","android.content.Context","java.lang.Object"]}

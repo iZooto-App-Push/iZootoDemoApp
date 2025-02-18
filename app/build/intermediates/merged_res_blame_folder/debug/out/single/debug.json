@@ -1,0 +1,398 @@
+[
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/menu_main_menu.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/menu/main_menu.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_rect.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/rect.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_layout_common.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/layout_common.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_native_ad_layout.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/native_ad_layout.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_nativeadad_ad_layout.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/nativeadad_ad_layout.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_iron.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_iron.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_article_recommendation_row.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/article_recommendation_row.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_baseline_ad_units_24.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/baseline_ad_units_24.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_list_header.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/list_header.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_main.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/xml_network_security_config.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_izooto_splash.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/izooto_splash.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_layout_ad.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/layout_ad.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_article_text_row.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/article_text_row.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_out_brain_content.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_out_brain_content.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/menu_pop_menu.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/menu/pop_menu.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_container.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/container.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_recycler_card_layout.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/recycler_card_layout.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_yadex_ads.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_yadex_ads.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_baseline_flash_off_24.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/baseline_flash_off_24.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_grdient.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/grdient.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_fragment_custom_integration.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/fragment_custom_integration.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_outline_arrow_back_24.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/outline_arrow_back_24.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_testing_native_ads.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/testing_native_ads.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_webview_item.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/webview_item.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_native_pulse.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/native_pulse.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_ic_stat_izooto_default.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/ic_stat_izooto_default.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_item_recommendation.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/item_recommendation.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_news_headline_view.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/news_headline_view.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_logo_small.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/logo_small.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_items_view.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/items_view.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_ad_dialog.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/ad_dialog.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_amelia_splash.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/amelia_splash.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_grid_item.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/grid_item.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/menu_action_menu.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/menu/action_menu.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_native_ad.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/native_ad.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_pulse_new_design.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/pulse_new_design.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_ironsource_button_shape.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/ironsource_button_shape.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_ic_share.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/ic_share.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_ic_notifications_white_24dp.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/ic_notifications_white_24dp.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_rtl_icon.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/rtl_icon.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_banner_ads.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_banner_ads.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_banner_base.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/banner_base.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_baseline_drive_file_move_rtl_24.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/baseline_drive_file_move_rtl_24.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_layout_tarch.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/layout_tarch.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_banner_ad_container.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/banner_ad_container.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_native_ads.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_native_ads.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_baseline_assignment_add.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/baseline_assignment_add.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_layout_out_brain_sdk_activity.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/layout_out_brain_sdk_activity.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_notification.webp.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/notification.webp"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_ad_mob.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_ad_mob.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_article_image.jpg.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/article_image.jpg"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_toolbar_action.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/toolbar_action.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_listitem.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/listitem.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_unity_ads.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_unity_ads.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_iz_dn_icon.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/iz_dn_icon.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_ltr.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/ltr.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_prebid_sdk_activity.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/prebid_sdk_activity.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_notification_center.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_notification_center.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_article_header_row.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/article_header_row.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_baseline_details_24.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/baseline_details_24.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_webview.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_webview.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_fragment_recycler_feed.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/fragment_recycler_feed.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_animate_toolbar.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_animate_toolbar.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_linkedin_bottom.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/linkedin_bottom.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_native_ad.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_native_ad.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_bank_item.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/bank_item.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/xml_file_provider_path.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/xml/file_provider_path.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_recommendedbylarge.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/recommendedbylarge.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/menu_bottom_toolbar.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/menu/bottom_toolbar.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_baseline_flash_on_24.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/baseline_flash_on_24.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/ic_notifications_black_24dp.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_video_widget.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_video_widget.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_menu_item_container.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/menu_item_container.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_in_line_banner_ad.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_in_line_banner_ad.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_scroll_view.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_scroll_view.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_toolbar_dropshadow.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/toolbar_dropshadow.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/raw_menu_items_json.json.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/raw/menu_items_json.json"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_button_background.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/button_background.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/xml_remote_config_default.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/xml/remote_config_default.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_classic_with_image.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_classic_with_image.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_grid_layout.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/grid_layout.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_rtl.png.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/rtl.png"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/drawable_notification_settings.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/drawable/notification_settings.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/layout_activity_banner_xml.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/layout/activity_banner_xml.xml"
+    },
+    {
+        "merged": "com.k.deeplinkingtesting.app-merged_res-98:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.k.deeplinkingtesting.app-main-100:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    }
+]

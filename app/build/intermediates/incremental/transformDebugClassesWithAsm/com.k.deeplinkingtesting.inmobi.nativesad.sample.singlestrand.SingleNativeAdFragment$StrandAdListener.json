@@ -1,0 +1,1 @@
+{"className":"com.k.deeplinkingtesting.inmobi.nativesad.sample.singlestrand.SingleNativeAdFragment$StrandAdListener","classAnnotations":[],"interfaces":[],"superClasses":["com.inmobi.ads.listeners.NativeAdEventListener","com.inmobi.ads.listeners.AdEventListener","java.lang.Object"]}
