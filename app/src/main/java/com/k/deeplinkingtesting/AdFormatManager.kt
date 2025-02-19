@@ -2,6 +2,7 @@ package com.k.deeplinkingtesting
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -388,5 +389,4 @@ class AdFormatManager(private val context: Activity) {
         rewardedAd?.setAdEventListener(null)
         rewardedAd = null
     }
-
 }

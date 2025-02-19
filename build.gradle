@@ -4,40 +4,22 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://maven.fabric.io/public' }
         gradlePluginPortal()
+
+        // Ad Network & Mediation Repositories
+        maven { url 'https://maven.fabric.io/public' }
         maven { url "https://jitpack.io" }
-        maven { url "https://repo.yandex.ru/maven/" } // Yandex repository if required
-
-// IronSource
-        maven {
-            url 'https://android-sdk.is.com/'
-        }
-
-// Pangle
-        maven {
-            url 'https://artifact.bytedance.com/repository/pangle'
-        }
-
-// Tapjoy
-        maven {
-            url "https://sdk.tapjoy.com/"
-        }
-
-// Mintegral
-        maven {
-            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
-        }
-
-// Chartboost
-        maven {
-            url "https://cboost.jfrog.io/artifactory/chartboost-ads/"
-        }
-
-// AppNext
-        maven {
-            url "https://dl.appnext.com/"
-        }
+        maven { url "https://repo.yandex.ru/maven/" }
+        maven { url "https://android-sdk.is.com/" } // IronSource
+        maven { url "https://artifact.bytedance.com/repository/pangle" } // Pangle
+        maven { url "https://sdk.tapjoy.com/" } // Tapjoy
+        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // Mintegral
+        maven { url "https://cboost.jfrog.io/artifactory/chartboost-ads/" } // Chartboost
+        maven { url "https://dl.appnext.com/" } // AppNext
+        maven { url "https://imobile.github.io/adnw-sdk-android" } // iMobile
+        maven { url "https://imobile-maio.github.io/maven" } // Maio
+        maven { url "https://maven.applovin.com/" } // AppLovin
+        maven { url "https://maven.unityads.unity3d.com" } // Unity Ads
 
     }
     dependencies {
@@ -52,14 +34,27 @@ buildscript {
 
 allprojects {
     repositories {
-
-
         google()
+        mavenCentral()
         maven {
                 url "https://cherry-repo.com/repository/releases/"
         }
 
-        mavenCentral()
+        // Additional required repositories
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://repo.yandex.ru/maven/' }
+        maven { url 'https://android-sdk.is.com/' } // IronSource
+        maven { url 'https://artifact.bytedance.com/repository/pangle' } // Pangle
+        maven { url 'https://sdk.tapjoy.com/' } // Tapjoy
+        maven { url 'https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea' } // Mintegral
+        maven { url 'https://cboost.jfrog.io/artifactory/chartboost-ads/' } // Chartboost
+        maven { url 'https://dl.appnext.com/' } // AppNext
+        maven { url 'https://imobile.github.io/adnw-sdk-android' } // iMobile
+        maven { url 'https://imobile-maio.github.io/maven' } // Maio
+        maven { url "https://maven.applovin.com/" } // AppLovin
+        maven { url "https://artifact.bytedance.com/repository/pangle/" } // Pangle (Ensure duplication is removed)
+        maven { url "https://maven.unityads.unity3d.com" } // Unity Ads
+        maven { url "https://fb.bintray.com/maven" }
 
     }
 }

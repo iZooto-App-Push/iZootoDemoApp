@@ -18,7 +18,9 @@ import com.google.android.gms.ads.admanager.AdManagerAdView
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.izooto.iZooto
+import com.k.deeplinkingtesting.GAMAdManager
 import com.k.deeplinkingtesting.R
+import com.k.deeplinkingtesting.appopen.OnAdsCallbackListener
 import com.outbrain.OBSDK.Errors.OBErrorReporting
 
 
@@ -35,6 +37,9 @@ class AdMobActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ad_mob)
+
+        rewarded()
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "News Feed"
@@ -97,6 +102,31 @@ class AdMobActivity : AppCompatActivity()
             }
         }
     }
+
+     private fun rewarded() {
+        GAMAdManager.showRewardedAd(this, resources.getString(R.string.gam_rewarded), object : OnAdsCallbackListener{
+            override fun onComplete() {
+                super.onComplete()
+                Log.d("CommonActivity", "onComplete.")
+            }
+
+            override fun onAdImpression() {
+                super.onAdImpression()
+                Log.d("CommonActivity", "onAdImpression.")
+            }
+
+            override fun onUserEarnedReward(type: String?, amount: Int) {
+                super.onUserEarnedReward(type, amount)
+                Log.d("CommonActivity", "Reward->  $amount")
+
+            }
+
+            override fun onError(var1: Int, var2: String?) {
+                super.onError(var1, var2)
+                Log.e("CommonActivity", "Error: $var1, $var2")
+            }
+        })
+     }
 
      private fun commonInit() {
 

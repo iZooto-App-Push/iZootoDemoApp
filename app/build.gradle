@@ -87,26 +87,42 @@ dependencies {
     implementation("io.ktor:ktor-client-serialization:2.0.0")
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     implementation files('libs/izooto-release.aar')
-   // implementation 'com.appsflyer:af-android-sdk:6.12.1'
-   // implementation 'com.trackier:android-sdk:1.6.60' // Add this Trackier SDK dependency in the build.gradle
-   // implementation "com.miui.referrer:homereferrer:1.0.0.6"
+
     implementation 'com.google.android.gms:play-services-ads-identifier:18.2.0'
-   // implementation "androidx.room:room-runtime:2.6.1"
-   // implementation "androidx.room:room-ktx:2.6.1" // For Kotlin Coroutines support
-   // implementation 'com.airbnb.android:lottie:6.6.1'
-   // implementation 'com.google.zxing:core:3.5.2'
-   // implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
-   // implementation "com.android.installreferrer:installreferrer:2.2"
 
 
     implementation ("com.yandex.android:mobileads:7.8.0")
     implementation 'com.yandex.ads.mediation:mobileads-applovin:12.6.0.5'
 
+    // New adapters added for mediation
+    implementation 'com.google.ads.mediation:applovin:13.1.0.0'
+    implementation 'com.google.ads.mediation:chartboost:9.8.2.0'
+    implementation 'com.google.ads.mediation:fyber:8.3.5.0'
+    implementation 'com.google.ads.mediation:imobile:2.3.2.0'
+    implementation 'com.google.ads.mediation:inmobi:10.8.0.0'
+    implementation 'com.google.ads.mediation:ironsource:8.6.1.0'
+    implementation 'com.google.ads.mediation:vungle:7.4.3.0'
+
+    implementation 'com.google.ads.mediation:maio:2.0.3.0'
+    implementation 'com.google.ads.mediation:facebook:6.18.0.0'
+    implementation 'com.google.ads.mediation:mintegral:16.9.41.0'
+    implementation 'com.google.ads.mediation:mytarget:5.27.1.0'
+    implementation 'com.google.ads.mediation:pangle:6.5.0.3.0'
+    implementation 'com.unity3d.ads:unity-ads:4.13.1'
+    implementation 'com.google.ads.mediation:unity:4.13.1.0'
+
+    // Force latest compatible AppLovin SDK
+    implementation 'com.applovin:applovin-sdk:13.1.0'
 
 
     // implementation ("com.yodo1.mas.mediation.yandex.adapters:applovin:4.14.1")
 
+}
 
+configurations.all {
+    resolutionStrategy {
+        force 'com.applovin:applovin-sdk:13.1.0'
+    }
 }
 
 

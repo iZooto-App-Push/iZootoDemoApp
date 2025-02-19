@@ -22,7 +22,7 @@
 
     <application
         android:name=".AppController"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/notification"
         android:label="@string/app_name"
@@ -93,6 +93,10 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-9298860897894361~4907509724"
             />
+
+        <meta-data
+            android:name="com.google.android.ads.APPLICATION_ID"
+            android:value="ca-app-pub-6163874413910130~5469305361" />
         <meta-data android:name="applovin.sdk.key"
             android:value="MmHLJLwlhhLwuWZiNeyeLte3zfmk4GImmOIOs6U5eCW31mzSvyzXbhJuoTTGhgAmLvAnTNibCSqHrppumwVLAW"/>
 
@@ -140,6 +144,10 @@
             android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
             android:value="true"
             tools:replace="android:value"/>
+
+        <meta-data
+            android:name="inmobi.ads.appid"
+            android:value="a88706c59d424c06a859344b540b5555"/>
     </application>
 
 </manifest>

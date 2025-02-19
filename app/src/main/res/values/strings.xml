@@ -61,8 +61,6 @@
 
 
 
-
-
     <string name="yandex_app_id">13309303</string>
 <!--        <string name="banner_ad_unit" tools:ignore="TypographyDashes">demo-banner-yandex</string>-->
     <string name="banner_ad_unit" tools:ignore="TypographyDashes">R-M-13309303-3</string>
@@ -91,4 +89,9 @@
     <string name="ad_description">Ad Description</string>
     <string name="call_to_action">Call to Action</string>
     <string name="mrec">MREC</string>
+    <string name="gam_app_open">/23206713921/izooto_demo/com.k.deeplinkingtesting_openapp</string>
+    <string name="gam_banner">/23206713921/izooto_demo/com.k.deeplinkingtesting_banner</string>
+    <string name="gam_interstitial">/23206713921/izooto_demo/com.k.deeplinkingtesting_interstitial</string>
+    <string name="gam_rewarded">/23206713921/izooto_demo/com.k.deeplinkingtesting_rewarded</string>
+    <string name="gam_native">/23206713921/izooto_demo/com.k.deeplinkingtesting_native</string>
 </resources>
