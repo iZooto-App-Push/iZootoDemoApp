@@ -35,10 +35,10 @@
             android:name=".YadexAdsActivity"
             android:theme="@style/AppTheme"
             android:exported="false" />
-        <activity
-            android:name=".OutbrainWidgetJSActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config"
+            tools:replace="android:resource" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -52,42 +52,12 @@
             android:name=".ClassicWithImageActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".gridlayout.GridWithImagesActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SmartFeed.SmartFeedActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SmartFeed.SmartFeedMidFeedActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".admob.InLineBannerAdActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".VideoWidget.VideoWidgetActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SFWebView.SFWebViewRecyclerViewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SFWebView.SFWebViewScrollViewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
+
         <activity
             android:name=".admob.AdMobActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".admob.GridViewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
+
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -125,21 +95,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         
-        <activity
-            android:name=".insteam.SwipableActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Drawer.SlidingDrawerActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".productionOubtbrain.OutbrainSDKActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+
         <meta-data
             android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
             android:value="true"

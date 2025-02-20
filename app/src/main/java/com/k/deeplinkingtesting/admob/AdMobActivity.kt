@@ -21,7 +21,6 @@ import com.izooto.iZooto
 import com.k.deeplinkingtesting.GAMAdManager
 import com.k.deeplinkingtesting.R
 import com.k.deeplinkingtesting.appopen.OnAdsCallbackListener
-import com.outbrain.OBSDK.Errors.OBErrorReporting
 
 
 class AdMobActivity : AppCompatActivity()

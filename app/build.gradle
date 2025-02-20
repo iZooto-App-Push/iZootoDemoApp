@@ -15,8 +15,8 @@ android {
         namespace "com.k.deeplinkingtesting"
         minSdkVersion 24
         targetSdkVersion 34
-        versionCode 117
-        versionName "7.5.2"
+        versionCode 121
+        versionName "7.6.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         manifestPlaceholders = [izooto_app_id: 'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640']//'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640'//'09f06385e06cc10d0fc7a5e1c002cd9338a2c94f'
@@ -40,8 +40,10 @@ android {
     buildFeatures {
         viewBinding true
     }
-    kotlinOptions {
-        jvmTarget = "17" // Use a valid JVM target such as "1.8", "11", or "17"
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
     }
 
 }
