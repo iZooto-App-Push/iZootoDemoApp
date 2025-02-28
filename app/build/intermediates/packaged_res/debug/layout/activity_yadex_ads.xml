@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    tools:context=".YadexAdsActivity">
+
+    <com.yandex.mobile.ads.banner.BannerAdView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:contentDescription="@string/todo"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_icon_app"
+        tools:ignore="MissingConstraints">
+    </ImageView>
+
+
+    <LinearLayout
+        android:id="@+id/l1"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <Button
+            android:id="@+id/bannerAd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/max_banner_ad"
+            android:layout_gravity="center_vertical"
+            app:cornerRadius="0dp"
+            android:textSize="11sp"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/interstitialId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/max_interstitial_ad"
+            android:layout_gravity="center_vertical"
+            app:cornerRadius="0dp"
+            android:textSize="11sp"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/rewardedAd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/max_rewarded_ad"
+            android:layout_gravity="center_vertical"
+            app:cornerRadius="0dp"
+            android:textSize="11sp"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l2"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l1">
+
+        <Button
+            android:id="@+id/smallNativeAd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/small_native_ad"
+            android:layout_gravity="center_vertical"
+            app:cornerRadius="0dp"
+            android:textSize="11sp"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/mediumNativeAd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/medium_native_ad"
+            android:layout_gravity="center_vertical"
+            android:visibility="visible"
+            app:cornerRadius="0dp"
+            android:textSize="11sp"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:id="@+id/manualNativeAd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/manual_native_ad"
+            android:layout_gravity="center_vertical"
+            android:visibility="visible"
+            app:cornerRadius="0dp"
+            android:textSize="11sp"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l3"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l2">
+
+        <Button
+            android:id="@+id/mrecAd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/mrec"
+            android:layout_gravity="center_vertical"
+            app:cornerRadius="0dp"
+            android:textSize="11sp"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/medium_container_view"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/banner_ad_view_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/manual_container_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/banner_ad_view_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/small_container_view"
+        android:layout_width="360dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/banner_ad_view_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/mrec_ad_view_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/banner_ad_view_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/l3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent" >
+
+    </FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:indeterminateDrawable="@drawable/offline_dialog_background"
+        android:visibility="gone"/>
+
+
+    <TextView
+        android:id="@+id/textError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:orientation="vertical"-->
+    <!--    android:padding="16dp">-->
+
+    <!--    &lt;!&ndash; Container for the banner ad &ndash;&gt;-->
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/adViewContainer"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="center" />-->
+
+    <!--    &lt;!&ndash; BannerAdView to display the inline banner ad &ndash;&gt;-->
+    <!--    <com.yandex.mobile.ads.banner.BannerAdView-->
+    <!--        android:id="@+id/banner"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:visibility="visible" />-->
+
+    <!--</LinearLayout>-->

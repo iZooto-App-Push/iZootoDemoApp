@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.k.deeplinkingtesting.app-mergeDebugResources-84:/values-de-rDE/values-de-rDE.xml",
+            "map": [
+                {
+                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/213143f63c746838d0079a9bcb21ca87/transformed/jetified-mbridge_android_sdk-16.9.41/res/values-de-rDE/values-de-rDE.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,116",
+                        "endColumns": "60,75",
+                        "endOffsets": "111,187"
+                    }
+                }
+            ]
+        }
+    ]
+}

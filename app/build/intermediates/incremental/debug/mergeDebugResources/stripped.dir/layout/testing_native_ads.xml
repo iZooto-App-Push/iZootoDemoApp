@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<ScrollView
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+   >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_margin="@dimen/margin_5dp"
+
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:ignore="MissingClass">
+    <Button
+        android:id="@+id/btn_permissionFIle"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_margin="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/gPermission" />
+    <Button
+        android:id="@+id/btn_beginDebugFile"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_margin="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sBDebug" />
+    <Button
+        android:id="@+id/btn_sendDebugFile"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="0dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/sInfo" />
+    <Button
+        android:id="@+id/btn_deleteDebugFile"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="0dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/sDebug"/>
+    <Button
+        android:id="@+id/btn_news_hub"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_margin="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/shareToken" />
+    <Button
+        android:id="@+id/trackEvents"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_margin="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/trackEvents" />
+    <TextView
+        android:id="@+id/btn_appVersion"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="0dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:text="@string/appVersion" />
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:layout_margin="0dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:textColor="@color/black"
+
+        android:layout_height="wrap_content"
+        android:text="@string/description" />
+    <!-- AdManagerAdView for Adaptive Banner Ad -->
+    <com.google.android.gms.ads.admanager.AdManagerAdView
+        android:id="@+id/adManagerAdView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+    <LinearLayout
+        android:id="@+id/layoutLinear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#F1EFEF"
+        android:padding="@dimen/margin_5dp"
+        android:visibility="gone"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:textStyle="bold"
+            android:padding="@dimen/margin_5dp"
+            android:text="News"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"
+            android:layout_marginEnd="@dimen/margin_5dp"
+            android:textColor="@color/colorPrimary"
+            android:padding="@dimen/margin_5dp"
+            android:text="See More"></TextView>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/adLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical"/>
+
+</LinearLayout>
+
+</ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.k.deeplinkingtesting.app-mergeDebugResources-84:/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/c438b2a61f64b985b0058b71a16500b6/transformed/appcompat-1.7.0/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}
