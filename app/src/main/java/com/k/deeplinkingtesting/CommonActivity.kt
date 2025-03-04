@@ -50,9 +50,6 @@ import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
 import com.k.deeplinkingtesting.admob.AdUnitConfig
 import com.k.deeplinkingtesting.appopen.OnAdsCallbackListener
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.util.Locale
 
 
@@ -70,7 +67,8 @@ class CommonActivity : AppCompatActivity() {
     private var nestedScrollView: NestedScrollView? = null
     private lateinit var nativeAdView: NativeAdView
     private lateinit var adManagerAdView: AdManagerAdView
-    private var bannerAdUnitId: String = ""
+
+
 
 
     //adManagerView
@@ -100,11 +98,12 @@ class CommonActivity : AppCompatActivity() {
         nativeAdView = findViewById(R.id.native_ad_view)
         ad_container_admob = findViewById(R.id.ad_container_admob)
 
-        loadNativeAd(nativeAdView)
         iZooto.promptForPushNotifications()
 
         initializeRemoteConfig()
         loadBannerAds()
+        loadNativeAd(nativeAdView)
+
 
 
         iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
@@ -175,8 +174,13 @@ class CommonActivity : AppCompatActivity() {
     }
 
     private fun loadBannerAds() {
+        val bannerAdUnit = if ( AdConfig.r_bannerAdUnitId.isNotEmpty()) {
+            AdConfig.r_bannerAdUnitId
+        } else {
+            resources.getString(R.string.gam_banner)
+        }
+        Log.e("Banner AdUnit ID",bannerAdUnit)
 
-        val bannerAdUnit = resources.getString(R.string.gam_banner)
         val adSize =
             AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
         adManagerAdView = AdManagerAdView(this).apply {
@@ -214,6 +218,7 @@ class CommonActivity : AppCompatActivity() {
                 .setMinimumFetchIntervalInSeconds(3600) // Fetch interval set to 1 hour
                 .build()
             remoteConfig.setConfigSettingsAsync(configSettings)
+            fetchRemoteConfig()
             Log.d("RemoteConfig", "RemoteConfig initialized successfully.")
         } catch (e: Exception) {
             Log.e("RemoteConfig", "Error initializing RemoteConfig: ${e.message}")
@@ -226,8 +231,18 @@ class CommonActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Log.d("RemoteConfig", "Fetch and activate succeeded.")
-                        bannerAdUnitId = remoteConfig.getString("banner_ad_unit_id")
-                        Log.d("RemoteConfig", "Banner Ad Unit ID: $bannerAdUnitId")
+                        AdConfig.r_bannerAdUnitId = remoteConfig.getString("banner_ad_unit_id")
+                        AdConfig.r_interstitialID = remoteConfig.getString("interstitial_ad_unit_id")
+                        AdConfig.r_rewarded_Ads = remoteConfig.getString("rewarded_ad_unit_id")
+                        AdConfig.r_native_ad_unit_id = remoteConfig.getString("native_ad_unit_id")
+                        AdConfig.r_app_open_id = remoteConfig.getString("app_open_ad_unit_id")
+
+                        Log.d("AdConfig", "App Open Ad Unit ID: ${AdConfig.r_app_open_id}")
+                        Log.d("AdConfig", "Native Ad Unit ID: ${AdConfig.r_native_ad_unit_id}")
+                        Log.d("AdConfig", "Rewarded Ad Unit ID: ${AdConfig.r_rewarded_Ads}")
+                        Log.d("AdConfig", "Interstitial Ad Unit ID: ${AdConfig.r_interstitialID}")
+                        Log.d("AdConfig", "Banner Ad Unit ID: ${AdConfig.r_bannerAdUnitId}")
+
 
                         // Uncomment to load banner ads dynamically
                         // loadBannerAds(bannerAdUnitId)
@@ -450,9 +465,16 @@ class CommonActivity : AppCompatActivity() {
                 show()
             }
 
+            val gam_interstitial = if (AdConfig.r_interstitialID.isNotEmpty()) {
+                AdConfig.r_interstitialID
+            } else {
+                resources.getString(R.string.gam_interstitial)
+            }
+            Log.e("GAM Rewarded AdUnit ID",gam_interstitial)
+
             GAMAdManager.showInterstitialAd(
                 this,
-                resources.getString(R.string.gam_interstitial),
+                gam_interstitial,
                 object : OnAdsCallbackListener {
                     override fun onComplete() {
                         super.onComplete()
@@ -519,11 +541,17 @@ class CommonActivity : AppCompatActivity() {
     }
 
     private fun loadNativeAd(nativeAdView: NativeAdView) {
-        ///23206713921/izooto_demo/com.k.deeplinkingtesting_native
-        //ca-app-pub-9298860897894361/4531740244
+        val gam_native = if (AdConfig.r_native_ad_unit_id.isNotEmpty()) {
+            AdConfig.r_native_ad_unit_id
+        } else {
+            resources.getString(R.string.gam_native)
+        }
+        Log.e("GAM native AdUnit ID",gam_native)
+
+
         val adLoader = AdLoader.Builder(
             this,
-            resources.getString(R.string.gam_native)
+            gam_native
         ) // Replace with your ad unit ID
             .forNativeAd { nativeAd ->
                 nativeAdView.visibility = View.VISIBLE
@@ -569,5 +597,13 @@ class CommonActivity : AppCompatActivity() {
         adView.setNativeAd(nativeAd)
     }
 
+
+}
+object AdConfig {
+    var r_bannerAdUnitId: String = ""
+    var r_interstitialID : String = ""
+    var r_app_open_id :String = ""
+    var r_rewarded_Ads : String = ""
+    var r_native_ad_unit_id :String = ""
 
 }

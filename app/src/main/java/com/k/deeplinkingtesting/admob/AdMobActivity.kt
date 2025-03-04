@@ -18,6 +18,8 @@ import com.google.android.gms.ads.admanager.AdManagerAdView
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.izooto.iZooto
+import com.k.deeplinkingtesting.AdConfig
+import com.k.deeplinkingtesting.CommonActivity
 import com.k.deeplinkingtesting.GAMAdManager
 import com.k.deeplinkingtesting.R
 import com.k.deeplinkingtesting.appopen.OnAdsCallbackListener
@@ -29,7 +31,8 @@ class AdMobActivity : AppCompatActivity()
     private var nativeAd: NativeAd? = null
     private var mainLayout : LinearLayout? = null
     private var scrollView : ScrollView? = null
-    private lateinit var adManagerAdView: AdManagerAdView
+     private lateinit var adManagerAdView: AdManagerAdView
+     private var ad_container_admob: LinearLayout? = null
 
 
     @SuppressLint("MissingInflatedId")
@@ -44,8 +47,10 @@ class AdMobActivity : AppCompatActivity()
         supportActionBar?.title = "News Feed"
         scrollView = findViewById(R.id.scrollView)
         mainLayout = findViewById(R.id.mainLayout)
-        adManagerAdView = findViewById(R.id.adManagerView)
+        ad_container_admob = findViewById<LinearLayout>(R.id.ad_container)
+
         iZooto.enablePulse(this,scrollView,mainLayout,true)
+        loadBannerAds()
 
 //        val adRequest = AdManagerAdRequest.Builder().build()
 ////
@@ -76,34 +81,74 @@ class AdMobActivity : AppCompatActivity()
          commonInit();
 
 
-        val adContainer = findViewById<LinearLayout>(R.id.ad_container)
-        val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
-
-        val adManagerAdView1 = AdManagerAdView(this).apply {
-            adUnitId = "ca-app-pub-9298860897894361/3941078262" // Replace with your actual ad unit ID
-            setAdSize(adSize) // Explicitly set the ad size
-        }
-
-        adContainer.addView(adManagerAdView1)
-
-        val adRequest1 = AdManagerAdRequest.Builder().build()
-        adManagerAdView1.loadAd(adRequest1)
-       // DATBErrorReporting.getInstance().reportErrorToServer("Ads is failed")
-
-        adManagerAdView1.adListener = object : com.google.android.gms.ads.AdListener() {
-            override fun onAdLoaded() {
-                Log.d("AdManager", "Ad loaded successfully")
-            }
-
-            override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
-                Log.e("AdManager", "Failed to load ad: ${adError.message}")
-
-            }
-        }
+//        val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
+//
+//        val adManagerAdView1 = AdManagerAdView(this).apply {
+//            adUnitId = resources.getString(R.string.gam_banner) // Replace with your actual ad unit ID
+//            setAdSize(adSize) // Explicitly set the ad size
+//        }
+//
+//        adContainer.addView(adManagerAdView1)
+//
+//        val adRequest1 = AdManagerAdRequest.Builder().build()
+//        adManagerAdView1.loadAd(adRequest1)
+//       // DATBErrorReporting.getInstance().reportErrorToServer("Ads is failed")
+//
+//        adManagerAdView1.adListener = object : com.google.android.gms.ads.AdListener() {
+//            override fun onAdLoaded() {
+//                Log.d("AdManager", "Ad loaded successfully")
+//            }
+//
+//            override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
+//                Log.e("AdManager", "Failed to load ad: ${adError.message}")
+//
+//            }
+//        }
     }
+     private fun loadBannerAds() {
+         val bannerAdUnit = if ( AdConfig.r_bannerAdUnitId.isNotEmpty()) {
+             AdConfig.r_bannerAdUnitId
+         } else {
+             resources.getString(R.string.gam_banner)
+         }
+         Log.e("Banner AdUnit ID",bannerAdUnit)
+
+         val adSize =
+             AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
+         adManagerAdView = AdManagerAdView(this).apply {
+             adUnitId = bannerAdUnit
+             setAdSize(adSize)
+         }
+         ad_container_admob?.removeAllViews() // Ensure only one ad is shown
+         ad_container_admob?.addView(adManagerAdView)
+         val adRequest = AdManagerAdRequest.Builder().build()
+         adManagerAdView.loadAd(adRequest)
+         adManagerAdView.adListener = object : AdListener() {
+             override fun onAdLoaded() {
+                 Log.d(
+                     "TAG",
+                     "Banner adapter class name:" + adManagerAdView.responseInfo?.mediationAdapterClassName
+                 )
+             }
+
+             override fun onAdFailedToLoad(adError: LoadAdError) {
+                 Log.e("TAG", "Failed to load ad: ${adError.message}")
+
+             }
+         }
+     }
 
      private fun rewarded() {
-        GAMAdManager.showRewardedAd(this, resources.getString(R.string.gam_rewarded), object : OnAdsCallbackListener{
+         val gam_rewarded = if (AdConfig.r_bannerAdUnitId.isNotEmpty()) {
+             AdConfig.r_bannerAdUnitId
+         } else {
+             resources.getString(R.string.gam_rewarded)
+         }
+         Log.e("GAM Rewarded AdUnit ID",gam_rewarded)
+
+
+
+        GAMAdManager.showRewardedAd(this,gam_rewarded, object : OnAdsCallbackListener{
             override fun onComplete() {
                 super.onComplete()
                 Log.d("CommonActivity", "onComplete.")

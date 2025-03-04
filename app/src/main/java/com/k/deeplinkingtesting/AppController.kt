@@ -35,7 +35,15 @@ class AppController : Application() {
 
              applicationScope.launch {
                 delay(2000)
-                GAMAdManager.setAppOpenManager(this@AppController, resources.getString(R.string.gam_app_open), object :
+                 val gam_app_open = if (AdConfig.r_app_open_id.isNotEmpty()) {
+                     AdConfig.r_app_open_id
+                 } else {
+                     resources.getString(R.string.gam_app_open)
+                 }
+                 Log.e("GAM gam_app_open AdUnit ID",gam_app_open)
+
+
+                 GAMAdManager.setAppOpenManager(this@AppController, gam_app_open, object :
                     OnAdsCallbackListener {
                     override fun onComplete() {
                         super.onComplete()

@@ -3,7 +3,7 @@
     <string name="player_error">Errors initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
-    <string name="appVersion">App Version - 7.6.0</string>
+    <string name="appVersion">App Version - 7.7.0</string>
     <string name="description">This app is only for testing the basic features, if any query please contact @iZooto support team</string>
     <string name="share_the_token">Share the Token</string>
     <string name="iz_redirect_string">Notification Redirection Page</string>
@@ -89,9 +89,17 @@
     <string name="ad_description">Ad Description</string>
     <string name="call_to_action">Call to Action</string>
     <string name="mrec">MREC</string>
-    <string name="gam_app_open">/23206713921/izooto_demo/com.k.deeplinkingtesting_openapp</string>
-    <string name="gam_banner">/23206713921/izooto_demo/com.k.deeplinkingtesting_banner</string>
-    <string name="gam_interstitial">/23206713921/izooto_demo/com.k.deeplinkingtesting_interstitial</string>
-    <string name="gam_rewarded">/23206713921/izooto_demo/com.k.deeplinkingtesting_rewarded</string>
-    <string name="gam_native">/23206713921/izooto_demo/com.k.deeplinkingtesting_native</string>
+<!--    <string name="gam_app_open">/23206713921/izooto_demo/com.k.deeplinkingtesting_openapp</string>-->
+<!--    <string name="gam_banner">/23206713921/izooto_demo/com.k.deeplinkingtesting_banner</string>-->
+<!--    <string name="gam_interstitial">/23206713921/izooto_demo/com.k.deeplinkingtesting_interstitial</string>-->
+<!--    <string name="gam_rewarded">/23206713921/izooto_demo/com.k.deeplinkingtesting_rewarded</string>-->
+<!--    <string name="gam_native">/23206713921/izooto_demo/com.k.deeplinkingtesting_native</string>-->
+
+
+
+    <string name="gam_app_open">/206696744/izooto/izootodemoapp-appopen</string>
+    <string name="gam_banner">/206696744/izooto/izootodemoapp-banner</string>
+    <string name="gam_interstitial">/206696744/izooto/izootodemoapp-interstitial</string>
+    <string name="gam_rewarded">/206696744/izooto/izootodemoapp-rewarded</string>
+    <string name="gam_native">/206696744/izooto/izootodemoapp-native</string>
 </resources>
