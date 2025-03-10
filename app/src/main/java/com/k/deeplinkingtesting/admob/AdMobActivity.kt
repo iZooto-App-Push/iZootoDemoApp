@@ -9,8 +9,6 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.facebook.ads.AdSize
-import com.facebook.ads.AdView
 import com.google.android.gms.ads.admanager.AdManagerAdRequest
 import com.google.android.gms.ads.admanager.AdManagerAdView
 import com.k.deeplinkingtesting.AdFormatManager
@@ -23,7 +21,6 @@ import com.k.deeplinkingtesting.applovin.ApplovinAdFormatManager
 
 
 
-import com.yandex.mobile.ads.interstitial.InterstitialAdLoader
 
 
 class AdMobActivity : AppCompatActivity() {
@@ -33,7 +30,6 @@ class AdMobActivity : AppCompatActivity() {
     private lateinit var adFormatManager: ApplovinAdFormatManager
     private lateinit var rewardedAdManager: RewardedAdManager
     private var facebook_ads_container: LinearLayout? = null
-    private var adView: AdView? = null
     private val adUnitId = "R-M-XXXXXX" // Replace with your Yandex Ad Unit ID
     var adFormatManager1: AdFormatManager? = null
 
@@ -75,42 +71,42 @@ class AdMobActivity : AppCompatActivity() {
 
     }
 
-    private fun loadfacebookAds(facebook_ads_container: LinearLayout?) {
-        // Create and Load AdView
-        adView = AdView(this, "VID_HD_9_16_39S_APP_INSTALL#3905158796364465_3905166553030356", AdSize.RECTANGLE_HEIGHT_250)
-
-        // Find the Ad Container
-        // val adContainer = findViewById<LinearLayout>(R.id.facebook_ads_container)
-        facebook_ads_container?.addView(adView)
-
-
-        // Request an ad and set listener
-        // Use fully qualified name for Facebook AdListener
-        val adListener = object : com.facebook.ads.AdListener {
-            override fun onError(ad: com.facebook.ads.Ad?, adError: com.facebook.ads.AdError) {
-                Log.e("FAN_ADS", "Ad failed to load: ${adError.errorMessage}")
-            }
-
-            override fun onAdLoaded(ad: com.facebook.ads.Ad?) {
-                Log.d("FAN_ADS", "Ad successfully loaded!")
-            }
-
-            override fun onAdClicked(ad: com.facebook.ads.Ad?) {
-                Log.d("FAN_ADS", "Ad clicked!")
-            }
-
-            override fun onLoggingImpression(ad: com.facebook.ads.Ad?) {
-                Log.d("FAN_ADS", "Ad impression logged!")
-            }
-        }
-
-// Load the Ad with AdListener
-        adView?.loadAd(
-            adView?.buildLoadAdConfig()
-                ?.withAdListener(adListener) // Attach the listener
-                ?.build()
-        )
-    }
+//    private fun loadfacebookAds(facebook_ads_container: LinearLayout?) {
+//        // Create and Load AdView
+//        adView = AdView(this, "VID_HD_9_16_39S_APP_INSTALL#3905158796364465_3905166553030356", AdSize.RECTANGLE_HEIGHT_250)
+//
+//        // Find the Ad Container
+//        // val adContainer = findViewById<LinearLayout>(R.id.facebook_ads_container)
+//        facebook_ads_container?.addView(adView)
+//
+//
+//        // Request an ad and set listener
+//        // Use fully qualified name for Facebook AdListener
+//        val adListener = object : com.facebook.ads.AdListener {
+//            override fun onError(ad: com.facebook.ads.Ad?, adError: com.facebook.ads.AdError) {
+//                Log.e("FAN_ADS", "Ad failed to load: ${adError.errorMessage}")
+//            }
+//
+//            override fun onAdLoaded(ad: com.facebook.ads.Ad?) {
+//                Log.d("FAN_ADS", "Ad successfully loaded!")
+//            }
+//
+//            override fun onAdClicked(ad: com.facebook.ads.Ad?) {
+//                Log.d("FAN_ADS", "Ad clicked!")
+//            }
+//
+//            override fun onLoggingImpression(ad: com.facebook.ads.Ad?) {
+//                Log.d("FAN_ADS", "Ad impression logged!")
+//            }
+//        }
+//
+//// Load the Ad with AdListener
+//        adView?.loadAd(
+//            adView?.buildLoadAdConfig()
+//                ?.withAdListener(adListener) // Attach the listener
+//                ?.build()
+//        )
+//    }
     private fun loadBannerAds(bannerAdsUnitID: String) {
         val defaultAdUnit = "/23206713921/izooto_demo/com.k.deeplinkingtesting_banner"// // GAM Test Ad Unit ID\n"//"/23206713921/izooto_demo/com.k.deeplinkingtesting_banner"
         val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit

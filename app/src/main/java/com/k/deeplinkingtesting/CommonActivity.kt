@@ -8,7 +8,9 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.hardware.biometrics.BiometricManager
 import android.net.Uri
+import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -30,6 +32,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.hardware.fingerprint.FingerprintManagerCompat
 import androidx.core.widget.NestedScrollView
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
@@ -47,11 +50,15 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
+import com.jio.jioads.adinterfaces.JioAdError
+import com.jio.jioads.adinterfaces.JioAdListener
+import com.jio.jioads.adinterfaces.JioAdView
+import com.jio.jioads.utils.Constants.DynamicDisplaySize
 import com.k.deeplinkingtesting.admob.AdMobActivity
-import com.unity3d.ads.UnityAds.initialize
-import com.unity3d.services.banners.BannerErrorInfo
-import com.unity3d.services.banners.BannerView
-import com.unity3d.services.banners.UnityBannerSize
+import com.k.deeplinkingtesting.jioads.DeviceFingerprint
+import com.k.deeplinkingtesting.jioads.JioAdsActivity
+import com.k.deeplinkingtesting.jioads.JioAdsInStreamActivity
+
 import com.yandex.mobile.ads.banner.BannerAdEventListener
 import com.yandex.mobile.ads.banner.BannerAdSize
 import com.yandex.mobile.ads.banner.BannerAdView
@@ -61,7 +68,11 @@ import com.yandex.mobile.ads.nativeads.template.NativeBannerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.net.NetworkInterface
+import java.net.URL
+import java.util.Collections
 import java.util.Locale
+import java.util.concurrent.Executors
 import kotlin.math.roundToInt
 
 
@@ -71,6 +82,7 @@ class CommonActivity : AppCompatActivity() {
     private var beginDebugFile: Button? = null
     private var sendDebugFile: Button? = null
     private var deleteDebugFile: Button? = null
+    private  var jio_in_stream : Button? = null
     private var yandexAdsFile: Button? = null
 
 
@@ -85,14 +97,19 @@ class CommonActivity : AppCompatActivity() {
 
     //yandex mediation
     private var banner_ad_view_container : FrameLayout? = null
+
     private var bannerAd: BannerAdView? = null
     private lateinit var adFormatManager: AdFormatManager
 
     // unity ads
 
     private var unity_ads_banner : FrameLayout? = null
-    private var topBanner: BannerView? = null
-
+  //  private var topBanner: BannerView? = null
+ // jio ads
+    private var dynamicDispalyAdView: JioAdView? = null
+    private var adspot: String? = null
+    private val sizeList: MutableList<DynamicDisplaySize> = ArrayList()
+    private var jio_banner : FrameLayout?= null
 
 
 
@@ -121,44 +138,69 @@ class CommonActivity : AppCompatActivity() {
         mainLayout = findViewById(R.id.mainView)
         ad_container_admob = findViewById(R.id.ad_container_admob)
         unity_ads_banner= findViewById(R.id.unity_ads_banner)
+        jio_in_stream=findViewById(R.id.jio_in_stream);
+       // jio_banner =findViewById(R.id.jio_banner)
 
         adFormatManager = AdFormatManager(this)
         // Initialize Unity Ads:
-        initialize(
-            applicationContext, getString(R.string.unity_game_id),
-            false
-        )
-             loadUnityBannerAds()
+//        initialize(
+//            applicationContext, getString(R.string.unity_game_id),
+//            false
+//        )
+//             loadUnityBannerAds()
              loadBannerYandexAds()
 
       //  loadNativeAd(nativeAdView)
           iZooto.promptForPushNotifications()
-
+         startCacheAd()
        // initializeRemoteConfig()
 
         loadBannerAds("")
 
 
 
-    //iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
-//        try {
-//            linearLayout = findViewById(R.id.adLayout)
-//            remoteConfig = Firebase.remoteConfig
-//            val configSettings = remoteConfigSettings {
-//                minimumFetchIntervalInSeconds = 0 // Set to 0 for testing to always fetch fresh data
-//            }
-//            remoteConfig.setConfigSettingsAsync(configSettings)
-//            remoteConfig.setDefaultsAsync(R.xml.remote_config_default)
-//            //setAdUnitId(this)
-//        } catch (ex: Exception) {
-//            Log.e(TAG, "AdUnit execution failure " + ex.message)
-//        }
+
+        jio_in_stream?.setOnClickListener{ view ->
+            (view as? Button)?.let {
+                val intent = Intent(this@CommonActivity, JioAdsActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
 
         permissionFile?.setOnClickListener { view ->
             (view as? Button)?.let {
-                requestPermission()
+               // requestPermission()
 
             }
+        }
+
+
+
+        Log.e(" iZooto Device Brand",Build.BRAND)
+        Log.e("iZooto Device Product",Build.PRODUCT)
+        Log.e("iZooto Device DEVICE",Build.DEVICE)
+        Log.e("iZooto Device MANUFACTURER",Build.MANUFACTURER)
+        Log.e("iZooto Device MODEL",Build.MODEL)
+        Log.e("iZooto Device DISPLAY",Build.DISPLAY)
+        Log.e("iZooto Device DISPLAY",Build.ID)
+        Log.e("iZooto Device DISPLAY",getAndroidId())
+        Log.e("iZooto Device MAC ADDRESS",getMacAddress())
+        Log.e("iZooto Device Local IP", getLocalIpAddress().toString())
+
+
+        getPublicIpAddress { publicIp ->
+            Log.d(" iZooto  Device IP_ADDRESS", "Public IP: $publicIp")
+        }
+
+
+
+
+        val deviceFingerprint = DeviceFingerprint(this)
+        val fingerprintData = deviceFingerprint.getDeviceFingerprint()
+
+        for ((key, value) in fingerprintData) {
+            Log.d("DeviceFingerprint", "$key: $value")
         }
 
         beginDebugFile?.setOnClickListener { view ->
@@ -222,55 +264,93 @@ class CommonActivity : AppCompatActivity() {
 //            startActivity(intent)
 //        }
     }
-
-    private fun loadUnityBannerAds() {
-        topBanner =
-            BannerView(this, getString(R.string.banner_ad_unit_id), UnityBannerSize.getDynamicSize(this)) //UnityBannerSize(320, 50)
-        // Set the listener for banner lifecycle events:
-        topBanner!!.listener = bannerListener
-        topBanner?.load()
-        // Associate the banner view object with the banner view:
-        unity_ads_banner?.addView(topBanner)
-
+    private fun getMacAddress(): String {
+        try {
+            val interfaces = NetworkInterface.getNetworkInterfaces()
+            for (networkInterface in Collections.list(interfaces)) {
+                val mac = networkInterface.hardwareAddress ?: continue
+                return mac.joinToString(separator = ":") { String.format("%02X", it) }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return "Unknown"
     }
 
+    private fun getLocalIpAddress(): String? {
+        val wifiManager = this.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val wifiInfo = wifiManager.connectionInfo
+        val ip = wifiInfo.ipAddress
 
-
-    private val bannerListener: BannerView.IListener = object : BannerView.IListener {
-        override fun onBannerLoaded(bannerAdView: BannerView) {
-            // Called when the banner is loaded.
-            Log.v("UnityAdsExample", "onBannerLoaded: " + bannerAdView.placementId)
-        }
-
-        override fun onBannerShown(bannerAdView: BannerView?) {
-            // Enable the correct button to hide the ad
-
-            Log.v("UnityAdsExample", "onBannerShown: " + bannerAdView?.isShown)
-
-        }
-
-        override fun onBannerFailedToLoad(bannerAdView: BannerView, errorInfo: BannerErrorInfo) {
-            Log.e(
-                "UnityAdsExample",
-                "Unity Ads failed to load banner for " + bannerAdView.placementId + " with error: [" + errorInfo.errorCode + "] " + errorInfo.errorMessage
-            )
-            loadBannerAds("")
-            // Note that the BannerErrorInfo object can indicate a no fill (refer to the API documentation).
-        }
-
-        override fun onBannerClick(bannerAdView: BannerView) {
-            // Called when a banner is clicked.
-            Log.v("UnityAdsExample", "onBannerClick: " + bannerAdView.placementId)
-        }
-
-        override fun onBannerLeftApplication(bannerAdView: BannerView) {
-            // Called when the banner links out of the application.
-            Log.v("UnityAdsExample", "onBannerLeftApplication: " + bannerAdView.placementId)
+        return if (ip != 0) {
+            String.format("%d.%d.%d.%d", ip and 0xFF, ip shr 8 and 0xFF, ip shr 16 and 0xFF, ip shr 24 and 0xFF)
+        } else {
+            null
         }
     }
 
+//    private fun loadUnityBannerAds() {
+//        topBanner =
+//            BannerView(this, getString(R.string.banner_ad_unit_id), UnityBannerSize.getDynamicSize(this)) //UnityBannerSize(320, 50)
+//        // Set the listener for banner lifecycle events:
+//        topBanner!!.listener = bannerListener
+//        topBanner?.load()
+//        // Associate the banner view object with the banner view:
+//        unity_ads_banner?.addView(topBanner)
+//
+//    }
 
 
+
+//    private val bannerListener: BannerView.IListener = object : BannerView.IListener {
+//        override fun onBannerLoaded(bannerAdView: BannerView) {
+//            // Called when the banner is loaded.
+//            Log.v("UnityAdsExample", "onBannerLoaded: " + bannerAdView.placementId)
+//        }
+//
+//        override fun onBannerShown(bannerAdView: BannerView?) {
+//            // Enable the correct button to hide the ad
+//
+//            Log.v("UnityAdsExample", "onBannerShown: " + bannerAdView?.isShown)
+//
+//        }
+//
+//        override fun onBannerFailedToLoad(bannerAdView: BannerView, errorInfo: BannerErrorInfo) {
+//            Log.e(
+//                "UnityAdsExample",
+//                "Unity Ads failed to load banner for " + bannerAdView.placementId + " with error: [" + errorInfo.errorCode + "] " + errorInfo.errorMessage
+//            )
+//            loadBannerAds("")
+//            // Note that the BannerErrorInfo object can indicate a no fill (refer to the API documentation).
+//        }
+//
+//        override fun onBannerClick(bannerAdView: BannerView) {
+//            // Called when a banner is clicked.
+//            Log.v("UnityAdsExample", "onBannerClick: " + bannerAdView.placementId)
+//        }
+//
+//        override fun onBannerLeftApplication(bannerAdView: BannerView) {
+//            // Called when the banner links out of the application.
+//            Log.v("UnityAdsExample", "onBannerLeftApplication: " + bannerAdView.placementId)
+//        }
+//    }
+
+
+    fun getPublicIpAddress(callback: (String?) -> Unit) {
+        Executors.newSingleThreadExecutor().execute {
+            try {
+                val ip = URL("https://api64.ipify.org").readText()
+                callback(ip)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                callback(null)
+            }
+        }
+    }
+
+    private fun getAndroidId(): String {
+        return Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID) ?: "Unknown"
+    }
     private fun loadBannerAds(bannerAdsUnitID: String) {
     val defaultAdUnit = "/23206713921/izooto_demo/com.k.deeplinkingtesting_banner"// // GAM Test Ad Unit ID\n"//"/23206713921/izooto_demo/com.k.deeplinkingtesting_banner"
     val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit
@@ -325,6 +405,7 @@ class CommonActivity : AppCompatActivity() {
             Log.e("RemoteConfig", "Error initializing RemoteConfig: ${e.message}")
         }
     }
+
 
     private fun fetchRemoteConfig() {
         try {
@@ -572,8 +653,84 @@ override fun onBackPressed() {
     override fun onResume() {
         super.onResume()
     }
+    private fun startCacheAd() {
+
+        jio_banner = findViewById(R.id.jio_banner)
+        dynamicDispalyAdView =
+            JioAdView(
+                this,
+                "ityd8071",
+                JioAdView.AD_TYPE.DYNAMIC_DISPLAY
+            )
+        dynamicDispalyAdView!!.setAdListener(object : JioAdListener() {
+            override fun onAdClosed(
+                jioAdView: JioAdView?,
+                isVideoCompleted: Boolean,
+                isEligibleForReward: Boolean
+            ) {
+                Log.i(
+                    TAG,
+                    "Inside On adClosed,isCompleted $isVideoCompleted and isRewardEligible: $isEligibleForReward"
+                )
+                //showToast("Ad is Closed..")
+            }
+
+            override fun onAdFailedToLoad(jioAdView: JioAdView?, jioAdError: JioAdError?) {
+                Log.i(
+                    TAG,
+                    "Inside onFailedToLoad Title: ${jioAdError!!.getErrorTitle()} and code : ${jioAdError.getErrorCode()}"
+                )
+               // showToast("Ad Failed to load")
+            }
+
+            override fun onAdMediaEnd(jioAdView: JioAdView?) {
+                Log.i(TAG, "Inside On MediaEnd")
+               // showToast("Inside On MediaEnd")
+
+            }
+
+            override fun onAdPrepared(jioAdView: JioAdView?) {
+
+                Log.i(TAG, "Inside onAdPrepared")
+               // showToast("Ad is prepared")
+
+                startShowAd()
+
+            }
+
+            override fun onAdRender(jioAdView: JioAdView?) {
+                Log.i(TAG, "Inside on AdClicked")
+               // showToast("Ad Clicked")
+            }
+
+            override fun onAdRefresh(jioAdView: JioAdView?) {
+                Log.i(TAG, "Inside onAdRefresh")
+                super.onAdRefresh(jioAdView)
+               // showToast("Ad Refresh")
+            }
+        })
+
+        sizeList.add(DynamicDisplaySize.SIZE_300x250)
+        dynamicDispalyAdView?.setDisplayAdSize(sizeList) // set size
+
+        dynamicDispalyAdView?.cacheAd()
+    }
+
+    private fun startShowAd() {
+        if (dynamicDispalyAdView!!.getAdState() == JioAdView.AdState.PREPARED) {
+
+            jio_banner?.removeAllViews()
+            jio_banner?.addView(dynamicDispalyAdView?.getAdView())
+            jio_banner?.visibility = View.VISIBLE
+           // showToast("Publisher called load ad")
+
+            dynamicDispalyAdView?.loadAd()
+        }
+    }
 
     override fun onDestroy() {
+        dynamicDispalyAdView?.onDestroy()
+
         super.onDestroy()
     }
     private fun loadNativeAd(nativeAdView : NativeAdView) {

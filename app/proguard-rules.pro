@@ -90,3 +90,5 @@
 -keep public class com.android.installreferrer.** { *; }
 -keep class com.appsflyer.** { *; }
 -keep class kotlin.jvm.internal.** { *; }
+-keep public class com.jio.jioads.mediation.partners.GoogleIMA { public
+<fields>; public <methods>; }

@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.applovin.sdk.AppLovinSdk
-import com.facebook.ads.AudienceNetworkAds
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -24,13 +22,14 @@ import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.izooto.NotificationHelperListener
 import com.izooto.Payload
 import com.izooto.iZooto
-import com.momagic.DATB
-import com.unity3d.ads.UnityAds.initialize
+import com.jio.jioads.adinterfaces.JioAds
+import com.k.deeplinkingtesting.jioads.CustomTrustManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.yandex.mobile.ads.common.MobileAds
-
+import javax.net.ssl.HttpsURLConnection
+import javax.net.ssl.SSLContext
 
 
 class AppController : Application(), LifecycleObserver, Application.ActivityLifecycleCallbacks {
@@ -48,49 +47,37 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
                 MobileAds.initialize(this@AppController) {}
             }
             MobileAds.enableLogging(true)
-            AudienceNetworkAds.initialize(this);
 
-
-            AppLovinSdk.getInstance(this).mediationProvider = "max"
-            AppLovinSdk.initializeSdk(this) {
-                Log.d("AppLovin", "SDK Initialized")
-            }
 
             FirebaseApp.initializeApp(this);
+            // Jio Ads Integration
+
+
+            JioAds.getInstance().setEnvironment(JioAds.Environment.PROD)
+            JioAds.getInstance().setLogLevel(JioAds.LogLevel.DEBUG)
+            JioAds.getInstance().init(applicationContext)
+
+            val trustManager = CustomTrustManager()
+            val sslContext = SSLContext.getInstance("TLS")
+            sslContext.init(null, arrayOf(trustManager), null)
+
+            HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.socketFactory)
+
+
+
+
+
+
 
 
             appOpenAdManager = AppOpenAdManager()
             appOpenAdManager.loadAd(this)
-//            AppsFlyerLib.getInstance().start(this,"n4PpcqgB26iKgyJ7GzyzDD", object :
-//                AppsFlyerRequestListener {
-//                override fun onSuccess() {
-//                    Log.d("LOG_TAG", "Launch sent successfully")
-//                }
-//
-//                override fun onError(errorCode: Int, errorDesc: String) {
-//                    Log.d("LOG_TAG", "Launch failed to be sent:\n" +
-//                            "Error code: " + errorCode + "\n"
-//                            + "Error description: " + errorDesc)
-//                }
-//            })
-           // AppsFlyerLib.getInstance().start(this);
+
 
         } catch (ex: Exception) {
             Log.e("AppController", "Ads execution failure " + ex.message)
         }
 
-        val TR_SDK_KEY: String = "24da4b0a-80af-4043-bfaf-24cbf277e642"
-              // Please pass your SDK key here.
-
-        /* While Initializing the SDK, You need to pass the three parameter in the TrackierSDKConfig.
-            * In First argument, you need to pass context of the application
-            * In second argument, you need to pass the Trackier SDK api key
-            * In third argument, you need to pass the environment which can be either "development", "production" or "testing". */
-       // val sdkConfig = TrackierSDKConfig(this, TR_SDK_KEY, "development")
-       // TrackierSDK.initialize(sdkConfig)
-      //  Outbrain.register(this, "DATAB2HQ71I65P5JML02NJDEE");
-      //  Outbrain.setTestMode(true); // Skipping all billing, statistics, information gathering, and all other action mechanisms.
-      //  Outbrain.testLocation("en");
         iZooto.initialize(this)
             .setTokenReceivedListener { token: String? -> Log.e("Token", token!!) }
             .setLandingURLListener { landingUrl: String? ->
@@ -115,17 +102,6 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             .build()
 
 
-        //mo-magic SDK initialise
-        DATB.initialize(this)
-            .setTokenReceivedListener { token: String? -> Log.e("Token", token!!) }
-            .setLandingURLListener { landingUrl: String? ->
-                Log.e("landing URL", landingUrl!!)
-                val intent = Intent(applicationContext, MainActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            }
-
-            .build()
 
 
         val remoteConfig = Firebase.remoteConfig
@@ -135,11 +111,6 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
         remoteConfig.setConfigSettingsAsync(configSettings)
         remoteConfig.setDefaultsAsync(R.xml.remote_config_default)
 
-//        AppLovinSdk.getInstance(this).mediationProvider = "max"
-//        AppLovinSdk.initializeSdk(this,{ configuration: AppLovinSdkConfiguration ->
-//            appOpenManager = ExampleAppOpenManager(applicationContext)
-//            Log.d("AppLovin", "SDK Initialized")
-//        })
 
     }
 
