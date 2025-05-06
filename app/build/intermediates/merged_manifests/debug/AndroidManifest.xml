@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.k.deeplinkingtesting"
-    android:versionCode="117"
-    android:versionName="7.5.2" >
+    android:versionCode="120"
+    android:versionName="7.5.4" >
 
     <uses-sdk
         android:minSdkVersion="24"
-        android:targetSdkVersion="34" />
+        android:targetSdkVersion="35" />
 
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -26,11 +27,15 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.k.deeplinkingtesting.permission.C2D_MESSAGE" />
-    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_TOPICS" />
     <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
-    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_TOPICS" /> <!-- Android package visibility setting -->
-    <queries>
 
+    <queries>
+        <package android:name="com.appnext.core" />
+
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
         <!-- For browser content -->
         <intent>
             <action android:name="android.intent.action.VIEW" />
@@ -38,13 +43,11 @@
             <category android:name="android.intent.category.BROWSABLE" />
 
             <data android:scheme="https" />
-        </intent>
-        <!-- End of browser content -->
+        </intent> <!-- End of browser content -->
         <!-- For CustomTabsService -->
         <intent>
             <action android:name="android.support.customtabs.action.CustomTabsService" />
-        </intent>
-        <!-- End of CustomTabsService -->
+        </intent> <!-- End of CustomTabsService -->
         <!-- For MRAID capabilities -->
         <intent>
             <action android:name="android.intent.action.INSERT" />
@@ -60,18 +63,6 @@
             <action android:name="android.intent.action.DIAL" />
 
             <data android:path="tel:" />
-        </intent>
-        <!-- End of MRAID capabilities -->
-        <intent>
-            <action android:name="android.intent.action.ACTION_VIEW" />
-
-            <data android:scheme="https" />
-        </intent>
-
-        <package android:name="com.android.chrome" />
-
-        <intent>
-            <action android:name="com.android.vending.billing.InAppBillingService.BIND" />
         </intent>
         <intent>
             <action android:name="com.applovin.am.intent.action.APPHUB_SERVICE" />
@@ -92,20 +83,19 @@
             <data android:scheme="market" />
         </intent>
 
-        <package android:name="com.facebook.katana" />
+        <package android:name="com.android.chrome" />
 
         <intent>
-            <action android:name="com.digitalturbine.ignite.cl.IgniteRemoteService" />
-        </intent>
-        <intent>
-            <action android:name="android.intent.action.MAIN" />
+            <action android:name="com.android.vending.billing.InAppBillingService.BIND" />
         </intent>
         <intent>
             <action android:name="android.intent.action.VIEW" />
         </intent>
     </queries>
 
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="com.applovin.array.apphub.permission.BIND_APPHUB_SERVICE" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
     <uses-feature
@@ -125,7 +115,6 @@
         android:required="false" />
 
     <uses-permission android:name="com.android.vending.BILLING" />
-    <uses-permission android:name="com.applovin.array.apphub.permission.BIND_APPHUB_SERVICE" />
 
     <permission
         android:name="com.k.deeplinkingtesting.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -150,36 +139,15 @@
         android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.k.deeplinkingtesting.iron.IronSourceActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name="com.k.deeplinkingtesting.YadexAdsActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.k.deeplinkingtesting.OutbrainWidgetJSActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
-        <activity
             android:name="com.k.deeplinkingtesting.OutBrainContentActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.k.deeplinkingtesting.ClassicWithImageActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.k.deeplinkingtesting.gridlayout.GridWithImagesActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.k.deeplinkingtesting.SmartFeed.SmartFeedActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.k.deeplinkingtesting.SmartFeed.SmartFeedMidFeedActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
@@ -187,40 +155,13 @@
             android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.k.deeplinkingtesting.VideoWidget.VideoWidgetActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.k.deeplinkingtesting.SFWebView.SFWebViewRecyclerViewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.k.deeplinkingtesting.SFWebView.SFWebViewScrollViewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name="com.k.deeplinkingtesting.admob.AdMobActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.k.deeplinkingtesting.admob.GridViewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9298860897894361~4907509724" />
-        <meta-data
-            android:name="com.google.android.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6163874413910130~5469305361" />
-        <meta-data
-            android:name="applovin.sdk.key"
-            android:value="MmHLJLwlhhLwuWZiNeyeLte3zfmk4GImmOIOs6U5eCW31mzSvyzXbhJuoTTGhgAmLvAnTNibCSqHrppumwVLAW" />
-
-        <activity
             android:name="com.k.deeplinkingtesting.SplashScreen"
             android:exported="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -232,36 +173,37 @@
             android:name="com.k.deeplinkingtesting.CommonActivity"
             android:exported="true"
             android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.k.deeplinkingtesting.unityAds.UnityAdsActivity"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme" />
         <activity
             android:name="com.k.deeplinkingtesting.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.k.deeplinkingtesting.insteam.SwipableActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.k.deeplinkingtesting.Drawer.SlidingDrawerActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.k.deeplinkingtesting.productionOubtbrain.OutbrainSDKActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme" />
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9298860897894361~4907509724" />
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="ggxNg5sqhrbeMBss7fAxxiTz9OrB77ryIb9axTCf96I7VTlDMHshwgt7Ceupmf2Wytx4ObibGTI0vlnVNRlSPK" />
+        <meta-data
+            android:name="com.yandex.mobileads.sdk.KEY"
+            android:value="@string/yandex_app_id" />
         <meta-data
             android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
             android:value="true" />
-        <meta-data
-            android:name="inmobi.ads.appid"
-            android:value="a88706c59d424c06a859344b540b5555" />
 
+        <provider
+            android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider"
+            android:authorities="com.k.deeplinkingtesting.IronsourceLifecycleProvider"
+            android:exported="false" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.k.deeplinkingtesting.provider"
@@ -344,64 +286,13 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" />
-        <activity
-            android:name="com.ironsource.sdk.controller.ControllerActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:hardwareAccelerated="true" />
-        <activity
-            android:name="com.ironsource.sdk.controller.InterstitialActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Translucent" />
-        <activity
-            android:name="com.ironsource.sdk.controller.OpenUrlActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Translucent" />
-        <activity
-            android:name="jp.maio.sdk.android.v2.AdActivity"
-            android:configChanges="orientation|screenLayout|screenSize"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="jp.maio.sdk.android.v2.PlayableActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent" />
 
-        <provider
-            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
-            android:authorities="com.k.deeplinkingtesting.mobileadsinitprovider"
-            android:exported="false"
-            android:initOrder="100" />
-
-        <service
-            android:name="com.google.android.gms.ads.AdService"
-            android:enabled="true"
-            android:exported="false" />
-
-        <activity
-            android:name="com.google.android.gms.ads.OutOfContextTestingActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:exported="false" />
-        <activity
-            android:name="com.google.android.gms.ads.NotificationHandlerActivity"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:launchMode="singleTask"
-            android:taskAffinity=""
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <property
-            android:name="android.adservices.AD_SERVICES_CONFIG"
-            android:resource="@xml/gma_ad_services_config" />
+        <meta-data
+            android:name="@string/yandex_mobileads_age_restricted_user"
+            android:value="true" />
+        <meta-data
+            android:name="com.yandex.mobile.ads.SINGLE_ASSEMBLY_ENABLED"
+            android:value="true" />
 
         <activity
             android:name="com.unity3d.services.ads.adunit.AdUnitActivity"
@@ -453,7 +344,67 @@
             <meta-data
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
-        </provider>
+        </provider> <!-- Appnext integration -->
+        <activity
+            android:name="com.appnext.ads.interstitial.InterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:multiprocess="true"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.appnext.ads.fullscreen.FullscreenActivity"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:multiprocess="true"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.appnext.banners.BannerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.appnext.core.ResultActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.appnext.core.result.ResultPageActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <provider
+            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
+            android:authorities="com.k.deeplinkingtesting.mobileadsinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <service
+            android:name="com.google.android.gms.ads.AdService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name="com.google.android.gms.ads.OutOfContextTestingActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.google.android.gms.ads.NotificationHandlerActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config" />
 
         <service
             android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
@@ -547,31 +498,6 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name="com.yandex.mobile.ads.common.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@style/MonetizationAdsInternal.AdActivity" />
-
-        <provider
-            android:name="com.yandex.mobile.ads.core.initializer.MobileAdsInitializeProvider"
-            android:authorities="com.k.deeplinkingtesting.MobileAdsInitializeProvider"
-            android:exported="false" />
-
-        <activity
-            android:name="com.yandex.mobile.ads.features.debugpanel.ui.IntegrationInspectorActivity"
-            android:exported="false"
-            android:theme="@style/DebugPanelTheme" />
-
-        <provider
-            android:name="com.yandex.mobile.ads.features.debugpanel.data.local.DebugPanelFileProvider"
-            android:authorities="com.k.deeplinkingtesting.monetization.ads.inspector.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/debug_panel_file_paths" />
-        </provider>
-
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
             android:directBootAware="true"
@@ -660,109 +586,40 @@
             android:exported="false"
             android:initOrder="100" />
 
-        <receiver
-            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-            android:enabled="true"
-            android:exported="false" >
-        </receiver>
-
-        <service
-            android:name="com.google.android.gms.measurement.AppMeasurementService"
-            android:enabled="true"
-            android:exported="false" />
-        <service
-            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-            android:enabled="true"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <uses-library
-            android:name="android.ext.adservices"
-            android:required="false" />
-
-        <service
-            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
-            android:enabled="true"
-            android:exported="false" >
-            <meta-data
-                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
-                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
-        </service>
-
         <activity
-            android:name="androidx.credentials.playservices.HiddenActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:enabled="true"
-            android:exported="false"
-            android:fitsSystemWindows="true"
-            android:theme="@style/Theme.Hidden" >
-        </activity>
-        <activity
-            android:name="com.chartboost.sdk.view.CBImpressionActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
-            android:enableOnBackInvokedCallback="true"
-            android:excludeFromRecents="true"
-            android:exported="false"
+            android:name="com.tapjoy.TJAdUnitActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.chartboost.sdk.internal.clickthrough.EmbeddedBrowserActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:exported="false"
+            android:name="com.tapjoy.TJContentActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" /> <!-- ExoPlayer DownloadService -->
-        <service
-            android:name="com.chartboost.sdk.internal.video.repository.exoplayer.VideoRepositoryDownloadService"
-            android:exported="false" >
-
-            <!-- This is needed for Scheduler -->
-            <intent-filter>
-                <action android:name="com.google.android.exoplayer.downloadService.action.RESTART" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--
-            Service handling Google Sign-In user revocation. For apps that do not integrate with
-            Google Sign-In, this service will never be started.
-        -->
-        <service
-            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-            android:exported="true"
-            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-            android:visibleToInstantApps="true" /> <!-- suppress AndroidDomInspection -->
-        <activity
-            android:name="com.my.target.common.MyTargetActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+            android:name="com.yandex.mobile.ads.common.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@style/MonetizationAdsInternal.AdActivity" />
 
         <provider
-            android:name="com.my.target.common.MyTargetContentProvider"
-            android:authorities="com.k.deeplinkingtesting.mytargetcontentprovider"
-            android:enabled="true"
+            android:name="com.yandex.mobile.ads.core.initializer.MobileAdsInitializeProvider"
+            android:authorities="com.k.deeplinkingtesting.MobileAdsInitializeProvider"
             android:exported="false" />
 
-        <meta-data
-            android:name="com.google.android.play.billingclient.version"
-            android:value="6.2.1" />
-
         <activity
-            android:name="com.android.billingclient.api.ProxyBillingActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:name="com.yandex.mobile.ads.features.debugpanel.ui.IntegrationInspectorActivity"
             android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.android.billingclient.api.ProxyBillingActivityV2"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@style/DebugPanelTheme" />
 
+        <provider
+            android:name="com.yandex.mobile.ads.features.debugpanel.data.local.DebugPanelFileProvider"
+            android:authorities="com.k.deeplinkingtesting.monetization.ads.inspector.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/debug_panel_file_paths" />
+        </provider>
         <provider
             android:name="com.applovin.sdk.AppLovinInitProvider"
             android:authorities="com.k.deeplinkingtesting.applovininitprovider"
@@ -856,11 +713,47 @@
             android:exported="false"
             android:stopWithTask="false" />
 
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <activity
+            android:name="com.chartboost.sdk.view.CBImpressionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.tapjoy.TJWebViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.inmobi.ads.rendering.InMobiAdActivity"
             android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout|locale|fontScale|uiMode"
             android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.NoTitleBar" /> <!-- AppMetrica Analytics: common service -->
+            android:theme="@android:style/Theme.NoTitleBar" /> <!-- suppress AndroidDomInspection -->
+        <activity
+            android:name="com.my.target.common.MyTargetActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+        <provider
+            android:name="com.my.target.common.MyTargetContentProvider"
+            android:authorities="com.k.deeplinkingtesting.mytargetcontentprovider"
+            android:enabled="true"
+            android:exported="false" /> <!-- AppMetrica Analytics: common service -->
         <service
             android:name="io.appmetrica.analytics.internal.AppMetricaService"
             android:enabled="true"
@@ -882,19 +775,46 @@
             android:process=":AppMetrica" />
 
         <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+            Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+            android:visibleToInstantApps="true" />
+
+        <meta-data
+            android:name="com.google.android.play.billingclient.version"
+            android:value="6.2.1" />
+
+        <activity
+            android:name="com.android.billingclient.api.ProxyBillingActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.facebook.ads.AudienceNetworkActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
+            android:name="com.android.billingclient.api.ProxyBillingActivityV2"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <provider
-            android:name="com.facebook.ads.AudienceNetworkContentProvider"
-            android:authorities="com.k.deeplinkingtesting.AudienceNetworkContentProvider"
-            android:exported="false" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <uses-library
+            android:name="android.ext.adservices"
+            android:required="false" />
 
         <activity
             android:name="com.vungle.ads.internal.ui.VungleActivity"
@@ -904,11 +824,7 @@
 
         <meta-data
             android:name="com.bytedance.sdk.pangle.version"
-            android:value="6.5.0.3" /> <!-- 下面的activity和service必须注册 -->
-        <activity
-            android:name="com.bytedance.sdk.openadsdk.activity.TTCeilingLandingPageActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="standard" />
+            android:value="6.4.0.2" /> <!-- 下面的activity和service必须注册 -->
         <activity
             android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -986,7 +902,28 @@
             android:name="androidx.room.MultiInstanceInvalidationService"
             android:directBootAware="true"
             android:exported="false" />
+        <service
+            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+            android:exported="false" >
+            <meta-data
+                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+                android:value="cct" />
+        </service>
 
+        <activity
+            android:name="com.ironsource.sdk.controller.ControllerActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name="com.ironsource.sdk.controller.InterstitialActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.ironsource.sdk.controller.OpenUrlActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" />
         <activity
             android:name="com.ironsource.mediationsdk.testSuite.TestSuiteActivity"
             android:configChanges="orientation|screenSize"
@@ -997,11 +934,6 @@
                 android:name="android.webkit.WebView.EnableSafeBrowsing"
                 android:value="true" />
         </activity>
-
-        <provider
-            android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider"
-            android:authorities="com.k.deeplinkingtesting.IronsourceLifecycleProvider"
-            android:exported="false" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"
@@ -1024,13 +956,6 @@
         </receiver>
 
         <service
-            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-            android:exported="false" >
-            <meta-data
-                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-                android:value="cct" />
-        </service>
-        <service
             android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" >
@@ -1041,31 +966,79 @@
             android:exported="false" />
 
         <activity
-            android:name="com.fyber.inneractive.sdk.activities.InneractiveInternalBrowserActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="fullUser" />
+            android:name="sg.bigo.ads.ad.splash.AdSplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme" />
         <activity
-            android:name="com.fyber.inneractive.sdk.activities.InneractiveFullscreenAdActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
-            android:hardwareAccelerated="true"
+            android:name="sg.bigo.ads.ad.splash.LandscapeAdSplashActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme" />
+
+        <provider
+            android:name="sg.bigo.ads.controller.provider.BigoAdsProvider"
+            android:authorities="com.k.deeplinkingtesting.BigoAdsProvider"
+            android:exported="false" />
+
+        <activity
+            android:name="sg.bigo.ads.controller.form.AdFormActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="sg.bigo.ads.api.AdActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="sg.bigo.ads.api.PopupAdActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransparentDialog"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="sg.bigo.ads.api.LandingStyleableActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="sg.bigo.ads.api.LandscapeAdActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="sg.bigo.ads.api.CompanionAdActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="sg.bigo.ads.api.LandscapeCompanionAdActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="sg.bigo.ads.core.mraid.MraidVideoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.fyber.inneractive.sdk.activities.InneractiveRichMediaVideoPlayerActivityCore"
-            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.fyber.inneractive.sdk.activities.InternalStoreWebpageActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
+            android:name="com.mbridge.msdk.reward.player.MBRewardVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:excludeFromRecents="true"
-            android:screenOrientation="sensor"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.fyber.inneractive.sdk.activities.FyberReportAdActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="fullUser" /> <!-- mbridge base activity -->
+            android:name="com.mbridge.msdk.newreward.player.MBRewardVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- mbridge base activity -->
         <activity
             android:name="com.mbridge.msdk.activity.MBCommonActivity"
             android:configChanges="keyboard|orientation"
@@ -1073,17 +1046,6 @@
             android:exported="false"
             android:theme="@style/mbridge_transparent_common_activity_style" /> <!-- integration rewardVideo if aggregation nativeX pls add start -->
         <activity android:name="com.mbridge.msdk.out.LoadingActivity" /> <!-- integration rewardVideo if aggregation nativeX pls add end -->
-        <activity
-            android:name="com.mbridge.msdk.newreward.player.MBRewardVideoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.mbridge.msdk.reward.player.MBRewardVideoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <receiver
             android:name="com.mbridge.msdk.foundation.same.broadcast.NetWorkChangeReceiver"
             android:exported="true" >

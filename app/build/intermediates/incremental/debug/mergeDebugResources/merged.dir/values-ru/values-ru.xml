@@ -37,12 +37,29 @@
     <string name="ads_sdk_version">Версия SDK</string>
     <string name="advertisement_network_settings">Настройки рекламной сети</string>
     <string name="age_restricted_user">Age Restricted User</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Пароль"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Ключ доступа"</string>
     <string name="api_level">Уровень API</string>
     <string name="app_review_status">Статус ревью</string>
     <string name="app_version">Версия приложения</string>
     <string name="application_info">Информация о приложении</string>
+    <string name="bigo_ad_about_app_default">Об этом приложении</string>
+    <string name="bigo_ad_click_to_try">Нажмете, чтобы попробовать?</string>
+    <string name="bigo_ad_comment_num_text">Отзывы</string>
+    <string name="bigo_ad_cta_default">Показать еще</string>
+    <string name="bigo_ad_cta_download_default">Установить</string>
+    <string name="bigo_ad_description_default">Сейчас бесплатный доступ!</string>
+    <string name="bigo_ad_double_video_choose_video">Выберите свое любимое видео</string>
+    <string name="bigo_ad_double_video_count_down">Играй за %d секунд</string>
+    <string name="bigo_ad_download_num_text">Загрузки</string>
+    <string name="bigo_ad_ic_application">Приложение</string>
+    <string name="bigo_ad_ic_everyone">Каждый</string>
+    <string name="bigo_ad_ic_recommended">рекомендуемые</string>
+    <string name="bigo_ad_ic_web">Интернет</string>
+    <string name="bigo_ad_lose_reward">Вы потеряете свою награду.</string>
+    <string name="bigo_ad_multi_img_more_text">Более</string>
+    <string name="bigo_ad_resume">Возобновить</string>
+    <string name="bigo_ad_skip">Пропустить</string>
+    <string name="bigo_ad_skip_video">Пропустить видео?</string>
+    <string name="bigo_ad_title_default">Фантастическое и интересное</string>
     <string name="bottomsheet_action_collapse">Свернуть нижний экран</string>
     <string name="bottomsheet_action_expand">Развернуть нижний экран</string>
     <string name="bottomsheet_action_expand_halfway">Развернуть наполовину</string>
@@ -87,20 +104,18 @@
     <string name="enable">Включить</string>
     <string name="error_a11y_label">Ошибка: недопустимое значение</string>
     <string name="error_icon_content_description">Ошибка</string>
-    <string name="exo_download_completed">Скачивание завершено</string>
-    <string name="exo_download_description">Скачать</string>
-    <string name="exo_download_downloading">Скачивание…</string>
-    <string name="exo_download_failed">Ошибка скачивания</string>
-    <string name="exo_download_notification_channel_name">Скачивания</string>
-    <string name="exo_download_paused">Скачивание приостановлено</string>
-    <string name="exo_download_paused_for_network">Ожидание подключения к сети</string>
-    <string name="exo_download_paused_for_wifi">Ожидание подключения к Wi-Fi</string>
-    <string name="exo_download_removing">Удаление скачанных файлов…</string>
     <string name="exposed_dropdown_menu_content_description">Показать раскрывающееся меню</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Копировать ссылку"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Открыть в браузере"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Отправить ссылку"</string>
     <string name="features">Функции</string>
+    <string name="form_agree">Я согласен(-на)</string>
+    <string name="form_cancel">Отмена</string>
+    <string name="form_privacy_content">Отправляя эту форму, вы соглашаетесь передать свои личные данные BIGO Ads и {company_name}. BIGO Ads и {company_name} будут использовать эту информацию в соответствии со своими политиками конфиденциальности. Ознакомьтесь с Политикой конфиденциальности BIGO и Политикой конфиденциальности {company_name}.</string>
+    <string name="form_privacy_notice">Пожалуйста, заполните это поле</string>
+    <string name="form_question_hint">Пожалуйста, заполните это поле</string>
+    <string name="form_submit">Отправить</string>
+    <string name="form_warning">Требуется ответ</string>
     <string name="has_location_consent">Has Location Consent</string>
     <string name="has_user_consent">Has User Consent</string>
     <string name="icon_content_description">Значок диалогового окна</string>

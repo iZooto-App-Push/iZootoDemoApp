@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.k.deeplinkingtesting.app-mergeDebugResources-84:/values-de-rDE/values-de-rDE.xml",
+            "outputFile": "com.k.deeplinkingtesting.app-mergeDebugResources-95:/values-de-rDE/values-de-rDE.xml",
             "map": [
                 {
-                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/213143f63c746838d0079a9bcb21ca87/transformed/jetified-mbridge_android_sdk-16.9.41/res/values-de-rDE/values-de-rDE.xml",
+                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/94112196d9a4c0a2e4968086febb4b7f/transformed/jetified-dycreator-16.8.61/res/values-de-rDE/values-de-rDE.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

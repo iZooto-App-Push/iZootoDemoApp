@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_title_marign_top_suggested_apps">6dp</dimen>
+    <dimen name="app_title_width">60dp</dimen>
+    <dimen name="apps_marign_top_suggeted_apps">3dp</dimen>
+    <dimen name="icon_height">40dp</dimen>
+    <dimen name="icon_width">40dp</dimen>
+    <dimen name="suggested_apps_title_size">10sp</dimen>
+    <integer name="suggested_apps_height">110</integer>
+</resources>

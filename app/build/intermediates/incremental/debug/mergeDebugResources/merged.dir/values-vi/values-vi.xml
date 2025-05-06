@@ -31,8 +31,21 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Chia sẻ với"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Chia sẻ với <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Thu gọn"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Mật khẩu"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Khoá truy cập"</string>
+    <string name="bigo_ad_about_app_default">Về ứng dụng này</string>
+    <string name="bigo_ad_click_to_try">Nhấn vào đây để thử?</string>
+    <string name="bigo_ad_comment_num_text">Đánh giá</string>
+    <string name="bigo_ad_cta_default">Xem thêm</string>
+    <string name="bigo_ad_cta_download_default">Cài đặt</string>
+    <string name="bigo_ad_description_default">Truy cập miễn phí ngay bây giờ!</string>
+    <string name="bigo_ad_double_video_choose_video">Chọn video yêu thích của bạn</string>
+    <string name="bigo_ad_double_video_count_down">Chơi trong %d giây</string>
+    <string name="bigo_ad_download_num_text">Tải xuống</string>
+    <string name="bigo_ad_ic_application">Ứng dụng</string>
+    <string name="bigo_ad_ic_everyone">Mọi người</string>
+    <string name="bigo_ad_ic_recommended">gợi ý</string>
+    <string name="bigo_ad_ic_web">Web</string>
+    <string name="bigo_ad_multi_img_more_text">Hơn</string>
+    <string name="bigo_ad_title_default">Tuyệt vời và thú vị</string>
     <string name="bottomsheet_action_collapse">Thu gọn bảng dưới cùng</string>
     <string name="bottomsheet_action_expand">Mở rộng bảng dưới cùng</string>
     <string name="bottomsheet_action_expand_halfway">Mở rộng một nửa</string>
@@ -69,19 +82,17 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Đã sao chép đường liên kết vào bảng nhớ tạm"</string>
     <string name="error_a11y_label">Lỗi: không hợp lệ</string>
     <string name="error_icon_content_description">Lỗi</string>
-    <string name="exo_download_completed">Đã hoàn tất tải xuống</string>
-    <string name="exo_download_description">Tải xuống</string>
-    <string name="exo_download_downloading">Đang tải xuống</string>
-    <string name="exo_download_failed">Không tải xuống được</string>
-    <string name="exo_download_notification_channel_name">Tài nguyên đã tải xuống</string>
-    <string name="exo_download_paused">Đã tạm dừng tải xuống</string>
-    <string name="exo_download_paused_for_network">Đang chờ có mạng để tải xuống</string>
-    <string name="exo_download_paused_for_wifi">Đang chờ có Wi-Fi để tải xuống</string>
-    <string name="exo_download_removing">Đang xóa các mục đã tải xuống</string>
     <string name="exposed_dropdown_menu_content_description">Hiển thị menu thả xuống</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Sao chép đường liên kết"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Mở trong trình duyệt"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Chia sẻ đường liên kết"</string>
+    <string name="form_agree">Tôi đồng ý</string>
+    <string name="form_cancel">Hủy</string>
+    <string name="form_privacy_content">Bằng cách gửi biểu mẫu này, bạn đồng ý chia sẻ thông tin cá nhân của mình với BIGO Ads và {company_name}. BIGO Ads và {company_name} sẽ sử dụng thông tin này theo chính sách quyền riêng tư tương ứng của họ. Xem Chính sách Quyền riêng tư của BIGO và Chính sách Quyền riêng tư của {company_name}.</string>
+    <string name="form_privacy_notice">Thông báo về Quyền riêng tư</string>
+    <string name="form_question_hint">Vui lòng hoàn thành trường này</string>
+    <string name="form_submit">Gửi</string>
+    <string name="form_warning">Phải đưa ra câu trả lời</string>
     <string name="icon_content_description">Biểu tượng hộp thoại</string>
     <string name="item_view_role_description">Thẻ</string>
     <string name="material_clock_toggle_content_description">Chọn SA hoặc CH</string>

@@ -31,8 +31,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Compartir con"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Compartir con <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Contraer"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Contraseña"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Llave de acceso"</string>
     <string name="bottomsheet_action_collapse">Contraer la hoja inferior</string>
     <string name="bottomsheet_action_expand">Expandir la hoja inferior</string>
     <string name="bottomsheet_action_expand_halfway">Expandir hasta la mitad</string>
@@ -69,15 +67,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Se copió el vínculo al portapapeles"</string>
     <string name="error_a11y_label">Error: No válido</string>
     <string name="error_icon_content_description">Error</string>
-    <string name="exo_download_completed">Se completó la descarga</string>
-    <string name="exo_download_description">Descargar</string>
-    <string name="exo_download_downloading">Descargando</string>
-    <string name="exo_download_failed">No se pudo descargar</string>
-    <string name="exo_download_notification_channel_name">Descargas</string>
-    <string name="exo_download_paused">Se pausaron las descargas</string>
-    <string name="exo_download_paused_for_network">Esperando red para descargas</string>
-    <string name="exo_download_paused_for_wifi">Esperando Wi-Fi para descargas</string>
-    <string name="exo_download_removing">Quitando descargas</string>
     <string name="exposed_dropdown_menu_content_description">Mostrar menú desplegable</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Copiar vínculo"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Abrir en el navegador"</string>

@@ -31,8 +31,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Կիսվել…"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Կիսվել <ns1:g id="APPLICATION_NAME">%s</ns1:g> հավելվածի միջոցով"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Ծալել"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Գաղտնաբառ"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Անցաբառ"</string>
     <string name="bottomsheet_action_collapse">Ծալել ներքևի էկրանը</string>
     <string name="bottomsheet_action_expand">Ծավալել ներքևի էկրանը</string>
     <string name="bottomsheet_action_expand_halfway">Ծավալել կիսով չափ</string>
@@ -69,15 +67,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Հղումը պատճենվեց սեղմատախտակին"</string>
     <string name="error_a11y_label">Սխալ՝ անվավեր է</string>
     <string name="error_icon_content_description">Սխալ</string>
-    <string name="exo_download_completed">Ներբեռնումն ավարտվեց</string>
-    <string name="exo_download_description">Ներբեռնել</string>
-    <string name="exo_download_downloading">Ներբեռնում</string>
-    <string name="exo_download_failed">Չհաջողվեց ներբեռնել</string>
-    <string name="exo_download_notification_channel_name">Ներբեռնումներ</string>
-    <string name="exo_download_paused">Ներբեռնումները դադարեցված են</string>
-    <string name="exo_download_paused_for_network">Ցանցի որոնում</string>
-    <string name="exo_download_paused_for_wifi">Wi-Fi ցանցի որոնում</string>
-    <string name="exo_download_removing">Ներբեռնումները հեռացվում են</string>
     <string name="exposed_dropdown_menu_content_description">Ցույց տալ իջնող ընտրացանկը</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Պատճենել հղումը"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Բացել դիտարկիչում"</string>

@@ -31,8 +31,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Дараахтай хуваалцах"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>-тай хуваалцах"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Буулгах"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Нууц үг"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Passkey"</string>
     <string name="bottomsheet_action_collapse">Доод хүснэгтийг хураах</string>
     <string name="bottomsheet_action_expand">Доод хүснэгтийг дэлгэх</string>
     <string name="bottomsheet_action_expand_halfway">Хагас дэлгэнэ үү</string>
@@ -69,15 +67,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Холбоосыг түр санах ойд хуулсан"</string>
     <string name="error_a11y_label">Алдаа: хүчингүй</string>
     <string name="error_icon_content_description">Алдаа</string>
-    <string name="exo_download_completed">Татаж дууссан</string>
-    <string name="exo_download_description">Татах</string>
-    <string name="exo_download_downloading">Татаж байна</string>
-    <string name="exo_download_failed">Татаж чадсангүй</string>
-    <string name="exo_download_notification_channel_name">Татaлт</string>
-    <string name="exo_download_paused">Таталтуудыг түр зогсоосон</string>
-    <string name="exo_download_paused_for_network">Таталтууд сүлжээг хүлээж байна</string>
-    <string name="exo_download_paused_for_wifi">Таталтууд Wi-Fi-г хүлээж байна</string>
-    <string name="exo_download_removing">Татаж авсан файлыг хасаж байна</string>
     <string name="exposed_dropdown_menu_content_description">Доош унадаг цэсийг харуулах</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Холбоосыг хуулах"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Хөтчид нээх"</string>

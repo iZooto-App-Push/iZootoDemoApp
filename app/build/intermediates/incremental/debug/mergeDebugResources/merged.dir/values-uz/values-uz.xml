@@ -31,8 +31,25 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Ulashish"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> orqali ulashish"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Yig‘ish"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Parol"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Kod"</string>
+    <string name="bigo_ad_about_app_default">Ushbu ilova haqida</string>
+    <string name="bigo_ad_click_to_try">Urinib ko‘rish uchun bosasizmi?</string>
+    <string name="bigo_ad_comment_num_text">Sharhlar</string>
+    <string name="bigo_ad_cta_default">Ko‘proq ko‘rish</string>
+    <string name="bigo_ad_cta_download_default">"O'rnatish "</string>
+    <string name="bigo_ad_description_default">Hoziroq bepul kiring!</string>
+    <string name="bigo_ad_double_video_choose_video">Sevimli videongizni tanlang</string>
+    <string name="bigo_ad_double_video_count_down">%d soniyada o‘ynang</string>
+    <string name="bigo_ad_download_num_text">Yuklashlar</string>
+    <string name="bigo_ad_ic_application">Ilova</string>
+    <string name="bigo_ad_ic_everyone">Hamma</string>
+    <string name="bigo_ad_ic_recommended">tavsiya eting</string>
+    <string name="bigo_ad_ic_web">Veb</string>
+    <string name="bigo_ad_lose_reward">Siz mukofotni yo‘qotasiz.</string>
+    <string name="bigo_ad_multi_img_more_text">Ko\'proq</string>
+    <string name="bigo_ad_resume">Davom ettirish</string>
+    <string name="bigo_ad_skip">Tashlab ketish</string>
+    <string name="bigo_ad_skip_video">Video o‘tkazib yuborilsinmi?</string>
+    <string name="bigo_ad_title_default">Fantastik va qiziqarli</string>
     <string name="bottomsheet_action_collapse">Quyi ekranni yigʻish</string>
     <string name="bottomsheet_action_expand">Quyi ekranni kengaytirish</string>
     <string name="bottomsheet_action_expand_halfway">Yarmiga kengaytirish</string>
@@ -69,19 +86,17 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Havoladan vaqtinchalik xotiraga nusxa olindi"</string>
     <string name="error_a11y_label">Xato: yaroqsiz</string>
     <string name="error_icon_content_description">Xato</string>
-    <string name="exo_download_completed">Yuklab olindi</string>
-    <string name="exo_download_description">Yuklab olish</string>
-    <string name="exo_download_downloading">Yuklab olinmoqda</string>
-    <string name="exo_download_failed">Yuklab olinmadi</string>
-    <string name="exo_download_notification_channel_name">Yuklanmalar</string>
-    <string name="exo_download_paused">Yuklanmalar pauzada</string>
-    <string name="exo_download_paused_for_network">Yuklanmalar internetga ulanishni kutmoqda</string>
-    <string name="exo_download_paused_for_wifi">Yuklanmalar Wi-Fi aloqasini kutmoqda</string>
-    <string name="exo_download_removing">Yuklanmalar olib tashlanmoqda</string>
     <string name="exposed_dropdown_menu_content_description">Pastga ochiluvchi menyuni ochish</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Havoladan nusxa olish"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Brauzerda ochish"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Havolani ulashish"</string>
+    <string name="form_agree">Roziman</string>
+    <string name="form_cancel">Bekor qilish</string>
+    <string name="form_privacy_content">Ushbu shaklni yuborish orqali siz shaxsiy maʼlumotlaringizni BIGO Ads va {company_name} kompaniyasiga ulashishga rozilik bildirasiz. BIGO Ads va {company_name} bu maʼlumotlardan oʻzlarining maxfiylik siyosatiga muvofiq foydalanadi. BIGO Maxfiylik siyosati va {company_name} Maxfiylik siyosati bilan tanishing.</string>
+    <string name="form_privacy_notice">Maxfiylik eslatmasi</string>
+    <string name="form_question_hint">Bu maydonni toʻldiring</string>
+    <string name="form_submit">Yuborih</string>
+    <string name="form_warning">Javob talab qilinadi</string>
     <string name="icon_content_description">Muloqot ikonkasi</string>
     <string name="item_view_role_description">Tab : Varaq</string>
     <string name="material_clock_toggle_content_description">Tushdan oldin yoki keyinligini tanlang</string>

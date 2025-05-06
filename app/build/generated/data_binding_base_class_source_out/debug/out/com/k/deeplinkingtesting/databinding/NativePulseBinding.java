@@ -5,15 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.gms.ads.nativead.MediaView;
-import com.google.android.gms.ads.nativead.NativeAdView;
 import com.k.deeplinkingtesting.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -30,27 +27,14 @@ public final class NativePulseBinding implements ViewBinding {
   public final LinearLayout mainView;
 
   @NonNull
-  public final TextView nativeAdHeadline;
-
-  @NonNull
-  public final MediaView nativeAdMedia;
-
-  @NonNull
-  public final NativeAdView nativeAdView;
-
-  @NonNull
   public final NestedScrollView nestedScrollView;
 
   private NativePulseBinding(@NonNull CoordinatorLayout rootView,
       @NonNull CoordinatorLayout coordinator, @NonNull LinearLayout mainView,
-      @NonNull TextView nativeAdHeadline, @NonNull MediaView nativeAdMedia,
-      @NonNull NativeAdView nativeAdView, @NonNull NestedScrollView nestedScrollView) {
+      @NonNull NestedScrollView nestedScrollView) {
     this.rootView = rootView;
     this.coordinator = coordinator;
     this.mainView = mainView;
-    this.nativeAdHeadline = nativeAdHeadline;
-    this.nativeAdMedia = nativeAdMedia;
-    this.nativeAdView = nativeAdView;
     this.nestedScrollView = nestedScrollView;
   }
 
@@ -89,24 +73,6 @@ public final class NativePulseBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.native_ad_headline;
-      TextView nativeAdHeadline = ViewBindings.findChildViewById(rootView, id);
-      if (nativeAdHeadline == null) {
-        break missingId;
-      }
-
-      id = R.id.native_ad_media;
-      MediaView nativeAdMedia = ViewBindings.findChildViewById(rootView, id);
-      if (nativeAdMedia == null) {
-        break missingId;
-      }
-
-      id = R.id.native_ad_view;
-      NativeAdView nativeAdView = ViewBindings.findChildViewById(rootView, id);
-      if (nativeAdView == null) {
-        break missingId;
-      }
-
       id = R.id.nestedScrollView;
       NestedScrollView nestedScrollView = ViewBindings.findChildViewById(rootView, id);
       if (nestedScrollView == null) {
@@ -114,7 +80,7 @@ public final class NativePulseBinding implements ViewBinding {
       }
 
       return new NativePulseBinding((CoordinatorLayout) rootView, coordinator, mainView,
-          nativeAdHeadline, nativeAdMedia, nativeAdView, nestedScrollView);
+          nestedScrollView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

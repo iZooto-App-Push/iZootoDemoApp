@@ -31,8 +31,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Paylaşın"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> ilə paylaşın"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Yığcamlaşdırın"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Parol"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Giriş açarı"</string>
     <string name="bottomsheet_action_collapse">Aşağıdakı vərəqi yığcamlaşdırın</string>
     <string name="bottomsheet_action_expand">Aşağıdakı vərəqi genişləndirin</string>
     <string name="bottomsheet_action_expand_halfway">Tam genişləndirin</string>
@@ -69,15 +67,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Link buferə kopyalandı"</string>
     <string name="error_a11y_label">Xəta: yanlışdır</string>
     <string name="error_icon_content_description">Xəta</string>
-    <string name="exo_download_completed">Endirmə tamamlandı</string>
-    <string name="exo_download_description">Endirin</string>
-    <string name="exo_download_downloading">Endirilir</string>
-    <string name="exo_download_failed">Endirmə alınmadı</string>
-    <string name="exo_download_notification_channel_name">Endirmələr</string>
-    <string name="exo_download_paused">Endirmə durdurulub</string>
-    <string name="exo_download_paused_for_network">Endirmələr şəbəkəni gözləyir</string>
-    <string name="exo_download_paused_for_wifi">Endirmələr WiFi şəbəkəsini gözləyir</string>
-    <string name="exo_download_removing">Endirilənlər silinir</string>
     <string name="exposed_dropdown_menu_content_description">Açılan menyunu göstərin</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Linki kopyalayın"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Brauzerdə açın"</string>

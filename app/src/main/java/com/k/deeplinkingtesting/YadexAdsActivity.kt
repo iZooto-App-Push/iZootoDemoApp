@@ -17,6 +17,7 @@ import com.yandex.mobile.ads.banner.BannerAdView
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
+
 class YadexAdsActivity : AppCompatActivity(R.layout.activity_yadex_ads) {
     private var bannerAd: BannerAdView? = null
     private lateinit var adFormatManager: AdFormatManager

@@ -31,8 +31,10 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"සමග බෙදා ගන්න"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> සමඟ බෙදා ගන්න"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"හකුළන්න"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"මුරපදය"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"මුරයතුර"</string>
+    <string name="bigo_ad_lose_reward">ඔබට ඔබේ ත්‍යාගය මඟහැරේ.</string>
+    <string name="bigo_ad_resume">නැවතූ තැනින් ඉදිරියට යන්න</string>
+    <string name="bigo_ad_skip">මගහරින්න</string>
+    <string name="bigo_ad_skip_video">වීඩියෝව මඟහරින්නද?</string>
     <string name="bottomsheet_action_collapse">පහළම පත්‍රය හකුළන්න</string>
     <string name="bottomsheet_action_expand">පහළම පත්‍රය දිග හරින්න</string>
     <string name="bottomsheet_action_expand_halfway">අඩක් දිග හරින්න</string>
@@ -69,15 +71,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"සබැඳිය පසුරු පුවරුවට පිටපත් කෙරිණි"</string>
     <string name="error_a11y_label">දෝෂය: වලංගු නැත</string>
     <string name="error_icon_content_description">දෝෂය</string>
-    <string name="exo_download_completed">බාගැනීම සම්පූර්ණ කරන ලදී</string>
-    <string name="exo_download_description">බාගන්න</string>
-    <string name="exo_download_downloading">බාගනිමින්</string>
-    <string name="exo_download_failed">බාගැනීම අසමත් විය</string>
-    <string name="exo_download_notification_channel_name">බාගැනීම්</string>
-    <string name="exo_download_paused">බාගැනීම් විරාම කර ඇත</string>
-    <string name="exo_download_paused_for_network">ජාලය සඳහා බාගැනීම් රැඳී සිටී</string>
-    <string name="exo_download_paused_for_wifi">WiFi සඳහා බාගැනීම් රැඳී සිටී</string>
-    <string name="exo_download_removing">බාගැනීම් ඉවත් කිරීම</string>
     <string name="exposed_dropdown_menu_content_description">පතන මෙනුව පෙන්වන්න</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"සබැඳිය පිටපත් කරන්න"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"බ්‍රව්සරයේ විවෘත කරන්න"</string>

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.k.deeplinkingtesting.app-mergeDebugResources-84:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.k.deeplinkingtesting.app-mergeDebugResources-95:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/c438b2a61f64b985b0058b71a16500b6/transformed/appcompat-1.7.0/res/values-large-v4/values-large-v4.xml",
+                    "source": "/Users/pramodrai/.gradle/caches/transforms-3/eb328e66669a83d0cadc0f4b57fd691e/transformed/appcompat-1.6.1/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

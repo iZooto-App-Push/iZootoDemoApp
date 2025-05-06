@@ -1,0 +1,1 @@
+{"className":"com.k.deeplinkingtesting.iron.NativeAdListener","classAnnotations":[],"interfaces":["com.ironsource.mediationsdk.ads.nativead.LevelPlayNativeAdListener","com.ironsource.mediationsdk.ads.nativead.interfaces.NativeAdInteractionListener","com.ironsource.mediationsdk.ads.nativead.interfaces.NativeAdLoadListener"],"superClasses":["java.lang.Object"]}

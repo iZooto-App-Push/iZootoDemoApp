@@ -31,9 +31,6 @@
     <string name="mbridge_reward_video_view_reward_time_left">s后即可获得奖励</string>
     <string name="mbridge_reward_video_view_reward_time_left_skip_time">秒后可跳过</string>
     <string name="mbridge_reward_viewed_text_str">您浏览过的内容</string>
-    <string name="mbridge_splash_count_time_can_skip">点击跳过|</string>
-    <string name="mbridge_splash_count_time_can_skip_not">后自动关闭</string>
-    <string name="mbridge_splash_count_time_can_skip_s">s</string>
     <string name="tt_ad_close_text">广告关闭</string>
     <string name="tt_ad_data_error">返回数据缺少必要字段</string>
     <string name="tt_ad_is_closed">广告已关闭</string>

@@ -31,8 +31,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Compartir con"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Compartir con <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Ocultar"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Contraseña"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Llave de acceso"</string>
     <string name="applovin_agree_message">Por favor, presione \"Continuar\" si elige comenzar a usar nuestra aplicación.</string>
     <string name="applovin_alt_privacy_policy_text">Política de Privacidad</string>
     <string name="applovin_continue_button_text">Continuar</string>
@@ -41,6 +39,21 @@
     <string name="applovin_privacy_policy_text">Políza de Privacidad</string>
     <string name="applovin_terms_of_service_text">Términos y Condiciones</string>
     <string name="applovin_terms_of_use_text">Términos de Uso</string>
+    <string name="bigo_ad_about_app_default">Acerca de esta aplicación</string>
+    <string name="bigo_ad_click_to_try">Haga clic para probar?</string>
+    <string name="bigo_ad_comment_num_text">Reseñas</string>
+    <string name="bigo_ad_cta_default">Ver más</string>
+    <string name="bigo_ad_cta_download_default">Instalar</string>
+    <string name="bigo_ad_description_default">¡Acceso gratuito ahora!</string>
+    <string name="bigo_ad_double_video_choose_video">Elige tu vídeo favorito</string>
+    <string name="bigo_ad_double_video_count_down">Juega en %ds</string>
+    <string name="bigo_ad_download_num_text">Descargas</string>
+    <string name="bigo_ad_ic_application">Solicitud</string>
+    <string name="bigo_ad_ic_everyone">Todos</string>
+    <string name="bigo_ad_ic_recommended">recomendar</string>
+    <string name="bigo_ad_ic_web">Web</string>
+    <string name="bigo_ad_multi_img_more_text">Más</string>
+    <string name="bigo_ad_title_default">fantástico e interesante</string>
     <string name="bottomsheet_action_collapse">Ocultar la hoja inferior</string>
     <string name="bottomsheet_action_expand">Mostrar la hoja inferior</string>
     <string name="bottomsheet_action_expand_halfway">Desplegar hasta la mitad</string>
@@ -77,19 +90,17 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Enlace copiado en el portapapeles"</string>
     <string name="error_a11y_label">Error: no válida</string>
     <string name="error_icon_content_description">Error</string>
-    <string name="exo_download_completed">Descarga de archivos completado</string>
-    <string name="exo_download_description">Descargar</string>
-    <string name="exo_download_downloading">Descargando</string>
-    <string name="exo_download_failed">No se ha podido descargar</string>
-    <string name="exo_download_notification_channel_name">Descargas</string>
-    <string name="exo_download_paused">Descargas pausadas</string>
-    <string name="exo_download_paused_for_network">Descargas en espera de red</string>
-    <string name="exo_download_paused_for_wifi">Descargas en espera de Wi-Fi</string>
-    <string name="exo_download_removing">Quitando descargas</string>
     <string name="exposed_dropdown_menu_content_description">Mostrar menú desplegable</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Copiar enlace"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Abrir en el navegador"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Compartir enlace"</string>
+    <string name="form_agree">Acepto</string>
+    <string name="form_cancel">Cancelar</string>
+    <string name="form_privacy_content">Al enviar este formulario, acepta compartir sus datos personales con BIGO Ads y {company_name}. BIGO Ads y {company_name} utilizarán esta información de acuerdo con sus respectivas políticas de privacidad. Consultar la Política de privacidad de BIGO y la Política de privacidad de {company_name}.</string>
+    <string name="form_privacy_notice">Aviso de privacidad</string>
+    <string name="form_question_hint">Rellene este campo</string>
+    <string name="form_submit">Enviar</string>
+    <string name="form_warning">Se requiere una respuesta</string>
     <string name="icon_content_description">Icono del cuadro de diálogo</string>
     <string name="item_view_role_description">Pestaña</string>
     <string name="material_clock_toggle_content_description">Selecciona AM o PM</string>

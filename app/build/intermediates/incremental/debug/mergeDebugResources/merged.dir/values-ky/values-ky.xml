@@ -31,8 +31,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Төмөнкү менен бөлүшүү"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> аркылуу бөлүшүү"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Жыйыштыруу"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Сырсөз"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Киргизүүчү ачкыч"</string>
     <string name="bottomsheet_action_collapse">Ылдыйкы экранды жыйыштыруу</string>
     <string name="bottomsheet_action_expand">Ылдыйкы экранды жайып көрсөтүү</string>
     <string name="bottomsheet_action_expand_halfway">Жарымын жайып көрсөтүү</string>
@@ -69,15 +67,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Шилтеме буферге көчүрүлдү"</string>
     <string name="error_a11y_label">Ката: жараксыз</string>
     <string name="error_icon_content_description">Ката</string>
-    <string name="exo_download_completed">Жүктөп алуу аяктады</string>
-    <string name="exo_download_description">Жүктөп алуу</string>
-    <string name="exo_download_downloading">Жүктөлүп алынууда</string>
-    <string name="exo_download_failed">Жүктөлүп алынбай калды</string>
-    <string name="exo_download_notification_channel_name">Жүктөлүп алынгандар</string>
-    <string name="exo_download_paused">Жүктөп алуу тындырылды</string>
-    <string name="exo_download_paused_for_network">Тармакка туташуу күтүлүүдө</string>
-    <string name="exo_download_paused_for_wifi">WiFi\'га туташуу күтүлүүдө</string>
-    <string name="exo_download_removing">Жүктөлүп алынгандар өчүрүлүүдө</string>
     <string name="exposed_dropdown_menu_content_description">Түрүлмө менюну көрсөтүү</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Шилтемени көчүрүү"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Серепчиден ачуу"</string>

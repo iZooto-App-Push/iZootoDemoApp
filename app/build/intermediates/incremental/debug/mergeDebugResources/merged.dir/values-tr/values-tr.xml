@@ -31,8 +31,25 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Şununla paylaş:"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> ile paylaş"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Daralt"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Şifre"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Şifre anahtarı"</string>
+    <string name="bigo_ad_about_app_default">Bu uygulama hakkında</string>
+    <string name="bigo_ad_click_to_try">Denemek için tıkla?</string>
+    <string name="bigo_ad_comment_num_text">Yorumlar</string>
+    <string name="bigo_ad_cta_default">Daha fazlasını görüntüle</string>
+    <string name="bigo_ad_cta_download_default">Düzenlemek</string>
+    <string name="bigo_ad_description_default">Şimdi ücretsiz erişim!</string>
+    <string name="bigo_ad_double_video_choose_video">Favori videonuzu seçin</string>
+    <string name="bigo_ad_double_video_count_down">%d saniyede oyna</string>
+    <string name="bigo_ad_download_num_text">İndirilenler</string>
+    <string name="bigo_ad_ic_application">Başvuru</string>
+    <string name="bigo_ad_ic_everyone">Herkes</string>
+    <string name="bigo_ad_ic_recommended">tavsiye etmek</string>
+    <string name="bigo_ad_ic_web">ağ</string>
+    <string name="bigo_ad_lose_reward">Ödülünü kaybedeksin.</string>
+    <string name="bigo_ad_multi_img_more_text">Daha</string>
+    <string name="bigo_ad_resume">Devam et</string>
+    <string name="bigo_ad_skip">Atla</string>
+    <string name="bigo_ad_skip_video">Videoyu atla?</string>
+    <string name="bigo_ad_title_default">Muhteşem ve ilginç</string>
     <string name="bottomsheet_action_collapse">Alt sayfayı daralt</string>
     <string name="bottomsheet_action_expand">Alt sayfayı genişlet</string>
     <string name="bottomsheet_action_expand_halfway">Yarım genişlet</string>
@@ -69,19 +86,17 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Bağlantı panoya kopyalandı"</string>
     <string name="error_a11y_label">Hata: geçersiz</string>
     <string name="error_icon_content_description">Hata</string>
-    <string name="exo_download_completed">İndirme işlemi tamamlandı</string>
-    <string name="exo_download_description">İndir</string>
-    <string name="exo_download_downloading">İndiriliyor</string>
-    <string name="exo_download_failed">İndirilemedi</string>
-    <string name="exo_download_notification_channel_name">İndirilenler</string>
-    <string name="exo_download_paused">İndirmeler duraklatıldı</string>
-    <string name="exo_download_paused_for_network">İndirmeler için ağ bekleniyor</string>
-    <string name="exo_download_paused_for_wifi">İndirmeler için kablosuz ağ bekleniyor</string>
-    <string name="exo_download_removing">İndirilenler kaldırılıyor</string>
     <string name="exposed_dropdown_menu_content_description">Açılır menüyü göster</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Bağlantıyı kopyala"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Tarayıcıda aç"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Bağlantıyı paylaş"</string>
+    <string name="form_agree">Kabul Ediyorum</string>
+    <string name="form_cancel">İptal Et</string>
+    <string name="form_privacy_content">Bu formu göndererek kişisel bilgilerini BIGO Ads ve {company_name} ile paylaşmayı kabul ediyorsun. BIGO Ads ve {company_name} bu bilgileri ilgili gizlilik politikasına göre kullanacaktır. BIGO Gizlilik Politikasını {company_name} Gizlilik Politikasını görüntüle.</string>
+    <string name="form_privacy_notice">Gizlilik Bildirimi</string>
+    <string name="form_question_hint">Lütfen bu alanı tamamla</string>
+    <string name="form_submit">Gönder</string>
+    <string name="form_warning">Bir yanıt gereklidir</string>
     <string name="icon_content_description">İletişim kutusu simgesi</string>
     <string name="item_view_role_description">Sekme</string>
     <string name="material_clock_toggle_content_description">ÖÖ veya ÖS\'yi seçin</string>

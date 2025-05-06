@@ -27,8 +27,21 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Compartilhar com"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Compartilhar com <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Recolher"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Senha"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Chave de acesso"</string>
+    <string name="bigo_ad_about_app_default">Sobre este aplicativo</string>
+    <string name="bigo_ad_click_to_try">ਕੋਸ਼ਿਸ਼ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ?</string>
+    <string name="bigo_ad_comment_num_text">Avaliações</string>
+    <string name="bigo_ad_cta_default">Veja mais</string>
+    <string name="bigo_ad_cta_download_default">Instalar</string>
+    <string name="bigo_ad_description_default">Acesso gratuito agora!</string>
+    <string name="bigo_ad_double_video_choose_video">Escolha seu vídeo favorito</string>
+    <string name="bigo_ad_double_video_count_down">Jogue em %ds</string>
+    <string name="bigo_ad_download_num_text">Transferências</string>
+    <string name="bigo_ad_ic_application">Aplicativo</string>
+    <string name="bigo_ad_ic_everyone">Todos</string>
+    <string name="bigo_ad_ic_recommended">recomendar</string>
+    <string name="bigo_ad_ic_web">Rede</string>
+    <string name="bigo_ad_multi_img_more_text">Mais</string>
+    <string name="bigo_ad_title_default">Fantástico e interessante</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Atender"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Vídeo"</string>
     <string msgid="3229508546291798546" name="call_notification_decline_action">"Recusar"</string>
@@ -37,18 +50,16 @@
     <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Chamada em andamento"</string>
     <string msgid="59049573811482460" name="call_notification_screening_text">"Filtrando uma ligação recebida"</string>
     <string msgid="3260749812566568062" name="copy_toast_msg">"Link copiado para a área de transferência"</string>
-    <string name="exo_download_completed">Download concluído</string>
-    <string name="exo_download_description">Fazer o download</string>
-    <string name="exo_download_downloading">Fazendo o download</string>
-    <string name="exo_download_failed">Falha no download</string>
-    <string name="exo_download_notification_channel_name">Downloads</string>
-    <string name="exo_download_paused">Downloads pausados</string>
-    <string name="exo_download_paused_for_network">Downloads aguardando uma conexão de rede</string>
-    <string name="exo_download_paused_for_wifi">Downloads aguardando uma rede Wi-Fi</string>
-    <string name="exo_download_removing">Removendo downloads</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Copiar link"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Abrir no navegador"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Compartilhar link"</string>
+    <string name="form_agree">Concordo</string>
+    <string name="form_cancel">Cancelar</string>
+    <string name="form_privacy_content">Ao enviar este formulário, concorda em partilhar os seus dados pessoais com a BIGO Ads e {company_name}. A BIGO Ads e {company_name} utilizarão estas informações de acordo com a sua respetiva política de privacidade. Veja a Política de Privacidade da BIGO e da {company_name}.</string>
+    <string name="form_privacy_notice">Aviso de Privacidade</string>
+    <string name="form_question_hint">Por favor, preencha este campo</string>
+    <string name="form_submit">Enviar</string>
+    <string name="form_warning">É necessária uma resposta</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Pesquisar"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
     <string name="tt_ad_close_text">Anúncio fechado</string>

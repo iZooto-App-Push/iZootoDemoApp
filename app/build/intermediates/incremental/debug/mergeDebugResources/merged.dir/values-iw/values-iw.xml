@@ -32,8 +32,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"שיתוף עם"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"שיתוף עם <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"כיווץ"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"סיסמה"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"מפתח גישה"</string>
     <string name="bottomsheet_action_collapse">כיווץ הגיליון התחתון</string>
     <string name="bottomsheet_action_expand">הרחבת הגיליון התחתון</string>
     <string name="bottomsheet_action_expand_halfway">הרחבה עד האמצע</string>
@@ -70,19 +68,17 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"הקישור הועתק ללוח"</string>
     <string name="error_a11y_label">שגיאה: לא תקין</string>
     <string name="error_icon_content_description">שגיאה</string>
-    <string name="exo_download_completed">ההורדה הושלמה</string>
-    <string name="exo_download_description">הורדה</string>
-    <string name="exo_download_downloading">ההורדה מתבצעת</string>
-    <string name="exo_download_failed">ההורדה לא הושלמה</string>
-    <string name="exo_download_notification_channel_name">הורדות</string>
-    <string name="exo_download_paused">ההורדות הושהו</string>
-    <string name="exo_download_paused_for_network">ההורדות בהמתנה לרשת</string>
-    <string name="exo_download_paused_for_wifi">ההורדות בהמתנה ל-Wi-Fi</string>
-    <string name="exo_download_removing">מסיר הורדות</string>
     <string name="exposed_dropdown_menu_content_description">הצגת התפריט הנפתח</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"העתקת הקישור"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"פתיחה בדפדפן"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"לשיתוף הקישור"</string>
+    <string name="form_agree">מסכימ/ה</string>
+    <string name="form_cancel">ביטול</string>
+    <string name="form_privacy_content">בשליחת טופס זה, אתם מסכימים לשתף את הפרטים האישיים שלכם עם BIGO Ads ועם {company_name}. BIGO Ads ו-{company_name} ישתמשו במידע זה בהתאם למדיניות הפרטיות של כל אחת מהן. צפייה במדיניות הפרטיות של BIGO Ads ושל {company_name}.</string>
+    <string name="form_privacy_notice">הודעת פרטיות</string>
+    <string name="form_question_hint">נא למלא שדה זה</string>
+    <string name="form_submit">שליחה</string>
+    <string name="form_warning">נדרשת תשובה</string>
     <string name="icon_content_description">סמל לתיבת דו-שיח</string>
     <string name="item_view_role_description">מקש Tab</string>
     <string name="material_clock_toggle_content_description">יש לבחור ב-AM או ב-PM</string>

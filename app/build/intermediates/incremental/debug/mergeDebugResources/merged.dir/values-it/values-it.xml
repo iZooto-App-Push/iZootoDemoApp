@@ -31,8 +31,10 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Condividi con"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Condividi tramite <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Comprimi"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Password"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Passkey"</string>
+    <string name="bigo_ad_lose_reward">Perderai la tua ricompensa.</string>
+    <string name="bigo_ad_resume">Riprendi</string>
+    <string name="bigo_ad_skip">Salta</string>
+    <string name="bigo_ad_skip_video">Vuoi saltare il video?</string>
     <string name="bottomsheet_action_collapse">Comprimi riquadro inferiore</string>
     <string name="bottomsheet_action_expand">Espandi riquadro inferiore</string>
     <string name="bottomsheet_action_expand_halfway">Espandi a metà</string>
@@ -69,15 +71,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Link copiato negli appunti"</string>
     <string name="error_a11y_label">Errore: non valido</string>
     <string name="error_icon_content_description">Errore</string>
-    <string name="exo_download_completed">Download completato</string>
-    <string name="exo_download_description">Scarica</string>
-    <string name="exo_download_downloading">Download in corso…</string>
-    <string name="exo_download_failed">Download non riuscito</string>
-    <string name="exo_download_notification_channel_name">Download</string>
-    <string name="exo_download_paused">Download in pausa</string>
-    <string name="exo_download_paused_for_network">Download in attesa di rete</string>
-    <string name="exo_download_paused_for_wifi">Download in attesa di Wi-Fi</string>
-    <string name="exo_download_removing">Rimozione dei download…</string>
     <string name="exposed_dropdown_menu_content_description">Mostra il menu a discesa</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Copia link"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Apri nel browser"</string>

@@ -7,7 +7,7 @@
     <string msgid="5976598919945601918" name="abc_action_bar_home_description">"ಹೋಮ್‌ಗೆ ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ"</string>
     <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ಮೇಲಕ್ಕೆ ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ"</string>
     <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"ಇನ್ನಷ್ಟು ಆಯ್ಕೆಗಳು"</string>
-    <string msgid="4692188335987374352" name="abc_action_mode_done">"ಆಯಿತು"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"ಮುಗಿದಿದೆ"</string>
     <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"ಎಲ್ಲವನ್ನೂ ನೋಡಿ"</string>
     <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"ಆ್ಯಪ್‌ವೊಂದನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
     <string msgid="4215997306490295099" name="abc_capital_off">"ಆಫ್"</string>
@@ -31,8 +31,10 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"ಇವರೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> ನೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"ಕುಗ್ಗಿಸಿ"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"ಪಾಸ್‌ವರ್ಡ್"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"ಪಾಸ್‌ಕೀ"</string>
+    <string name="bigo_ad_lose_reward">ನಿಮ್ಮ ಬಹುಮಾನವನ್ನು ಕಳೆದುಕೊಳ್ಳುವಿರಿ.</string>
+    <string name="bigo_ad_resume">ಮುಂದುವರೆಸಿ</string>
+    <string name="bigo_ad_skip">ಸ್ಕಿಪ್ ಮಾಡು</string>
+    <string name="bigo_ad_skip_video">ವಿಡಿಯೋವನ್ನು ಸ್ಕಿಪ್ ಮಾಡಿ?</string>
     <string name="bottomsheet_action_collapse">ಕೆಳಭಾಗದ ಶೀಟ್ ಅನ್ನು ಕುಗ್ಗಿಸಿ</string>
     <string name="bottomsheet_action_expand">ಕೆಳಭಾಗದ ಶೀಟ್ ಅನ್ನು ವಿಸ್ತರಿಸಿ</string>
     <string name="bottomsheet_action_expand_halfway">ಅರ್ಧದಷ್ಟು ವಿಸ್ತರಿಸಿ</string>
@@ -69,15 +71,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ಲಿಂಕ್ ಅನ್ನು ನಕಲಿಸಲಾಗಿದೆ"</string>
     <string name="error_a11y_label">ದೋಷ: ಅಮಾನ್ಯ</string>
     <string name="error_icon_content_description">ದೋಷ</string>
-    <string name="exo_download_completed">ಡೌನ್‌ಲೋಡ್ ಪೂರ್ಣಗೊಂಡಿದೆ</string>
-    <string name="exo_download_description">ಡೌನ್‌ಲೋಡ್‌</string>
-    <string name="exo_download_downloading">ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
-    <string name="exo_download_failed">ಡೌನ್‌ಲೋಡ್‌ ವಿಫಲಗೊಂಡಿದೆ</string>
-    <string name="exo_download_notification_channel_name">ಡೌನ್‌ಲೋಡ್‌ಗಳು</string>
-    <string name="exo_download_paused">ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ವಿರಾಮಗೊಳಿಸಲಾಗಿದೆ</string>
-    <string name="exo_download_paused_for_network">ಡೌನ್‌ಲೋಡ್‌ಗಳು ನೆಟ್‌ವರ್ಕ್‌ಗಾಗಿ ಕಾಯುತ್ತಿವೆ</string>
-    <string name="exo_download_paused_for_wifi">ಡೌನ್‌ಲೋಡ್‌ಗಳು Wi-Fi ಗಾಗಿ ಕಾಯುತ್ತಿವೆ</string>
-    <string name="exo_download_removing">ಡೌನ್ಲೋಡ್‌ಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತಿದೆ</string>
     <string name="exposed_dropdown_menu_content_description">ಡ್ರಾಪ್‌ಡೌನ್ ಮೆನು ತೋರಿಸಿ</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"ಲಿಂಕ್ ನಕಲಿಸಿ"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ಬ್ರೌಸರ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ"</string>

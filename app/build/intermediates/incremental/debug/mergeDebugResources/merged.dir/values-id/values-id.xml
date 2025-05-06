@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="bigo_ad_about_app_default">Tentang aplikasi ini</string>
+    <string name="bigo_ad_click_to_try">Klik untuk mencoba?</string>
+    <string name="bigo_ad_comment_num_text">Ulasan</string>
+    <string name="bigo_ad_cta_default">Tampilkan lainnya</string>
+    <string name="bigo_ad_cta_download_default">Install</string>
+    <string name="bigo_ad_description_default">Akses secara gratis sekarang!</string>
+    <string name="bigo_ad_double_video_choose_video">Pilih video favorit Anda</string>
+    <string name="bigo_ad_double_video_count_down">bermain dalam %d detik</string>
+    <string name="bigo_ad_download_num_text">Download</string>
+    <string name="bigo_ad_ic_application">Aplikasi</string>
+    <string name="bigo_ad_ic_everyone">Setiap orang</string>
+    <string name="bigo_ad_ic_recommended">Direkomendasikan</string>
+    <string name="bigo_ad_ic_web">jaring</string>
+    <string name="bigo_ad_lose_reward">Imbalanmu akan hilang.</string>
+    <string name="bigo_ad_multi_img_more_text">Lagi</string>
+    <string name="bigo_ad_resume">Lanjutkan</string>
+    <string name="bigo_ad_skip">Lewati</string>
+    <string name="bigo_ad_skip_video">Lewati video?</string>
+    <string name="bigo_ad_title_default">Fantastis dan menarik</string>
     <string name="tt_ad_close_text">Iklan ditutup</string>
     <string name="tt_ad_is_closed">Iklan ditutup</string>
     <string name="tt_ad_logo_txt">AD</string>

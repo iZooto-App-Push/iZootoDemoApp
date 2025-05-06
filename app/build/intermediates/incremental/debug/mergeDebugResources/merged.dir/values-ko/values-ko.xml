@@ -31,8 +31,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"공유 대상:"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>과(와) 공유"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"접기"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"비밀번호"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"패스키"</string>
     <string name="applovin_agree_message">앱 사용을 시작하려면 \"계속하기\"을 누르십시오.</string>
     <string name="applovin_alt_privacy_policy_text"/>
     <string name="applovin_continue_button_text">계속하기</string>
@@ -41,6 +39,21 @@
     <string name="applovin_privacy_policy_text">개인 정보 보호 정책</string>
     <string name="applovin_terms_of_service_text">이용 약관</string>
     <string name="applovin_terms_of_use_text">이용 약관</string>
+    <string name="bigo_ad_about_app_default">이 앱 정보</string>
+    <string name="bigo_ad_click_to_try">시도하려면 클릭하시겠습니까?</string>
+    <string name="bigo_ad_comment_num_text">리뷰</string>
+    <string name="bigo_ad_cta_default">더보기</string>
+    <string name="bigo_ad_cta_download_default">설치하다</string>
+    <string name="bigo_ad_description_default">지금 무료 액세스!</string>
+    <string name="bigo_ad_double_video_choose_video">좋아하는 비디오를 선택하세요</string>
+    <string name="bigo_ad_double_video_count_down">%d초 안에 플레이하세요</string>
+    <string name="bigo_ad_download_num_text">다운로드</string>
+    <string name="bigo_ad_ic_application">애플리케이션</string>
+    <string name="bigo_ad_ic_everyone">모든 사람</string>
+    <string name="bigo_ad_ic_recommended">추천하다</string>
+    <string name="bigo_ad_ic_web">편물</string>
+    <string name="bigo_ad_multi_img_more_text">더</string>
+    <string name="bigo_ad_title_default">환상적이고 흥미로운</string>
     <string name="bottomsheet_action_collapse">하단 시트 접기</string>
     <string name="bottomsheet_action_expand">하단 시트 펼치기</string>
     <string name="bottomsheet_action_expand_halfway">반만 펼치기</string>
@@ -77,19 +90,17 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"클립보드에 링크 복사됨"</string>
     <string name="error_a11y_label">오류: 잘못됨</string>
     <string name="error_icon_content_description">오류</string>
-    <string name="exo_download_completed">다운로드 완료</string>
-    <string name="exo_download_description">다운로드</string>
-    <string name="exo_download_downloading">다운로드 중</string>
-    <string name="exo_download_failed">다운로드 실패</string>
-    <string name="exo_download_notification_channel_name">다운로드</string>
-    <string name="exo_download_paused">다운로드 일시중지됨</string>
-    <string name="exo_download_paused_for_network">다운로드를 위해 네트워크 연결 대기 중</string>
-    <string name="exo_download_paused_for_wifi">다운로드를 위해 Wi-Fi 연결 대기 중</string>
-    <string name="exo_download_removing">다운로드 항목 삭제 중</string>
     <string name="exposed_dropdown_menu_content_description">드롭다운 메뉴 표시</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"링크 복사"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"브라우저에서 열기"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"링크 공유"</string>
+    <string name="form_agree">동의합니다</string>
+    <string name="form_cancel">취소</string>
+    <string name="form_privacy_content">이 양식을 제출하시면 귀하의 개인 정보를 BIGO Ads 및 {company_name}와(과) 공유하는 데 동의하는 것입니다. BIGO Ads 및 {company_name}은(는) 이 정보를 각 회사의 개인정보 취급방침에 따라 사용합니다. BIGO의 \'s 개인정보 보호정책과 {company_name}의 개인정보 보호정책 보기.</string>
+    <string name="form_privacy_notice">이 입력란을 작성해 주세요</string>
+    <string name="form_question_hint">이 입력란을 작성해 주세요</string>
+    <string name="form_submit">제출</string>
+    <string name="form_warning">답변은 필수입니다</string>
     <string name="icon_content_description">대화상자 아이콘</string>
     <string name="item_view_role_description">탭</string>
     <string name="material_clock_toggle_content_description">오전 또는 오후를 선택하세요.</string>

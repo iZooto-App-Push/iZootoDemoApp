@@ -4,14 +4,12 @@ package com.k.deeplinkingtesting.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.gms.ads.admanager.AdManagerAdView;
 import com.k.deeplinkingtesting.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -19,33 +17,20 @@ import java.lang.String;
 
 public final class ActivityAdMobBinding implements ViewBinding {
   @NonNull
-  private final CoordinatorLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
-  public final LinearLayout adContainer;
+  public final FrameLayout applovinBannerId;
 
-  @NonNull
-  public final AdManagerAdView adManagerView;
-
-  @NonNull
-  public final LinearLayout mainLayout;
-
-  @NonNull
-  public final ScrollView scrollView;
-
-  private ActivityAdMobBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull LinearLayout adContainer, @NonNull AdManagerAdView adManagerView,
-      @NonNull LinearLayout mainLayout, @NonNull ScrollView scrollView) {
+  private ActivityAdMobBinding(@NonNull LinearLayout rootView,
+      @NonNull FrameLayout applovinBannerId) {
     this.rootView = rootView;
-    this.adContainer = adContainer;
-    this.adManagerView = adManagerView;
-    this.mainLayout = mainLayout;
-    this.scrollView = scrollView;
+    this.applovinBannerId = applovinBannerId;
   }
 
   @Override
   @NonNull
-  public CoordinatorLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -70,32 +55,13 @@ public final class ActivityAdMobBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.ad_container;
-      LinearLayout adContainer = ViewBindings.findChildViewById(rootView, id);
-      if (adContainer == null) {
+      id = R.id.applovin_banner_id;
+      FrameLayout applovinBannerId = ViewBindings.findChildViewById(rootView, id);
+      if (applovinBannerId == null) {
         break missingId;
       }
 
-      id = R.id.adManagerView;
-      AdManagerAdView adManagerView = ViewBindings.findChildViewById(rootView, id);
-      if (adManagerView == null) {
-        break missingId;
-      }
-
-      id = R.id.mainLayout;
-      LinearLayout mainLayout = ViewBindings.findChildViewById(rootView, id);
-      if (mainLayout == null) {
-        break missingId;
-      }
-
-      id = R.id.scrollView;
-      ScrollView scrollView = ViewBindings.findChildViewById(rootView, id);
-      if (scrollView == null) {
-        break missingId;
-      }
-
-      return new ActivityAdMobBinding((CoordinatorLayout) rootView, adContainer, adManagerView,
-          mainLayout, scrollView);
+      return new ActivityAdMobBinding((LinearLayout) rootView, applovinBannerId);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

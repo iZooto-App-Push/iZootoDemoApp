@@ -25,14 +25,16 @@
     <string msgid="7208076849092622260" name="abc_search_hint">"खोज्नुहोस्…"</string>
     <string msgid="3741173234950517107" name="abc_searchview_description_clear">"क्वेरी खाली गर्नुहोस्"</string>
     <string msgid="693312494995508443" name="abc_searchview_description_query">"खोज प्रश्न"</string>
-    <string msgid="3417662926640357176" name="abc_searchview_description_search">"खोज्नुहोस्"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"खोज"</string>
     <string msgid="1486535517437947103" name="abc_searchview_description_submit">"क्वेरी पेस गर्नुहोस्"</string>
     <string msgid="2293578557972875415" name="abc_searchview_description_voice">"आवाजमा आधारित खोजी"</string>
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"यसमार्फत सेयर गर्नुहोस्"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> मार्फत सेयर गर्नुहोस्"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"संक्षिप्त गर्नुहोस्"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"पासवर्ड"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"पासकी"</string>
+    <string name="bigo_ad_lose_reward">तपाईँले आफ्नो पुरस्कार गुमाउनुहुनेछ।</string>
+    <string name="bigo_ad_resume">पुनः निरन्तरता दिनुहोस्</string>
+    <string name="bigo_ad_skip">छोड्नुहोस्</string>
+    <string name="bigo_ad_skip_video">भिडियो छोड्ने?</string>
     <string name="bottomsheet_action_collapse">पुछारको पाना कोल्याप्स गर्नुहोस्</string>
     <string name="bottomsheet_action_expand">पुछारको पाना एक्स्पान्ड गर्नुहोस्</string>
     <string name="bottomsheet_action_expand_halfway">आधा ठुलो पार्नुहोस्</string>
@@ -69,15 +71,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"क्लिपबोर्डमा लिंक कपी गरियो"</string>
     <string name="error_a11y_label">त्रुटि: अवैध छ</string>
     <string name="error_icon_content_description">त्रुटि</string>
-    <string name="exo_download_completed">डाउनलोड सम्पन्न भयो</string>
-    <string name="exo_download_description">डाउनलोड गर्नुहोस्</string>
-    <string name="exo_download_downloading">डाउनलोड गरिँदै छ</string>
-    <string name="exo_download_failed">डाउनलोड गर्न सकिएन</string>
-    <string name="exo_download_notification_channel_name">डाउनलोडहरू</string>
-    <string name="exo_download_paused">डाउनलोड गर्ने कार्य पज गरियो</string>
-    <string name="exo_download_paused_for_network">इन्टरनेटमा कनेक्ट भएपछि डाउनलोड गरिने छ</string>
-    <string name="exo_download_paused_for_wifi">WiFi मा कनेक्ट भएपछि डाउनलोड गरिने छ</string>
-    <string name="exo_download_removing">डाउनलोडहरू हटाउँदै</string>
     <string name="exposed_dropdown_menu_content_description">ड्रपडाउन मेनु देखाउनुहोस्</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"लिंक प्रतिलिपि गर्नुहोस्"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ब्राउजरमा खोल्नुहोस्"</string>

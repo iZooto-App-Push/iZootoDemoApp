@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -27,6 +28,9 @@ public final class ContainerBinding implements ViewBinding {
   public final LinearLayout adLayout;
 
   @NonNull
+  public final FrameLayout bannerAdViewContainer;
+
+  @NonNull
   public final TextView btnAppVersion;
 
   @NonNull
@@ -44,20 +48,26 @@ public final class ContainerBinding implements ViewBinding {
   @NonNull
   public final Button btnSendDebugFile;
 
+  @NonNull
+  public final FrameLayout unityAdsBanner;
+
   private ContainerBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout adContainerAdmob,
-      @NonNull LinearLayout adLayout, @NonNull TextView btnAppVersion,
-      @NonNull Button btnBeginDebugFile, @NonNull Button btnDeleteDebugFile,
-      @NonNull Button btnNewsHub, @NonNull Button btnPermissionFIle,
-      @NonNull Button btnSendDebugFile) {
+      @NonNull LinearLayout adLayout, @NonNull FrameLayout bannerAdViewContainer,
+      @NonNull TextView btnAppVersion, @NonNull Button btnBeginDebugFile,
+      @NonNull Button btnDeleteDebugFile, @NonNull Button btnNewsHub,
+      @NonNull Button btnPermissionFIle, @NonNull Button btnSendDebugFile,
+      @NonNull FrameLayout unityAdsBanner) {
     this.rootView = rootView;
     this.adContainerAdmob = adContainerAdmob;
     this.adLayout = adLayout;
+    this.bannerAdViewContainer = bannerAdViewContainer;
     this.btnAppVersion = btnAppVersion;
     this.btnBeginDebugFile = btnBeginDebugFile;
     this.btnDeleteDebugFile = btnDeleteDebugFile;
     this.btnNewsHub = btnNewsHub;
     this.btnPermissionFIle = btnPermissionFIle;
     this.btnSendDebugFile = btnSendDebugFile;
+    this.unityAdsBanner = unityAdsBanner;
   }
 
   @Override
@@ -99,6 +109,12 @@ public final class ContainerBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.banner_ad_view_container;
+      FrameLayout bannerAdViewContainer = ViewBindings.findChildViewById(rootView, id);
+      if (bannerAdViewContainer == null) {
+        break missingId;
+      }
+
       id = R.id.btn_appVersion;
       TextView btnAppVersion = ViewBindings.findChildViewById(rootView, id);
       if (btnAppVersion == null) {
@@ -135,9 +151,15 @@ public final class ContainerBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.unity_ads_banner;
+      FrameLayout unityAdsBanner = ViewBindings.findChildViewById(rootView, id);
+      if (unityAdsBanner == null) {
+        break missingId;
+      }
+
       return new ContainerBinding((LinearLayout) rootView, adContainerAdmob, adLayout,
-          btnAppVersion, btnBeginDebugFile, btnDeleteDebugFile, btnNewsHub, btnPermissionFIle,
-          btnSendDebugFile);
+          bannerAdViewContainer, btnAppVersion, btnBeginDebugFile, btnDeleteDebugFile, btnNewsHub,
+          btnPermissionFIle, btnSendDebugFile, unityAdsBanner);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

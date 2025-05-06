@@ -31,8 +31,25 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"分享对象"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"与<ns1:g id="APPLICATION_NAME">%s</ns1:g>分享"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"收起"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"密码"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"通行密钥"</string>
+    <string name="bigo_ad_about_app_default">关于这个应用</string>
+    <string name="bigo_ad_click_to_try">点击试试吧？</string>
+    <string name="bigo_ad_comment_num_text">评论数</string>
+    <string name="bigo_ad_cta_default">更多</string>
+    <string name="bigo_ad_cta_download_default">下载</string>
+    <string name="bigo_ad_description_default">现在免费进入！</string>
+    <string name="bigo_ad_double_video_choose_video">选择你喜欢的视频</string>
+    <string name="bigo_ad_double_video_count_down">%ds后自动播放</string>
+    <string name="bigo_ad_download_num_text">下载量</string>
+    <string name="bigo_ad_ic_application">Application</string>
+    <string name="bigo_ad_ic_everyone">Everyone</string>
+    <string name="bigo_ad_ic_recommended">Recommended</string>
+    <string name="bigo_ad_ic_web">Web</string>
+    <string name="bigo_ad_lose_reward">你将会失去奖励</string>
+    <string name="bigo_ad_multi_img_more_text">MORE</string>
+    <string name="bigo_ad_resume">继续</string>
+    <string name="bigo_ad_skip">跳过</string>
+    <string name="bigo_ad_skip_video">跳过视频吗？</string>
+    <string name="bigo_ad_title_default">美好而有趣</string>
     <string name="bottomsheet_action_collapse">收起底部动作条</string>
     <string name="bottomsheet_action_expand">展开底部动作条</string>
     <string name="bottomsheet_action_expand_halfway">展开到一半高度</string>
@@ -69,15 +86,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"链接已复制到剪贴板"</string>
     <string name="error_a11y_label">错误：无效</string>
     <string name="error_icon_content_description">错误</string>
-    <string name="exo_download_completed">下载完毕</string>
-    <string name="exo_download_description">下载</string>
-    <string name="exo_download_downloading">正在下载</string>
-    <string name="exo_download_failed">下载失败</string>
-    <string name="exo_download_notification_channel_name">下载内容</string>
-    <string name="exo_download_paused">下载已暂停</string>
-    <string name="exo_download_paused_for_network">正在等待连接到网络以进行下载</string>
-    <string name="exo_download_paused_for_wifi">正在等待连接到 WLAN 网络以进行下载</string>
-    <string name="exo_download_removing">正在移除下载内容</string>
     <string name="exposed_dropdown_menu_content_description">显示下拉菜单</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"复制链接"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"在浏览器中打开"</string>

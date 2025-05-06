@@ -6,7 +6,7 @@
   </plurals>
     <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Tunjukkan jalan ke rumah"</string>
     <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Kembali ke atas"</string>
-    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Opsi lainnya"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Opsi lain"</string>
     <string msgid="4692188335987374352" name="abc_action_mode_done">"Selesai"</string>
     <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Lihat semua"</string>
     <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Pilih aplikasi"</string>
@@ -31,8 +31,10 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Bagikan dengan"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Bagikan dengan <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Ciutkan"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Sandi"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Kunci sandi"</string>
+    <string name="bigo_ad_lose_reward">Imbalanmu akan hilang.</string>
+    <string name="bigo_ad_resume">Lanjutkan</string>
+    <string name="bigo_ad_skip">Lewati</string>
+    <string name="bigo_ad_skip_video">Lewati video?</string>
     <string name="bottomsheet_action_collapse">Menciutkan sheet bawah</string>
     <string name="bottomsheet_action_expand">Meluaskan sheet bawah</string>
     <string name="bottomsheet_action_expand_halfway">Luaskan setengah</string>
@@ -69,19 +71,17 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Link disalin ke papan klip"</string>
     <string name="error_a11y_label">Error: tidak valid</string>
     <string name="error_icon_content_description">Error</string>
-    <string name="exo_download_completed">Download selesai</string>
-    <string name="exo_download_description">Download</string>
-    <string name="exo_download_downloading">Mendownload</string>
-    <string name="exo_download_failed">Download gagal</string>
-    <string name="exo_download_notification_channel_name">Download</string>
-    <string name="exo_download_paused">Download dijeda</string>
-    <string name="exo_download_paused_for_network">Download menunggu konektivitas jaringan</string>
-    <string name="exo_download_paused_for_wifi">Download menunggu konektivitas Wi-Fi</string>
-    <string name="exo_download_removing">Menghapus download</string>
     <string name="exposed_dropdown_menu_content_description">Tampilkan menu dropdown</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Salin link"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Buka di browser"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Bagikan link"</string>
+    <string name="form_agree">Saya Setuju</string>
+    <string name="form_cancel">Batal</string>
+    <string name="form_privacy_content">Dengan mengirimkan formulir ini, Anda setuju untuk membagikan detail pribadi kepada BIGO Ads dan {company_name}. BIGO Ads dan {company_name} akan menggunakan informasi ini sesuai dengan kebijakan privasi masing-masing. Lihat Kebijakan Privasi BIGO dan Kebijakan Privasi {company_name}.</string>
+    <string name="form_privacy_notice">Pemberitahuan Privasi</string>
+    <string name="form_question_hint">Lengkapi kolom ini</string>
+    <string name="form_submit">Kirim</string>
+    <string name="form_warning">Jawaban diperlukan</string>
     <string name="icon_content_description">Ikon Dialog</string>
     <string name="item_view_role_description">Tab</string>
     <string name="material_clock_toggle_content_description">Pilih AM atau PM</string>

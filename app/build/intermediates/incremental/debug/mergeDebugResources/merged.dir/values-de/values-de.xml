@@ -31,8 +31,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Teilen mit"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Mit <ns1:g id="APPLICATION_NAME">%s</ns1:g> teilen"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Minimieren"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Passwort"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Passkey"</string>
     <string name="applovin_agree_message">Bitte drücke auf \"Weiter\" um unsere App zu benutzen.</string>
     <string name="applovin_alt_privacy_policy_text"/>
     <string name="applovin_continue_button_text">Weiter</string>
@@ -41,6 +39,25 @@
     <string name="applovin_privacy_policy_text">Datenschutzerklärung</string>
     <string name="applovin_terms_of_service_text">AGB</string>
     <string name="applovin_terms_of_use_text">AGB</string>
+    <string name="bigo_ad_about_app_default">Über diese App</string>
+    <string name="bigo_ad_click_to_try">Anklicken und versuchen?</string>
+    <string name="bigo_ad_comment_num_text">Bewertungen</string>
+    <string name="bigo_ad_cta_default">Mehr anzeigen</string>
+    <string name="bigo_ad_cta_download_default">Installieren</string>
+    <string name="bigo_ad_description_default">Jetzt kostenloser Zugang!</string>
+    <string name="bigo_ad_double_video_choose_video">Wählen Sie Ihr Lieblingsvideo</string>
+    <string name="bigo_ad_double_video_count_down">Spielen Sie in %d Sekunden</string>
+    <string name="bigo_ad_download_num_text">Downloads</string>
+    <string name="bigo_ad_ic_application">Anwendung</string>
+    <string name="bigo_ad_ic_everyone">Alle</string>
+    <string name="bigo_ad_ic_recommended">empfehlen</string>
+    <string name="bigo_ad_ic_web">Netz</string>
+    <string name="bigo_ad_lose_reward">Du wirst deine Belohnung verlieren.</string>
+    <string name="bigo_ad_multi_img_more_text">Mehr</string>
+    <string name="bigo_ad_resume">Fortsetzen</string>
+    <string name="bigo_ad_skip">Überspringen</string>
+    <string name="bigo_ad_skip_video">Video überspringen?</string>
+    <string name="bigo_ad_title_default">Fantastisch und interessant</string>
     <string name="bottomsheet_action_collapse">Ansicht am unteren Rand minimieren</string>
     <string name="bottomsheet_action_expand">Ansicht am unteren Rand maximieren</string>
     <string name="bottomsheet_action_expand_halfway">Zur Hälfte maximieren</string>
@@ -77,19 +94,17 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Link in Zwischenablage kopiert"</string>
     <string name="error_a11y_label">Fehler: ungültig</string>
     <string name="error_icon_content_description">Fehler</string>
-    <string name="exo_download_completed">Download abgeschlossen</string>
-    <string name="exo_download_description">Herunterladen</string>
-    <string name="exo_download_downloading">Wird heruntergeladen</string>
-    <string name="exo_download_failed">Download fehlgeschlagen</string>
-    <string name="exo_download_notification_channel_name">Downloads</string>
-    <string name="exo_download_paused">Downloads pausiert</string>
-    <string name="exo_download_paused_for_network">Auf Netzwerkverbindung wird gewartet</string>
-    <string name="exo_download_paused_for_wifi">Auf WLAN-Verbindung wird gewartet</string>
-    <string name="exo_download_removing">Downloads werden entfernt</string>
     <string name="exposed_dropdown_menu_content_description">Drop-down-Menü anzeigen</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Link kopieren"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Im Browser öffnen"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Link teilen"</string>
+    <string name="form_agree">Ich stimme zu</string>
+    <string name="form_cancel">Abbrechen</string>
+    <string name="form_privacy_content">Wenn du dieses Formular absendest, stimmst du zu, dass deine personenbezogenen Daten an BIGO Ads und {company_name} weitergegeben werden. BIGO Ads und {company_name} verwenden diese Informationen in Übereinstimmung mit ihren jeweiligen Datenschutzerklärungen. Sieh dir die Datenschutzerklärung von BIGO und die Datenschutzerklärung von {company_name} an.</string>
+    <string name="form_privacy_notice">Datenschutzhinweis</string>
+    <string name="form_question_hint">Bitte fülle dieses Feld aus</string>
+    <string name="form_submit">Absenden</string>
+    <string name="form_warning">Eine Antwort ist erforderlich</string>
     <string name="icon_content_description">Dialogfeldsymbol</string>
     <string name="item_view_role_description">Tab</string>
     <string name="material_clock_toggle_content_description">Vormittags oder Nachmittags auswählen</string>

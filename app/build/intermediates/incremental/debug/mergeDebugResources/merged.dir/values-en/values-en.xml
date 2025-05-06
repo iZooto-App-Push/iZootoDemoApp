@@ -12,9 +12,6 @@
     <string name="div_slider_range_start" translatable="true">Range start</string>
     <string name="mbridge_reward_heat_count_unit">w</string>
     <string name="mbridge_reward_viewed_text_str">Viewed</string>
-    <string name="mbridge_splash_count_time_can_skip">SKIP </string>
-    <string name="mbridge_splash_count_time_can_skip_not">Auto close after</string>
-    <string name="mbridge_splash_count_time_can_skip_s">s</string>
     <string name="monetization_ads_internal_after_timer_value">sec unitl your reward</string>
     <string name="monetization_ads_internal_before_timer_value"/>
     <string name="monetization_ads_internal_go">Go</string>

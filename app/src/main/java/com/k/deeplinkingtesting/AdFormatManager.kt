@@ -68,7 +68,7 @@ class AdFormatManager(private val context: Activity) {
                 override fun onAdFailedToLoad(error: AdRequestError) {
                     // Ad failed to load with AdRequestError.
                     Toast.makeText(context, error.description, Toast.LENGTH_SHORT).show()
-                    Log.e("Yandex ---11111",""+ error.description)
+                    Log.e("Yandex",""+ error.description)
                    // loading.loadingHide()
                    // errorMessage.textShow()
                     // Attempting to load a new ad from the onAdFailedToLoad() method is strongly discouraged.
@@ -87,7 +87,7 @@ class AdFormatManager(private val context: Activity) {
                 }
 
                 override fun onImpression(impressionData: ImpressionData?) {
-                    Log.e("ImpressionData",""+impressionData?.rawData)
+                    Log.e("Yandex",""+impressionData?.rawData)
                     // Called when an impression is recorded for an ad.
                 }
             })

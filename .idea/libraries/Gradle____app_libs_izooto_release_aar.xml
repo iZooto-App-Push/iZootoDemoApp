@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: ./app/libs/izooto-release.aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ac05c7e7a49c241e156cf510c105dc4e/transformed/jetified-izooto-release/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ac05c7e7a49c241e156cf510c105dc4e/transformed/jetified-izooto-release/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ac05c7e7a49c241e156cf510c105dc4e/transformed/jetified-izooto-release/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

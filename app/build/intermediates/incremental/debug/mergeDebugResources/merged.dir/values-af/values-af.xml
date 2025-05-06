@@ -31,8 +31,6 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Deel met"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Deel met <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Vou in"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"Wagwoord"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"Wagwoordsleutel"</string>
     <string name="bottomsheet_action_collapse">Vou die onderste blad in</string>
     <string name="bottomsheet_action_expand">Vou die onderste blad uit</string>
     <string name="bottomsheet_action_expand_halfway">Vou halfpad uit</string>
@@ -69,15 +67,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"Skakel is na knipbord gekopieer"</string>
     <string name="error_a11y_label">Fout: ongeldig</string>
     <string name="error_icon_content_description">Fout</string>
-    <string name="exo_download_completed">Aflaai is voltooi</string>
-    <string name="exo_download_description">Aflaai</string>
-    <string name="exo_download_downloading">Laai tans af</string>
-    <string name="exo_download_failed">Kon nie aflaai nie</string>
-    <string name="exo_download_notification_channel_name">Aflaaie</string>
-    <string name="exo_download_paused">Aflaaie is onderbreek</string>
-    <string name="exo_download_paused_for_network">Aflaaie wag tans vir netwerk</string>
-    <string name="exo_download_paused_for_wifi">Aflaaie wag tans vir wi-fi</string>
-    <string name="exo_download_removing">Verwyder tans aflaaie</string>
     <string name="exposed_dropdown_menu_content_description">Wys aftrekkieslys</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopieer skakel"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Maak in blaaier oop"</string>

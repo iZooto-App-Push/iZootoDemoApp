@@ -31,8 +31,10 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"આની સાથે શેર કરો"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>ની સાથે શેર કરો"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"સંકુચિત કરો"</string>
-    <string msgid="8397015543330865059" name="android.credentials.TYPE_PASSWORD_CREDENTIAL">"પાસવર્ડ"</string>
-    <string msgid="3929015085059320822" name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">"પાસકી"</string>
+    <string name="bigo_ad_lose_reward">તમે તમારો પુરસ્કાર ગુમાવશો.</string>
+    <string name="bigo_ad_resume">ફરી શરૂ કરો</string>
+    <string name="bigo_ad_skip">સ્કીપ કરો</string>
+    <string name="bigo_ad_skip_video">વિડિઓ છોડો?</string>
     <string name="bottomsheet_action_collapse">બોટમ શીટ નાની કરો</string>
     <string name="bottomsheet_action_expand">બોટમ શીટ મોટી કરો</string>
     <string name="bottomsheet_action_expand_halfway">અડધે સુધી મોટું કરો</string>
@@ -69,15 +71,6 @@
     <string msgid="3260749812566568062" name="copy_toast_msg">"ક્લિપબોર્ડ પર લિંક કૉપિ કરી"</string>
     <string name="error_a11y_label">ભૂલ: અમાન્ય</string>
     <string name="error_icon_content_description">ભૂલ</string>
-    <string name="exo_download_completed">ડાઉનલોડ પૂર્ણ થયું</string>
-    <string name="exo_download_description">ડાઉનલોડ કરો</string>
-    <string name="exo_download_downloading">ડાઉનલોડ કરી રહ્યાં છીએ</string>
-    <string name="exo_download_failed">ડાઉનલોડ નિષ્ફળ થયું</string>
-    <string name="exo_download_notification_channel_name">ડાઉનલોડ</string>
-    <string name="exo_download_paused">ડાઉનલોડ થોભાવ્યા છે</string>
-    <string name="exo_download_paused_for_network">ડાઉનલોડ થવા નેટવર્કની રાહ જોવાઈ રહી છે</string>
-    <string name="exo_download_paused_for_wifi">ડાઉનલોડ થવા વાઇ-ફાઇની રાહ જોવાઈ રહી છે</string>
-    <string name="exo_download_removing">ડાઉનલોડ કાઢી નાખી રહ્યાં છીએ</string>
     <string name="exposed_dropdown_menu_content_description">ડ્રૉપડાઉન મેનૂ બતાવો</string>
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"લિંક કૉપિ કરો"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"બ્રાઉઝરમાં ખોલો"</string>
