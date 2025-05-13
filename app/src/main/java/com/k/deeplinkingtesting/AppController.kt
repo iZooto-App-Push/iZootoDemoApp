@@ -22,6 +22,8 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
+import com.indixital.DeepLinkCallback
+import com.indixital.Indixital
 import com.izooto.NotificationHelperListener
 import com.izooto.Payload
 import com.izooto.iZooto
@@ -30,7 +32,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.yandex.mobile.ads.common.MobileAds
-
+import org.json.JSONObject
 
 
 class AppController : Application(), LifecycleObserver, Application.ActivityLifecycleCallbacks {
@@ -51,22 +53,11 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
 
 
             FirebaseApp.initializeApp(this);
+            indixitalSDK()
 
             appOpenAdManager = AppOpenAdManager()
             appOpenAdManager.loadAd(this)
-//            AppsFlyerLib.getInstance().start(this,"n4PpcqgB26iKgyJ7GzyzDD", object :
-//                AppsFlyerRequestListener {
-//                override fun onSuccess() {
-//                    Log.d("LOG_TAG", "Launch sent successfully")
-//                }
-//
-//                override fun onError(errorCode: Int, errorDesc: String) {
-//                    Log.d("LOG_TAG", "Launch failed to be sent:\n" +
-//                            "Error code: " + errorCode + "\n"
-//                            + "Error description: " + errorDesc)
-//                }
-//            })
-           // AppsFlyerLib.getInstance().start(this);
+
 
         } catch (ex: Exception) {
             Log.e("AppController", "Ads execution failure " + ex.message)
@@ -107,12 +98,12 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             })
             .build()
 
-        val remoteConfig = Firebase.remoteConfig
-        val configSettings = remoteConfigSettings {
-            minimumFetchIntervalInSeconds = 0
-        }
-        remoteConfig.setConfigSettingsAsync(configSettings)
-        remoteConfig.setDefaultsAsync(R.xml.remote_config_default)
+//        val remoteConfig = Firebase.remoteConfig
+//        val configSettings = remoteConfigSettings {
+//            minimumFetchIntervalInSeconds = 0
+//        }
+//        remoteConfig.setConfigSettingsAsync(configSettings)
+//        remoteConfig.setDefaultsAsync(R.xml.remote_config_default)
 
 //        AppLovinSdk.getInstance(this).mediationProvider = "max"
 //        AppLovinSdk.initializeSdk(this,{ configuration: AppLovinSdkConfiguration ->
@@ -121,6 +112,41 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
 //        })
 
     }
+
+    private fun indixitalSDK() {
+        Indixital.Builder(applicationContext)
+            .setDevKey("your_dev_key_here")
+            .setDeepLinkCallback(object : DeepLinkCallback {
+                override fun onDeepLinkCaptured(deepLinkData: JSONObject) {
+                    Log.d("Indixtial", "Received deep link data: $deepLinkData")
+                    passDeepLinkDataToActivity(deepLinkData)
+
+
+                }
+
+                override fun onConsumerDeepLinkCaptured(deepLinkData: JSONObject) {
+                    Log.d("Indixtial", "Received deep link data: $deepLinkData")
+                }
+            })
+
+            .build()
+    }
+    private fun passDeepLinkDataToActivity(deepLinkData: JSONObject) {
+        // Create an Intent to launch the new activity
+        val intent = Intent(this, MainActivity::class.java)
+
+        // Convert the deepLinkData to a string and pass it as an extra
+        intent.putExtra("DL_ATTRS", deepLinkData.toString())
+
+        // Add flags if necessary (optional)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+        // Start the activity
+        startActivity(intent)
+    }
+
+
+
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onMoveToForeground() {

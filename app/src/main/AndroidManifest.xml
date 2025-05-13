@@ -114,7 +114,19 @@
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            tools:ignore="DiscouragedApi" />
+            tools:ignore="DiscouragedApi" >
+            <!-- Deep link intent -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="https"
+                    android:host="demo-stage-cdn.indixital.com"
+                    />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -140,6 +152,7 @@
             android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
             android:value="true"
             tools:replace="android:value"/>
+
     </application>
 
 </manifest>

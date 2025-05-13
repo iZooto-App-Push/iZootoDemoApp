@@ -87,7 +87,9 @@ dependencies {
     implementation("io.ktor:ktor-client-serialization:2.0.0")
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     implementation files('libs/izooto-release.aar')
-   // implementation 'com.appsflyer:af-android-sdk:6.12.1'
+    implementation files('libs/indixital-release.aar')
+
+    // implementation 'com.appsflyer:af-android-sdk:6.12.1'
    // implementation 'com.trackier:android-sdk:1.6.60' // Add this Trackier SDK dependency in the build.gradle
    // implementation "com.miui.referrer:homereferrer:1.0.0.6"
     implementation 'com.google.android.gms:play-services-ads-identifier:18.2.0'

@@ -40,7 +40,7 @@ class ClassicWithImageActivity : AppCompatActivity(), RecommendationsListener {
             minimumFetchIntervalInSeconds = 0 // Set to 0 for testing to always fetch fresh data
         }
         remoteConfig.setConfigSettingsAsync(configSettings)
-        fetchForRecommendations()
+      //  fetchForRecommendations()
        // launchWhatIs()
     }
 

@@ -115,15 +115,15 @@ class CommonActivity : AppCompatActivity() {
         nativeAdView = findViewById(R.id.native_ad_view)
         ad_container_admob = findViewById(R.id.ad_container_admob)
 
-        loadNativeAd(nativeAdView)
+      //  loadNativeAd(nativeAdView)
         iZooto.promptForPushNotifications()
 
-        initializeRemoteConfig()
-        loadBannerAds("")
+      //  initializeRemoteConfig()
+       // loadBannerAds("")
 
 
 
-    iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
+   // iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
 //        try {
 //            linearLayout = findViewById(R.id.adLayout)
 //            remoteConfig = Firebase.remoteConfig
