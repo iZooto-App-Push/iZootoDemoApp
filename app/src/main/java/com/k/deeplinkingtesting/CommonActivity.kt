@@ -94,15 +94,7 @@ class CommonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.native_pulse)
 
-        try {
-            val backgroundScope = CoroutineScope(Dispatchers.IO)
-            backgroundScope.launch {
-                MobileAds.initialize(this@CommonActivity) {}
-            }
-        } catch (ex: Exception) {
-            Log.e(TAG, "Ads execution failure " + ex.message)
-        }
-       // adManagerAdView = findViewById(R.id.adManagerView)
+
 
         permissionFile = findViewById(R.id.btn_permissionFIle)
         beginDebugFile = findViewById(R.id.btn_beginDebugFile)
@@ -115,11 +107,8 @@ class CommonActivity : AppCompatActivity() {
         nativeAdView = findViewById(R.id.native_ad_view)
         ad_container_admob = findViewById(R.id.ad_container_admob)
 
-      //  loadNativeAd(nativeAdView)
         iZooto.promptForPushNotifications()
 
-      //  initializeRemoteConfig()
-       // loadBannerAds("")
 
 
 

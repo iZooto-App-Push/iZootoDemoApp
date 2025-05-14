@@ -3,27 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/white"
     android:orientation="vertical">
         <TextView
-            android:id="@+id/appVersion"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:padding="5dp"
             android:gravity="center"
-            android:text="@string/iz_redirect_string"
+            android:text="@string/deeplink_data"
             android:textColor="@android:color/black"/>
-        <Button
-            android:id="@+id/allActiveNotification"
+        <TextView
+            android:id="@+id/deepLinkData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:padding="5dp"
             android:gravity="center"
-            android:text="Get All Active Notification"
+            android:text="Amit "
             android:textColor="@android:color/black"/>
+<!--        <Button-->
+<!--            android:id="@+id/allActiveNotification"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:padding="5dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/get_all_active_notification"-->
+<!--            android:textColor="@android:color/black"/>-->
 
 </LinearLayout>
 

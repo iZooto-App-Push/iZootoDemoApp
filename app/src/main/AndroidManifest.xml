@@ -107,26 +107,25 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="fwd.indixital.com" />
+            </intent-filter>
         </activity>
+
         <activity
             android:name=".CommonActivity"
             android:exported="true"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            tools:ignore="DiscouragedApi" >
+            tools:ignore="DiscouragedApi,LockedOrientationActivity" >
             <!-- Deep link intent -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:scheme="https"
-                    android:host="demo-stage-cdn.indixital.com"
-                    />
-            </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -143,15 +142,15 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".productionOubtbrain.OutbrainSDKActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <meta-data
-            android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
-            android:value="true"
-            tools:replace="android:value"/>
+<!--        <activity-->
+<!--            android:name=".productionOubtbrain.OutbrainSDKActivity"-->
+<!--            android:exported="false"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:theme="@style/AppTheme" />-->
+<!--        <meta-data-->
+<!--            android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"-->
+<!--            android:value="true"-->
+<!--            tools:replace="android:value"/>-->
 
     </application>
 

@@ -3,7 +3,7 @@
     <string name="player_error">Errors initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
-    <string name="appVersion">App Version - 7.5.1</string>
+    <string name="appVersion">App Version - 8.0.6</string>
     <string name="description">This app is only for testing the basic features, if any query please contact @iZooto support team</string>
     <string name="share_the_token">Share the Token</string>
     <string name="iz_redirect_string">Notification Redirection Page</string>
@@ -91,4 +91,6 @@
     <string name="ad_description">Ad Description</string>
     <string name="call_to_action">Call to Action</string>
     <string name="mrec">MREC</string>
+    <string name="get_all_active_notification">Get All Active Notification</string>
+    <string name="deeplink_data">DeepLink Data</string>
 </resources>

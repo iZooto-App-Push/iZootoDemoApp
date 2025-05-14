@@ -88,5 +88,4 @@
 
 -dontwarn org.apache.commons.text.**
 -keep public class com.android.installreferrer.** { *; }
--keep class com.appsflyer.** { *; }
 -keep class kotlin.jvm.internal.** { *; }
