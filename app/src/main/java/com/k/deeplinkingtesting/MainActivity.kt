@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         deepLinkData = findViewById(R.id.deepLinkData)
-        val deepLinkDataString = intent.getStringExtra("DL_ATTRS")
+        val deepLinkDataString = intent.getStringExtra("deepLinkData")
 
         // Optional: Parse if it was originally a JSONObject or another format
         deepLinkDataString?.let {

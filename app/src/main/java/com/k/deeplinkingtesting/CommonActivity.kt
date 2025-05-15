@@ -55,18 +55,18 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.google.firebase.remoteconfig.get
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
+import com.indixital.DeepLinkCallback
+import com.indixital.Indixital
 import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
 import com.k.deeplinkingtesting.admob.AdUnitConfig
-import com.k.deeplinkingtesting.admob.InLineBannerAdActivity
-import com.k.deeplinkingtesting.databinding.ActivityTempBinding
-import com.k.deeplinkingtesting.databinding.NativePulseBinding
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import java.util.Locale
 
 
@@ -86,14 +86,14 @@ class CommonActivity : AppCompatActivity() {
     private  var nestedScrollView : NestedScrollView? = null
     private lateinit var nativeAdView: NativeAdView
     private var bannerAdUnitId: String = ""
+    var deepLinkData : TextView? =null
 
 
     //adManagerView
     @SuppressLint("ClickableViewAccessibility", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.native_pulse)
-
+        setContentView(R.layout.native_plush)
 
 
         permissionFile = findViewById(R.id.btn_permissionFIle)
@@ -101,7 +101,7 @@ class CommonActivity : AppCompatActivity() {
         sendDebugFile = findViewById(R.id.btn_sendDebugFile)
         deleteDebugFile = findViewById(R.id.btn_deleteDebugFile)
         permissionFile = findViewById(R.id.btn_permissionFIle)
-        trackEvents=findViewById(R.id.trackEvents);
+      //  trackEvents=findViewById(R.id.trackEvents);
         nestedScrollView = findViewById(R.id.nestedScrollView)
         mainLayout = findViewById(R.id.mainView)
         nativeAdView = findViewById(R.id.native_ad_view)
@@ -109,7 +109,16 @@ class CommonActivity : AppCompatActivity() {
 
         iZooto.promptForPushNotifications()
 
+        deepLinkData = findViewById(R.id.deepLinkData)
+        val deepLinkDataString = intent.getStringExtra("deepLinkData")
 
+        // Optional: Parse if it was originally a JSONObject or another format
+        deepLinkDataString?.let {
+            Log.d("DeepLinkData", "Amit Received data: $it")
+            deepLinkData?.text = deepLinkDataString
+            // If it was JSON, you can parse it back like:
+            // val jsonObject = JSONObject(it)
+        }
 
 
    // iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
@@ -191,7 +200,8 @@ class CommonActivity : AppCompatActivity() {
         sendButton.setOnClickListener { _: View? -> sendEmail() }
     }
 
-private fun loadBannerAds(bannerAdsUnitID: String) {
+
+    private fun loadBannerAds(bannerAdsUnitID: String) {
     val defaultAdUnit = "ca-app-pub-9298860897894361/3941078262"
     val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit
     val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
@@ -454,41 +464,11 @@ override fun onBackPressed() {
     this.doubleBackToExitPressedOnce = true
 
     // Inflate the custom layout containing the native ad
-    val dialogView = layoutInflater.inflate(R.layout.ad_dialog, null)
-    val nativeAdView: NativeAdView = dialogView.findViewById(R.id.nativeAdView)
+  //  val dialogView = layoutInflater.inflate(R.layout.ad_dialog, null)
+  //  val nativeAdView: NativeAdView = dialogView.findViewById(R.id.nativeAdView)
 
     // Load the native ad
-    val adLoader = AdLoader.Builder(this, "ca-app-pub-9298860897894361/3941078262")  // Replace with your Ad Unit ID
-        .forNativeAd { nativeAd ->
-            // Populate the native ad into the native ad view
-            populateNativeAdView(nativeAd, nativeAdView)
-        }
-        .withAdListener(object : com.google.android.gms.ads.AdListener() {
-            override fun onAdFailedToLoad(error: com.google.android.gms.ads.LoadAdError) {
-                Log.e("Failed","Ads")
-                // Handle the failure by showing an appropriate message to the user
-            }
-        })
-        .withNativeAdOptions(NativeAdOptions.Builder().build())
-        .build()
 
-    adLoader.loadAd(AdRequest.Builder().build())
-
-    // Create and show the AlertDialog
-    val builder1 = AlertDialog.Builder(this@CommonActivity)
-    builder1.setView(dialogView)
-    builder1.setCancelable(true)
-    builder1.setPositiveButton("Yes") { dialog, _ ->
-        finishAffinity()  // Close the app
-        dialog.cancel()
-    }
-    builder1.setNegativeButton("No") { dialog, _ ->
-        dialog.cancel()
-    }
-    val alert11 = builder1.create()
-    alert11.show()
-
-    handler.postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
 }
 
     // Helper method to populate native ad into the NativeAdView
@@ -521,8 +501,8 @@ override fun onBackPressed() {
 //
 //            }
             R.id.not_found -> {
-                val intent = Intent(this@CommonActivity, OutBrainContentActivity::class.java)
-                startActivity(intent)
+              //  val intent = Intent(this@CommonActivity, OutBrainContentActivity::class.java)
+              //  startActivity(intent)
                 true
 
             }
