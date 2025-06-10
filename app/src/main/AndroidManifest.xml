@@ -37,23 +37,17 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
-
-
-
         <activity
             android:name=".admob.AdMobActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
 
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9298860897894361~4907509724"
-            />
-        <meta-data android:name="applovin.sdk.key"
-            android:value="MmHLJLwlhhLwuWZiNeyeLte3zfmk4GImmOIOs6U5eCW31mzSvyzXbhJuoTTGhgAmLvAnTNibCSqHrppumwVLAW"/>
-
+            android:value="ca-app-pub-9298860897894361~4907509724" />
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="MmHLJLwlhhLwuWZiNeyeLte3zfmk4GImmOIOs6U5eCW31mzSvyzXbhJuoTTGhgAmLvAnTNibCSqHrppumwVLAW" />
 
         <activity
             android:name=".SplashScreen"
@@ -62,42 +56,41 @@
             android:theme="@style/AppTheme"
             tools:ignore="DiscouragedApi">
 
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
         <activity
             android:name=".CommonActivity"
+            android:exported="true"
             android:theme="@style/AppTheme"
-            android:exported="true">
+            android:launchMode="singleTask">
 
-        <!-- Launcher intent -->
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <!-- Launcher intent -->
 
-        <!-- Deep link intent -->
-        <intent-filter android:autoVerify="true">
-            <action android:name="android.intent.action.VIEW" />
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-            <data android:scheme="https"
-                android:host="fwd.indixital.com"
-                android:pathPrefix="/" />
+                <data
+                    android:host="fwd.indixital.com"
+                    android:pathPrefix="/"
+                    android:scheme="https" />
+            </intent-filter>
+            <!-- Deep link intent -->
 
-        </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        
-
-
-
     </application>
 
 </manifest>

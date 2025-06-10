@@ -8,16 +8,21 @@ import android.view.WindowMetrics
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.admanager.AdManagerAdRequest
 import com.google.android.gms.ads.admanager.AdManagerAdView
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.izooto.iZooto
+import com.k.deeplinkingtesting.MenuItem
 import com.k.deeplinkingtesting.R
 import com.outbrain.OBSDK.Errors.OBErrorReporting
 
@@ -29,6 +34,7 @@ class AdMobActivity : AppCompatActivity()
     private var mainLayout : LinearLayout? = null
     private var scrollView : ScrollView? = null
     private lateinit var adManagerAdView: AdManagerAdView
+     private var mInterstitialAd: InterstitialAd? = null
 
 
     @SuppressLint("MissingInflatedId")
@@ -41,7 +47,7 @@ class AdMobActivity : AppCompatActivity()
         scrollView = findViewById(R.id.scrollView)
         mainLayout = findViewById(R.id.mainLayout)
         adManagerAdView = findViewById(R.id.adManagerView)
-        iZooto.enablePulse(this,scrollView,mainLayout,true)
+       // iZooto.enablePulse(this,scrollView,mainLayout,true)
 
 //        val adRequest = AdManagerAdRequest.Builder().build()
 ////
@@ -69,9 +75,8 @@ class AdMobActivity : AppCompatActivity()
 //        }
 
 
-         commonInit();
 
-
+       loadInterAds()
         val adContainer = findViewById<LinearLayout>(R.id.ad_container)
         val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
 
@@ -98,12 +103,21 @@ class AdMobActivity : AppCompatActivity()
         }
     }
 
-     private fun commonInit() {
+     private fun loadInterAds() {
+         val adRequest = AdRequest.Builder().build()
 
-         // Set Error Reporting Values
-       //  DATBErrorReporting.init(this)
+         InterstitialAd.load(this, "ca-app-pub-9298860897894361/8470985254", adRequest, object : InterstitialAdLoadCallback() {
+             override fun onAdLoaded(ad: InterstitialAd) {
+                 mInterstitialAd = ad
+             }
 
+             override fun onAdFailedToLoad(adError: LoadAdError) {
+                 mInterstitialAd = null
+             }
+         })
      }
+
+
      // Helper function to get screen width in dp
 
      private fun getScreenWidthInDp(): Int {
@@ -179,16 +193,32 @@ class AdMobActivity : AppCompatActivity()
             return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth)
         }
 
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                true
-            }
+     override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+         return when (item.itemId) {
+             android.R.id.home -> {
+                 if (mInterstitialAd != null) {
+                     mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+                         override fun onAdDismissedFullScreenContent() {
+                             mInterstitialAd = null
+                             // Go back after the ad is dismissed
+                             onBackPressed()
+                         }
 
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+                         override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                             mInterstitialAd = null
+                             onBackPressed()
+                         }
+                     }
+                     mInterstitialAd?.show(this)
+                 } else {
+                     onBackPressed()
+                 }
+                 true
+             }
+
+             else -> super.onOptionsItemSelected(item)
+         }
+     }
 
 
     // Handle lifecycle methods to properly pause and resume the ad
@@ -206,4 +236,5 @@ class AdMobActivity : AppCompatActivity()
         super.onDestroy()
        // adManagerAdView.destroy()
     }
+
 }

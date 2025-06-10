@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         // Optional: Parse if it was originally a JSONObject or another format
         deepLinkDataString?.let {
-            Log.d("DeepLinkData", "Amit Received data: $it")
+            Log.d("DeepLinkData", " Received data: $it")
             deepLinkData?.text = deepLinkDataString
             // If it was JSON, you can parse it back like:
             // val jsonObject = JSONObject(it)

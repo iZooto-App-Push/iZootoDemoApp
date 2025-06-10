@@ -85,7 +85,5 @@
 -keep interface okhttp3.** { *; }
 -dontwarn okhttp3.**
 -dontwarn okio.**
-
--dontwarn org.apache.commons.text.**
 -keep public class com.android.installreferrer.** { *; }
 -keep class kotlin.jvm.internal.** { *; }

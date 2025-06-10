@@ -54,9 +54,7 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.google.firebase.remoteconfig.get
 import com.google.firebase.remoteconfig.ktx.remoteConfig
-import com.google.firebase.remoteconfig.remoteConfigSettings
-import com.indixital.DeepLinkCallback
-import com.indixital.Indixital
+
 import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
@@ -68,6 +66,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 import java.util.Locale
+import androidx.core.net.toUri
 
 
 class CommonActivity : AppCompatActivity() {
@@ -95,7 +94,7 @@ class CommonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.native_plush)
 
-
+        iZooto.promptForPushNotifications()
         permissionFile = findViewById(R.id.btn_permissionFIle)
         beginDebugFile = findViewById(R.id.btn_beginDebugFile)
         sendDebugFile = findViewById(R.id.btn_sendDebugFile)
@@ -121,7 +120,11 @@ class CommonActivity : AppCompatActivity() {
         }
 
 
-   // iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
+           // fetchRemoteConfig()
+        loadBannerAds("")
+        loadNativeAd(nativeAdView)
+
+         iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
 //        try {
 //            linearLayout = findViewById(R.id.adLayout)
 //            remoteConfig = Firebase.remoteConfig
@@ -222,8 +225,8 @@ class CommonActivity : AppCompatActivity() {
             Log.e("AdManager", "Failed to load ad: ${adError.message}")
             if (!hasRetried) {
                 hasRetried = true
-                fetchRemoteConfig()
-                loadBannerAds(defaultAdUnit)
+               // fetchRemoteConfig()
+               // loadBannerAds(defaultAdUnit)
             }
         }
     }
@@ -252,12 +255,14 @@ class CommonActivity : AppCompatActivity() {
                         Log.d("RemoteConfig", "Banner Ad Unit ID: $bannerAdUnitId")
 
                         // Uncomment to load banner ads dynamically
-                        // loadBannerAds(bannerAdUnitId)
+                         loadBannerAds(bannerAdUnitId)
                     } else {
                         Log.e("RemoteConfig", "Fetch failed: ${task.exception?.message}")
                     }
                 }
         } catch (e: Exception) {
+            loadBannerAds(bannerAdUnitId)
+
             Log.e("RemoteConfig", "Error fetching RemoteConfig: ${e.message}")
         }
     }
@@ -360,12 +365,10 @@ class CommonActivity : AppCompatActivity() {
                 val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
                 intent.addCategory("android.intent.category.DEFAULT")
                 intent.setData(
-                    Uri.parse(
-                        String.format(
-                            "package:%s",
-                            applicationContext.packageName
-                        )
-                    )
+                    String.format(
+                        "package:%s",
+                        applicationContext.packageName
+                    ).toUri()
                 )
                 startActivityForResult(intent, 2296)
             } catch (e: Exception) {
