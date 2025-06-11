@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <Button
         android:id="@+id/btn_permissionFIle"
         android:layout_width="match_parent"
@@ -107,13 +108,6 @@
             android:padding="@dimen/margin_5dp"
             android:text="See More" />
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/ad_container_admob"
-        android:gravity="center"
-        android:padding="8dp">
-    </LinearLayout>
+
 
 </LinearLayout>

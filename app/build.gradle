@@ -16,8 +16,8 @@ android {
     defaultConfig {
         minSdkVersion 24
         targetSdkVersion 34
-        versionCode 163
-        versionName "8.0.11"
+        versionCode 164
+        versionName "8.0.12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         manifestPlaceholders = [izooto_app_id: 'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640']//'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640'//'09f06385e06cc10d0fc7a5e1c002cd9338a2c94f'

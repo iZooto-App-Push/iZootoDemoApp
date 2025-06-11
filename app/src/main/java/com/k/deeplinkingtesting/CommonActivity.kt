@@ -46,14 +46,8 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.gms.ads.nativead.NativeAdView
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.remoteconfig.ConfigUpdate
-import com.google.firebase.remoteconfig.ConfigUpdateListener
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
-import com.google.firebase.remoteconfig.get
-import com.google.firebase.remoteconfig.ktx.remoteConfig
 
 import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
@@ -61,10 +55,7 @@ import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
 import com.k.deeplinkingtesting.admob.AdUnitConfig
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import org.json.JSONObject
+
 import java.util.Locale
 import androidx.core.net.toUri
 
@@ -94,7 +85,6 @@ class CommonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.native_plush)
 
-        iZooto.promptForPushNotifications()
         permissionFile = findViewById(R.id.btn_permissionFIle)
         beginDebugFile = findViewById(R.id.btn_beginDebugFile)
         sendDebugFile = findViewById(R.id.btn_sendDebugFile)
@@ -103,7 +93,7 @@ class CommonActivity : AppCompatActivity() {
       //  trackEvents=findViewById(R.id.trackEvents);
         nestedScrollView = findViewById(R.id.nestedScrollView)
         mainLayout = findViewById(R.id.mainView)
-        nativeAdView = findViewById(R.id.native_ad_view)
+       // nativeAdView = findViewById(R.id.native_ad_view)
         ad_container_admob = findViewById(R.id.ad_container_admob)
 
         iZooto.promptForPushNotifications()
@@ -121,8 +111,8 @@ class CommonActivity : AppCompatActivity() {
 
 
            // fetchRemoteConfig()
-        loadBannerAds("")
-        loadNativeAd(nativeAdView)
+       // loadBannerAds("")
+      //  loadNativeAd(nativeAdView)
 
          iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
 //        try {
@@ -533,7 +523,7 @@ override fun onBackPressed() {
             .forNativeAd { nativeAd ->
                 nativeAdView.visibility = View.VISIBLE
                 // Populate the native ad into the native ad view
-                populateNativeAdView(nativeAd, nativeAdView)
+               // populateNativeAdView(nativeAd, nativeAdView)
             }
             .withAdListener(object : com.google.android.gms.ads.AdListener() {
                 override fun onAdFailedToLoad(error: LoadAdError) {
@@ -549,30 +539,30 @@ override fun onBackPressed() {
         adLoader.loadAd(AdRequest.Builder().build())
     }
 
-    private fun populateNativeAdView(nativeAd: NativeAd, adView: NativeAdView) {
-        // Set headline
-//        adView.findViewById<TextView>(R.id.native_ad_headline).text = nativeAd.headline
-//        adView.headlineView = adView.findViewById(R.id.native_ad_headline)
-
-
-        // Set media
-        val mediaView = adView.findViewById<MediaView>(R.id.native_ad_media)
-        adView.mediaView = mediaView
-        mediaView.setMediaContent(nativeAd.mediaContent)
-
-//        // Set call to action
-//        nativeAd.callToAction?.let {
-//            val callToActionView = adView.findViewById<Button>(R.id.native_ad_call_to_action)
-//            callToActionView.text = it
-//            callToActionView.visibility = View.VISIBLE
-//            adView.callToActionView = callToActionView
-//        } ?: run {
-//           // adView.findViewById<Button>(R.id.native_ad_call_to_action).visibility = View.GONE
-//        }
-
-        // Set the NativeAd object
-        adView.setNativeAd(nativeAd)
-    }
+//    private fun populateNativeAdView(nativeAd: NativeAd, adView: NativeAdView) {
+//        // Set headline
+////        adView.findViewById<TextView>(R.id.native_ad_headline).text = nativeAd.headline
+////        adView.headlineView = adView.findViewById(R.id.native_ad_headline)
+//
+//
+//        // Set media
+//        val mediaView = adView.findViewById<MediaView>(R.id.native_ad_media)
+//        adView.mediaView = mediaView
+//        mediaView.setMediaContent(nativeAd.mediaContent)
+//
+////        // Set call to action
+////        nativeAd.callToAction?.let {
+////            val callToActionView = adView.findViewById<Button>(R.id.native_ad_call_to_action)
+////            callToActionView.text = it
+////            callToActionView.visibility = View.VISIBLE
+////            adView.callToActionView = callToActionView
+////        } ?: run {
+////           // adView.findViewById<Button>(R.id.native_ad_call_to_action).visibility = View.GONE
+////        }
+//
+//        // Set the NativeAd object
+//        adView.setNativeAd(nativeAd)
+//    }
 
 
 }
