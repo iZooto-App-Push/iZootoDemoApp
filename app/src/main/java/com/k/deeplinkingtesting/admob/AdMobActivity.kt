@@ -44,63 +44,50 @@ class AdMobActivity : AppCompatActivity()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "News Feed"
-        scrollView = findViewById(R.id.scrollView)
-        mainLayout = findViewById(R.id.mainLayout)
         adManagerAdView = findViewById(R.id.adManagerView)
-       // iZooto.enablePulse(this,scrollView,mainLayout,true)
 
-//        val adRequest = AdManagerAdRequest.Builder().build()
-////
-////        // Load the ad
-//        adManagerAdView.loadAd(adRequest)
-////
-//        // Set listeners for ad loading success or failure
-//        adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
-//            override fun onAdLoaded() {
-//                Log.e("Ad show","successfully")
-//                // Ad successfully loaded
-//               // Toast.makeText(applicationContext, "Ad Loaded!", Toast.LENGTH_SHORT).show()
-//            }
+        val adRequest = AdManagerAdRequest.Builder().build()
+//        // Load the ad
+        adManagerAdView.loadAd(adRequest)
 //
-//            override fun onAdFailedToLoad(adError: LoadAdError) {
-//                Log.e("Ad show",""+adError.message)
-//
-////                // Failed to load the ad
-////               // Toast.makeText(
-////                    applicationContext,
-////                    "Failed to Load Ad: ${adError.message}",
-////                    Toast.LENGTH_SHORT
-////                ).show()
-//            }
-//        }
+        // Set listeners for ad loading success or failure
+        adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
+            override fun onAdLoaded() {
+                Log.e("Ad show","successfully")
+            }
+
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                Log.e("Ad show",""+adError.message)
+
+            }
+        }
 
 
 
        loadInterAds()
-        val adContainer = findViewById<LinearLayout>(R.id.ad_container)
-        val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
-
-        val adManagerAdView1 = AdManagerAdView(this).apply {
-            adUnitId = "ca-app-pub-9298860897894361/3941078262" // Replace with your actual ad unit ID
-            setAdSize(adSize) // Explicitly set the ad size
-        }
-
-        adContainer.addView(adManagerAdView1)
-
-        val adRequest1 = AdManagerAdRequest.Builder().build()
-        adManagerAdView1.loadAd(adRequest1)
-       // DATBErrorReporting.getInstance().reportErrorToServer("Ads is failed")
-
-        adManagerAdView1.adListener = object : com.google.android.gms.ads.AdListener() {
-            override fun onAdLoaded() {
-                Log.d("AdManager", "Ad loaded successfully")
-            }
-
-            override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
-                Log.e("AdManager", "Failed to load ad: ${adError.message}")
-
-            }
-        }
+//        val adContainer = findViewById<LinearLayout>(R.id.ad_container)
+//        val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
+//
+//        val adManagerAdView1 = AdManagerAdView(this).apply {
+//            adUnitId = "/23206713921/izooto_demo/com.k.deeplinkingtesting_banner" // Replace with your actual ad unit ID
+//            setAdSize(adSize) // Explicitly set the ad size
+//        }
+//
+//        adContainer.addView(adManagerAdView1)
+//
+//        val adRequest1 = AdManagerAdRequest.Builder().build()
+//        adManagerAdView1.loadAd(adRequest1)
+//
+//        adManagerAdView1.adListener = object : com.google.android.gms.ads.AdListener() {
+//            override fun onAdLoaded() {
+//                Log.d("AdManager", "Ad loaded successfully")
+//            }
+//
+//            override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
+//                Log.e("AdManager", "Failed to load ad: ${adError.message}")
+//
+//            }
+//        }
     }
 
      private fun loadInterAds() {

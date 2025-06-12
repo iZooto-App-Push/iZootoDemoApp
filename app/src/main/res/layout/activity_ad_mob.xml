@@ -3,12 +3,7 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/scrollView"
-    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,30 +15,14 @@
         <com.google.android.gms.ads.admanager.AdManagerAdView
             android:id="@+id/adManagerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-9298860897894361/3941078262" />
-
-        />
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/ad_container"
-            android:gravity="center"
-            android:padding="8dp">
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/mainLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"/>
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-3940256099942544/9214589741" />
+
 
 
     </LinearLayout>
 
-</ScrollView>
     <!-- Bottom Toolbar -->
 
 

@@ -58,6 +58,12 @@ import com.k.deeplinkingtesting.admob.AdUnitConfig
 
 import java.util.Locale
 import androidx.core.net.toUri
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import java.io.IOException
 
 
 class CommonActivity : AppCompatActivity() {
@@ -111,22 +117,11 @@ class CommonActivity : AppCompatActivity() {
 
 
            // fetchRemoteConfig()
-       // loadBannerAds("")
+        loadBannerAds("")
       //  loadNativeAd(nativeAdView)
 
          iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
-//        try {
-//            linearLayout = findViewById(R.id.adLayout)
-//            remoteConfig = Firebase.remoteConfig
-//            val configSettings = remoteConfigSettings {
-//                minimumFetchIntervalInSeconds = 0 // Set to 0 for testing to always fetch fresh data
-//            }
-//            remoteConfig.setConfigSettingsAsync(configSettings)
-//            remoteConfig.setDefaultsAsync(R.xml.remote_config_default)
-//            //setAdUnitId(this)
-//        } catch (ex: Exception) {
-//            Log.e(TAG, "AdUnit execution failure " + ex.message)
-//        }
+
 
         permissionFile?.setOnClickListener { view ->
             (view as? Button)?.let {
