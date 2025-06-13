@@ -34,7 +34,6 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdSize.BANNER
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.admanager.AdManagerAdRequest
 import com.google.android.gms.ads.admanager.AdManagerAdView
 import com.google.android.gms.ads.nativead.MediaView
@@ -49,7 +48,8 @@ import com.izooto.PreferenceUtil
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
 import com.k.deeplinkingtesting.admob.AdUnitConfig
-import com.k.deeplinkingtesting.appopen.OnAdsCallbackListener
+import com.k.deeplinkingtesting.remoteconfigData.InterstitialAdHandler
+import com.k.deeplinkingtesting.remoteconfigData.RewardedAdManager
 import java.util.Locale
 
 
@@ -68,6 +68,7 @@ class CommonActivity : AppCompatActivity() {
     private lateinit var nativeAdView: NativeAdView
     private lateinit var adManagerAdView: AdManagerAdView
 
+    private lateinit var interstitialAdHandler: InterstitialAdHandler
 
 
 
@@ -104,6 +105,29 @@ class CommonActivity : AppCompatActivity() {
         loadBannerAds()
         loadNativeAd(nativeAdView)
 
+        interstitialAdHandler = InterstitialAdHandler(this)
+
+        // 1. Load remote config and ad unit IDs
+        interstitialAdHandler.loadFromRemoteConfig {
+
+            // 2. Load AdMob interstitial first
+            interstitialAdHandler.loadAdMobInterstitial(
+                onAdLoaded = {
+                    // Show AdMob ad when loaded
+                    interstitialAdHandler.showInterstitialIfAvailable(this)
+                },
+                onAdFailed = {
+                    // If AdMob fails, try loading AdManager ad
+                    interstitialAdHandler.loadAdManagerInterstitial {
+                        // Show AdManager ad if loaded
+                        interstitialAdHandler.showInterstitialIfAvailable(this)
+                    }
+                }
+            )
+        }
+
+// To show ad later
+
 
 
         iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
@@ -111,6 +135,9 @@ class CommonActivity : AppCompatActivity() {
         permissionFile?.setOnClickListener { view ->
             (view as? Button)?.let {
                 requestPermission()
+               // adHandler.showInterstitialIfAvailable(this)
+                val rewardedAdManager = RewardedAdManager(this)
+                rewardedAdManager.loadAndShowRewardedAd()
 
             }
         }
@@ -224,7 +251,7 @@ class CommonActivity : AppCompatActivity() {
             Log.e("RemoteConfig", "Error initializing RemoteConfig: ${e.message}")
         }
     }
-
+// fetch remote config data from firebase server
     private fun fetchRemoteConfig() {
         try {
             remoteConfig.fetchAndActivate()
@@ -472,26 +499,7 @@ class CommonActivity : AppCompatActivity() {
             }
             Log.e("GAM Rewarded AdUnit ID",gam_interstitial)
 
-            GAMAdManager.showInterstitialAd(
-                this,
-                gam_interstitial,
-                object : OnAdsCallbackListener {
-                    override fun onComplete() {
-                        super.onComplete()
-                        Log.d(TAG, "onComplete.")
-                    }
-
-                    override fun onAdImpression() {
-                        super.onAdImpression()
-                        Log.d(TAG, "onAdImpression.")
-
-                    }
-
-                    override fun onError(var1: Int, var2: String?) {
-                        super.onError(var1, var2)
-                        Log.e(TAG, "Error: $var1, $var2")
-                    }
-                })
+          
 
         } catch (e: Exception) {
             e.printStackTrace()
@@ -560,7 +568,8 @@ class CommonActivity : AppCompatActivity() {
             }
             .withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(error: LoadAdError) {
-                    nativeAdView.visibility = View.GONE
+                   // loadNativeAd(nativeAdView)
+                    nativeAdView.visibility = View.VISIBLE
 
                     Log.e("NativeAd", "Failed to load native ad: ${error.message}")
 
@@ -573,27 +582,11 @@ class CommonActivity : AppCompatActivity() {
     }
 
     private fun populateNativeAdView(nativeAd: NativeAd, adView: NativeAdView) {
-        // Set headline
-//        adView.findViewById<TextView>(R.id.native_ad_headline).text = nativeAd.headline
-//        adView.headlineView = adView.findViewById(R.id.native_ad_headline)
 
-
-        // Set media
         val mediaView = adView.findViewById<MediaView>(R.id.native_ad_media)
         adView.mediaView = mediaView
         mediaView.setMediaContent(nativeAd.mediaContent)
 
-//        // Set call to action
-//        nativeAd.callToAction?.let {
-//            val callToActionView = adView.findViewById<Button>(R.id.native_ad_call_to_action)
-//            callToActionView.text = it
-//            callToActionView.visibility = View.VISIBLE
-//            adView.callToActionView = callToActionView
-//        } ?: run {
-//           // adView.findViewById<Button>(R.id.native_ad_call_to_action).visibility = View.GONE
-//        }
-
-        // Set the NativeAd object
         adView.setNativeAd(nativeAd)
     }
 

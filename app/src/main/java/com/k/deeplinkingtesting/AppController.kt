@@ -8,7 +8,6 @@ import com.google.firebase.FirebaseApp
 import com.izooto.NotificationHelperListener
 import com.izooto.Payload
 import com.izooto.iZooto
-import com.k.deeplinkingtesting.appopen.OnAdsCallbackListener
 import com.yandex.mobile.ads.common.MobileAds
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -32,35 +31,35 @@ class AppController : Application() {
                     )
                 }
             }
-
-             applicationScope.launch {
-                delay(2000)
-                 val gam_app_open = if (AdConfig.r_app_open_id.isNotEmpty()) {
-                     AdConfig.r_app_open_id
-                 } else {
-                     resources.getString(R.string.gam_app_open)
-                 }
-                 Log.e("GAM gam_app_open AdUnit ID",gam_app_open)
-
-
-                 GAMAdManager.setAppOpenManager(this@AppController, gam_app_open, object :
-                    OnAdsCallbackListener {
-                    override fun onComplete() {
-                        super.onComplete()
-                        Log.d("CommonActivity", "onComplete.")
-                    }
-
-                    override fun onAdImpression() {
-                        super.onAdImpression()
-                        Log.d("CommonActivity", "onAdImpression.")
-                    }
-
-                    override fun onError(var1: Int, var2: String?) {
-                        super.onError(var1, var2)
-                        Log.e("CommonActivity", "Error: $var1, $var2")
-                    }
-                })
-            }
+//            appOpenAdManager.loadAndShowAppOpenAd()
+//             applicationScope.launch {
+//                delay(2000)
+//                 val gam_app_open = if (AdConfig.r_app_open_id.isNotEmpty()) {
+//                     AdConfig.r_app_open_id
+//                 } else {
+//                     resources.getString(R.string.gam_app_open)
+//                 }
+//                 Log.e("GAM gam_app_open AdUnit ID",gam_app_open)
+//
+//
+//                 GAMAdManager.setAppOpenManager(this@AppController, gam_app_open, object :
+//                    OnAdsCallbackListener {
+//                    override fun onComplete() {
+//                        super.onComplete()
+//                        Log.d("CommonActivity", "onComplete.")
+//                    }
+//
+//                    override fun onAdImpression() {
+//                        super.onAdImpression()
+//                        Log.d("CommonActivity", "onAdImpression.")
+//                    }
+//
+//                    override fun onError(var1: Int, var2: String?) {
+//                        super.onError(var1, var2)
+//                        Log.e("CommonActivity", "Error: $var1, $var2")
+//                    }
+//                })
+//            }
 
 
             FirebaseApp.initializeApp(this)

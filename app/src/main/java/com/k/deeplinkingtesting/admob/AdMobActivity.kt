@@ -20,9 +20,7 @@ import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.AdConfig
 import com.k.deeplinkingtesting.CommonActivity
-import com.k.deeplinkingtesting.GAMAdManager
 import com.k.deeplinkingtesting.R
-import com.k.deeplinkingtesting.appopen.OnAdsCallbackListener
 
 
 class AdMobActivity : AppCompatActivity()
@@ -148,28 +146,7 @@ class AdMobActivity : AppCompatActivity()
 
 
 
-        GAMAdManager.showRewardedAd(this,gam_rewarded, object : OnAdsCallbackListener{
-            override fun onComplete() {
-                super.onComplete()
-                Log.d("CommonActivity", "onComplete.")
-            }
 
-            override fun onAdImpression() {
-                super.onAdImpression()
-                Log.d("CommonActivity", "onAdImpression.")
-            }
-
-            override fun onUserEarnedReward(type: String?, amount: Int) {
-                super.onUserEarnedReward(type, amount)
-                Log.d("CommonActivity", "Reward->  $amount")
-
-            }
-
-            override fun onError(var1: Int, var2: String?) {
-                super.onError(var1, var2)
-                Log.e("CommonActivity", "Error: $var1, $var2")
-            }
-        })
      }
 
      private fun commonInit() {
