@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import androidx.core.net.toUri
+import com.adsbynimbus.Nimbus
 
 import com.google.android.gms.ads.MobileAds
 
@@ -13,8 +14,14 @@ import org.json.JSONObject
 
 
 class AppController : Application() {
+    lateinit var context: Context
     override fun onCreate() {
         super.onCreate()
+
+        Nimbus.initialize(this, "dev-publisher", "DEV-af79-4612-87a9-aa70c17e8dc6")
+        Nimbus.testMode = true
+
+
 //        IndixitalSDK.init(
 //            this, "aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640", object : SubscriberResult {
 //                override fun onSuccess(response: String?) {

@@ -52,6 +52,8 @@ android {
             keyPassword "deeplink"
         }
     }
+
+
 }
 dependencies {
     
@@ -81,7 +83,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-config'
 
-    implementation 'com.outbrain.mobile:obsdk:4.30.10'
+  //  implementation 'com.outbrain.mobile:obsdk:4.30.10'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
@@ -114,6 +116,9 @@ dependencies {
 
 
     // implementation ("com.yodo1.mas.mediation.yandex.adapters:applovin:4.14.1")
+    implementation "com.adsbynimbus.android:nimbus:2.+" // Full Nimbus SDK with NimbusAdManager. Update version number to match
+    implementation("com.adsbynimbus.android:extension-admob:2.+")
+    implementation("com.google.android.gms:play-services-ads:23.+")
 
 
 }

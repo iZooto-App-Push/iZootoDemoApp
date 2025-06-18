@@ -1,2 +1,18 @@
 include ':app'
 rootProject.name='DeepLinkingTesting'
+//dependencyResolutionManagement {
+//    repositories {
+//        google()
+//        mavenCentral()
+//        // Add the following maven repository for access to the Nimbus SDK
+//        maven("https://adsbynimbus-public.s3.amazonaws.com/android/sdks") {
+//            credentials {
+//                username = "*"
+//            }
+//            content {
+//                includeGroupByRegex(".*\\.adsbynimbus.*")
+//            }
+////        }
+//        }
+//    }
+//}

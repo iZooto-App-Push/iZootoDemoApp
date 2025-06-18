@@ -4,10 +4,16 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
 import android.view.WindowMetrics
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
+import com.adsbynimbus.NimbusAdManager
+import com.adsbynimbus.openrtb.request.Format
+import com.adsbynimbus.render.AdController
+import com.adsbynimbus.request.NimbusRequest
+import com.adsbynimbus.request.withAdMobBanner
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
@@ -24,7 +30,6 @@ import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.MenuItem
 import com.k.deeplinkingtesting.R
-import com.outbrain.OBSDK.Errors.OBErrorReporting
 
 
 class AdMobActivity : AppCompatActivity()
@@ -35,6 +40,7 @@ class AdMobActivity : AppCompatActivity()
     private var scrollView : ScrollView? = null
     private lateinit var adManagerAdView: AdManagerAdView
      private var mInterstitialAd: InterstitialAd? = null
+     private lateinit var nimbusAdManager: NimbusAdManager
 
 
     @SuppressLint("MissingInflatedId")
@@ -45,26 +51,27 @@ class AdMobActivity : AppCompatActivity()
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "News Feed"
         adManagerAdView = findViewById(R.id.adManagerView)
+       // bannerRequest(adManagerAdView,"home", listener = Ni)
 
-        val adRequest = AdManagerAdRequest.Builder().build()
+       // val adRequest = AdManagerAdRequest.Builder().build()
 //        // Load the ad
-        adManagerAdView.loadAd(adRequest)
+       // adManagerAdView.loadAd(adRequest)
 //
         // Set listeners for ad loading success or failure
-        adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
-            override fun onAdLoaded() {
-                Log.e("Ad show","successfully")
-            }
+//        adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
+//            override fun onAdLoaded() {
+//                Log.e("Ad show","successfully")
+//            }
+//
+//            override fun onAdFailedToLoad(adError: LoadAdError) {
+//                Log.e("Ad show",""+adError.message)
+//
+//            }
+//        }
 
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                Log.e("Ad show",""+adError.message)
-
-            }
-        }
 
 
-
-       loadInterAds()
+      // loadInterAds()
 //        val adContainer = findViewById<LinearLayout>(R.id.ad_container)
 //        val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
 //
@@ -89,6 +96,20 @@ class AdMobActivity : AppCompatActivity()
 //            }
 //        }
     }
+     fun bannerRequest(
+         container: ViewGroup,
+         position: String,
+         listener: NimbusAdManager.Listener,
+     ) {
+         val request = NimbusRequest.forBannerAd(
+             position = position,
+             format = Format.BANNER_320_50,
+         ).apply {
+             // Replace adUnitId with your AdMob Banner ID
+             withAdMobBanner(adUnitId = "ca-app-pub-xxxxxxxxxxxxxxxx/yyyyyyyyyy")
+         }
+         com.k.deeplinkingtesting.admob.nimbusAdManager.showAd(request, container, listener)
+     }
 
      private fun loadInterAds() {
          val adRequest = AdRequest.Builder().build()

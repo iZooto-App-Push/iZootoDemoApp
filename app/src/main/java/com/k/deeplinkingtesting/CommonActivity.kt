@@ -58,6 +58,14 @@ import com.k.deeplinkingtesting.admob.AdUnitConfig
 
 import java.util.Locale
 import androidx.core.net.toUri
+import androidx.work.Configuration
+import com.adsbynimbus.NimbusAdManager
+import com.adsbynimbus.NimbusError
+import com.adsbynimbus.openrtb.request.Format
+import com.adsbynimbus.render.AdController
+import com.adsbynimbus.request.NimbusRequest
+import com.adsbynimbus.request.NimbusResponse
+import com.iab.omid.library.adsbynimbus.adsession.media.Position
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.OkHttpClient
@@ -73,7 +81,7 @@ class CommonActivity : AppCompatActivity() {
     private var sendDebugFile: Button? = null
     private var deleteDebugFile: Button? = null
     private var trackEvents : Button? = null
-    private var mainLayout: LinearLayout? = null
+    private var adLayout: LinearLayout? = null
     private var doubleBackToExitPressedOnce = false
     private val handler = Handler()
     private var linearLayout: LinearLayout? = null
@@ -83,6 +91,7 @@ class CommonActivity : AppCompatActivity() {
     private lateinit var nativeAdView: NativeAdView
     private var bannerAdUnitId: String = ""
     var deepLinkData : TextView? =null
+    val nimbusAdManager: NimbusAdManager = NimbusAdManager()
 
 
     //adManagerView
@@ -98,34 +107,35 @@ class CommonActivity : AppCompatActivity() {
         permissionFile = findViewById(R.id.btn_permissionFIle)
       //  trackEvents=findViewById(R.id.trackEvents);
         nestedScrollView = findViewById(R.id.nestedScrollView)
-        mainLayout = findViewById(R.id.mainView)
+        adLayout = findViewById(R.id.adLayout)
        // nativeAdView = findViewById(R.id.native_ad_view)
         ad_container_admob = findViewById(R.id.ad_container_admob)
 
-        iZooto.promptForPushNotifications()
-
-        deepLinkData = findViewById(R.id.deepLinkData)
-        val deepLinkDataString = intent.getStringExtra("deepLinkData")
-
-        // Optional: Parse if it was originally a JSONObject or another format
-        deepLinkDataString?.let {
-            Log.d("DeepLinkData", "Amit Received data: $it")
-            deepLinkData?.text = deepLinkDataString
-            // If it was JSON, you can parse it back like:
-            // val jsonObject = JSONObject(it)
-        }
+//        iZooto.promptForPushNotifications()
+//
+//        deepLinkData = findViewById(R.id.deepLinkData)
+//        val deepLinkDataString = intent.getStringExtra("deepLinkData")
+//
+//        // Optional: Parse if it was originally a JSONObject or another format
+//        deepLinkDataString?.let {
+//            Log.d("DeepLinkData", "Amit Received data: $it")
+//            deepLinkData?.text = deepLinkDataString
+//            // If it was JSON, you can parse it back like:
+//            // val jsonObject = JSONObject(it)
+//        }
 
 
            // fetchRemoteConfig()
         loadBannerAds("")
       //  loadNativeAd(nativeAdView)
 
-         iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
+        // iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
 
 
         permissionFile?.setOnClickListener { view ->
             (view as? Button)?.let {
-                requestPermission()
+               // requestPermission()
+                rewardedAds()
 
             }
         }
@@ -190,31 +200,78 @@ class CommonActivity : AppCompatActivity() {
 
 
     private fun loadBannerAds(bannerAdsUnitID: String) {
-    val defaultAdUnit = "ca-app-pub-9298860897894361/3941078262"
-    val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit
-    val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
-    val adManagerAdView = AdManagerAdView(this).apply {
-        adUnitId = bannerAdUnit
-        setAdSize(adSize)
-    }
-    ad_container_admob?.removeAllViews() // Ensure only one ad is shown
-    ad_container_admob?.addView(adManagerAdView)
-    val adRequest = AdManagerAdRequest.Builder().build()
-    adManagerAdView.loadAd(adRequest)
-    var hasRetried = false
-    adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
-        override fun onAdLoaded() {
-            Log.d("AdManager", "Ad loaded successfully: $bannerAdsUnitID")
+
+        adLayout?.let {
+            nimbusAdManager.showAd(NimbusRequest.forBannerAd("test_banner", Format.BANNER_320_50,
+                0), it,
+                object : NimbusAdManager.Listener {
+                    override fun onAdResponse(nimbusResponse: NimbusResponse) {
+                        Log.e("AdResponse","onAdResponse"+nimbusResponse.toString())
+                    }
+
+                    override fun onAdRendered(controller: AdController) {
+                        Log.e("AdResponse","controller"+controller.view)
+
+                    }
+
+                    override fun onError(error: NimbusError) {
+                        Log.e("AdResponse","error"+error.toString())
+                    }
+                })
         }
-        override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
-            Log.e("AdManager", "Failed to load ad: ${adError.message}")
-            if (!hasRetried) {
-                hasRetried = true
-               // fetchRemoteConfig()
-               // loadBannerAds(defaultAdUnit)
-            }
-        }
-    }
+        nimbusAdManager.showBlockingAd(NimbusRequest.forInterstitialAd("1"), this, object : NimbusAdManager.Listener {
+            override fun onAdResponse(nimbusResponse: NimbusResponse) {
+                Log.e("AdResponse","error"+nimbusResponse.toString())            }
+
+            override fun onAdRendered(controller: AdController) {
+                Log.e("AdResponse","error"+controller.toString())            }
+
+            override fun onError(error: NimbusError) {
+                Log.e("AdResponse","error"+error.toString())            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    val defaultAdUnit = "ca-app-pub-9298860897894361/3941078262"
+//    val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit
+//    val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
+//    val adManagerAdView = AdManagerAdView(this).apply {
+//        adUnitId = bannerAdUnit
+//        setAdSize(adSize)
+//    }
+//    ad_container_admob?.removeAllViews() // Ensure only one ad is shown
+//    ad_container_admob?.addView(adManagerAdView)
+//    val adRequest = AdManagerAdRequest.Builder().build()
+//    adManagerAdView.loadAd(adRequest)
+//    var hasRetried = false
+//    adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
+//        override fun onAdLoaded() {
+//            Log.d("AdManager", "Ad loaded successfully: $bannerAdsUnitID")
+//        }
+//        override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
+//            Log.e("AdManager", "Failed to load ad: ${adError.message}")
+//            if (!hasRetried) {
+//                hasRetried = true
+//               // fetchRemoteConfig()
+//               // loadBannerAds(defaultAdUnit)
+//            }
+//        }
+   // }
 }
 
     private fun initializeRemoteConfig() {
@@ -559,5 +616,24 @@ override fun onBackPressed() {
 //        adView.setNativeAd(nativeAd)
 //    }
 
+
+}
+
+private fun CommonActivity.rewardedAds() {
+    nimbusAdManager.showRewardedAd(NimbusRequest.forRewardedVideo("position"), 15, this,
+        object : NimbusAdManager.Listener {
+
+            override fun onAdResponse(nimbusResponse: NimbusResponse) {
+                TODO("Ad response successfully received")
+            }
+
+            override fun onAdRendered(controller: AdController) {
+                TODO("Ad successfully loaded, attach an event listener to listen to ad events")
+            }
+
+            override fun onError(error: NimbusError) {
+                TODO("Handle error")
+            }
+        })
 
 }

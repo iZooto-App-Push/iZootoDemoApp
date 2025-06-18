@@ -52,6 +52,13 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:text="@string/shareToken" />
+    <LinearLayout
+        android:id="@+id/adLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        />
     <TextView
         android:id="@+id/btn_appVersion"
         android:layout_width="match_parent"
@@ -73,13 +80,7 @@
         android:layout_height="wrap_content"
         android:text="@string/description" />
 
-    <LinearLayout
-        android:id="@+id/adLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:background="#F1EFEF"
