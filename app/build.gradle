@@ -12,15 +12,17 @@ android {
     compileSdk 35
     namespace "com.k.deeplinkingtesting"
 
-    buildToolsVersion = "33.0.1"
     defaultConfig {
         minSdkVersion 24
-        targetSdkVersion 34
-        versionCode 164
-        versionName "8.0.12"
+        targetSdkVersion 35
+        versionCode 168
+        versionName "8.0.16"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-        manifestPlaceholders = [izooto_app_id: 'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640']//'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640'//'09f06385e06cc10d0fc7a5e1c002cd9338a2c94f'
+        manifestPlaceholders = [izooto_app_id: 'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640'
+
+
+        ]//'aeb7d82c8dcc0bcebc9684c2ad8a4a384980e640'//'09f06385e06cc10d0fc7a5e1c002cd9338a2c94f'
        // ]
     }
     buildTypes {
@@ -56,8 +58,8 @@ android {
 
 }
 dependencies {
-    
-    implementation 'com.izooto:android-sdk:3.1.3'
+
+    //implementation 'com.izooto:android-sdk:3.1.4-beta-01'
 
 
 
@@ -102,8 +104,8 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:2.0.0")
     implementation("io.ktor:ktor-client-serialization:2.0.0")
     implementation 'com.github.bumptech.glide:glide:4.16.0'
-   // implementation files('libs/izooto-release.aar')
-   // implementation files('libs/indixital-release.aar')
+   // implementation files('libs/ym-sdk.aar')
+    implementation files('libs/izooto-release_migrate.aar')
 
 //   implementation 'com.google.android.gms:play-services-ads-identifier:18.2.0'
 
@@ -119,7 +121,24 @@ dependencies {
     implementation "com.adsbynimbus.android:nimbus:2.+" // Full Nimbus SDK with NimbusAdManager. Update version number to match
     implementation("com.adsbynimbus.android:extension-admob:2.+")
     implementation("com.google.android.gms:play-services-ads:23.+")
+    implementation("com.adsbynimbus.android:extension-facebook:2.+")
+// mintegral
 
+   // implementation("com.adsbynimbus.android:extension-mintegral:2.32.0")
+    // Optionally import a new Mintegral Ads SDK
+    //implementation("com.mbridge.msdk.oversea:mbridge_android_sdk:16.8.91")
+//molaco
+    implementation("com.adsbynimbus.android:extension-moloco:2.+")
+    // Optionally import a new Moloco Ads SDK
+    implementation("com.moloco.sdk:moloco-sdk:3.+")
+// mobile fues
+    implementation("com.adsbynimbus.android:extension-mobilefuse:2.+")
+// unity
+    implementation("com.adsbynimbus.android:extension-unity:2.+")
+//Liftoff
+
+    implementation("com.adsbynimbus.android:extension-vungle:2.+")
+    implementation 'com.vungle:vungle-ads:7.5.0'
 
 }
 

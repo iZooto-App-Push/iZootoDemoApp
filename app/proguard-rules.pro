@@ -1,89 +1,103 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# ===============================
+# 🛠️ General Android Optimization
+# ===============================
+-keep class * extends android.content.BroadcastReceiver
+-keep class * extends android.app.Service
+-keep class * extends android.app.Application
+-keepclassmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
+# ===============================
+# 🔇 Remove Log statements
+# ===============================
+#-assumenosideeffects class android.util.Log {
+#    public static *** d(...);
+#    public static *** v(...);
+#    public static *** i(...);
+#    public static *** w(...);
+#    public static *** e(...);
 #}
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
--keep public class * extends android.content.BroadcastReceiver
-
-
-#Here change com.xiaomi.mipushdemo.DemoMessageRreceiver to the class name defined in your app
-
-#-keep class com.k.deeplinkingtesting.DemoMessageReceiver {*;}
--assumenosideeffects class android.util.Log {
-    public static *** d(...);
-    public static *** w(...);
-    public static *** v(...);
-    public static *** i(...);
-}
+# ===============================
+# 📊 comScore
+# ===============================
 -keep class com.comscore.** { *; }
 -dontwarn com.comscore.**
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
--dontwarn com.huawei.agconnect.config.AGConnectServicesConfig
--dontwarn com.huawei.hms.aaid.HmsInstanceId
--dontwarn com.huawei.hms.common.ApiException
--dontwarn com.huawei.hms.push.HmsMessageService
--dontwarn okhttp3.internal.platform.**
--dontwarn org.conscrypt.**
--dontwarn org.bouncycastle.**
--dontwarn org.openjsse.**
--dontwarn com.bumptech.glide.Glide
--dontwarn com.bumptech.glide.RequestBuilder
--dontwarn com.bumptech.glide.RequestManager
--dontwarn com.bumptech.glide.load.Transformation
--dontwarn com.bumptech.glide.load.resource.bitmap.RoundedCorners
--dontwarn com.bumptech.glide.request.BaseRequestOptions
--dontwarn com.bumptech.glide.request.RequestOptions
--dontwarn com.bumptech.glide.request.target.ViewTarget
--dontwarn org.slf4j.impl.StaticLoggerBinder
-
-### OKHTTP
--dontnote okhttp3.internal.Platform
-
-### OKIO
--dontwarn okio.Okio
--dontwarn okio.DeflaterSink
-
-## To safely use ProGuard with Google Mobile Ads, add the following to your ProGuard config:
+# ===============================
+# 🚀 Google Mobile Ads SDK
+# ===============================
 -keep public class com.google.android.gms.ads.** {
     public *;
 }
-
 -keep public class com.google.ads.** {
     public *;
 }
-
 -keep class com.google.android.gms.** { *; }
 -dontwarn com.google.android.gms.**
 
--keep class com.yarolegovich.discretescrollview.** { *; }
-
--keepattributes Signature
--keepattributes Annotation
+# ===============================
+# 📦 Retrofit, OkHttp, Okio
+# ===============================
 -keep class okhttp3.** { *; }
 -keep interface okhttp3.** { *; }
 -dontwarn okhttp3.**
 -dontwarn okio.**
+-dontnote okhttp3.internal.Platform
+-dontwarn okio.Okio
+-dontwarn okio.DeflaterSink
+
+# ===============================
+# 🖼️ Glide
+# ===============================
+-dontwarn com.bumptech.glide.**
+-keep class com.bumptech.glide.** { *; }
+
+# ===============================
+# 🧪 Huawei (suppress known missing classes)
+# ===============================
+-dontwarn com.huawei.agconnect.config.AGConnectServicesConfig
+-dontwarn com.huawei.hms.**
+-dontwarn com.huawei.hianalytics.**
+
+# ===============================
+# 🎯 Install Referrer
+# ===============================
 -keep public class com.android.installreferrer.** { *; }
+
+# ===============================
+# 🌐 WebView JavaScript Interface (if used)
+# ===============================
+# Uncomment and replace with your JS interface if you use WebView JS
+# -keepclassmembers class com.example.MyWebViewJSInterface {
+#     public *;
+# }
+
+# ===============================
+# 🧱 Kotlin & Annotations
+# ===============================
 -keep class kotlin.jvm.internal.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
+
+# ===============================
+# 📌 Optional Library-Specific
+# ===============================
+# DiscreteScrollView
+-keep class com.yarolegovich.discretescrollview.** { *; }
+
+# ===============================
+# 🧼 Optional: Debug Info
+# ===============================
+# Uncomment to preserve line numbers in stack traces
+# -keepattributes SourceFile,LineNumberTable
+
+# Uncomment to hide original file names
+# -renamesourcefileattribute SourceFile
+-keep class com.google.firebase.** { *; }
+-dontwarn com.google.firebase.**
+-keep class com.facebook.infer.annotation.** { *; }
+-keep class com.facebook.ads.** { *; }
+-keep class com.facebook.** { *; }
+-dontwarn com.facebook.infer.annotation.**

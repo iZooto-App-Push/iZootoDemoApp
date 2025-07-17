@@ -3,7 +3,7 @@
     <string name="player_error">Errors initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
-    <string name="appVersion">App Version - 8.0.12</string>
+    <string name="appVersion">App Version - 8.0.15</string>
     <string name="description">This app is only for testing the basic features, if any query please contact @iZooto support team</string>
     <string name="share_the_token">Share the Token</string>
     <string name="iz_redirect_string">Notification Redirection Page</string>
@@ -89,4 +89,21 @@
     <string name="mrec">MREC</string>
     <string name="get_all_active_notification">Get All Active Notification</string>
     <string name="deeplink_data">DeepLink Data</string>
+    <!--    <string name="gam_banner">/6499/example/banner</string>-->
+    <string name="banner">ca-app-pub-9298860897894361/3941078262</string>
+    <string name="nimbus_interstitial_ads">GAM Interstitial Ads</string>
+    <string name="rewarded_ads">GAM Rewarded Ads</string>
+    <string name="interstitial_ads">Interstitial Ads</string>
+    <string name="meta_ads">Meta Ads</string>
+    <string name="add">Add</string>
+    <string name="more_ads_network">More Ads Network</string>
+    <string name="molaco_ads_network">Molaco Ads Network</string>
+    <string name="mobilefues_hybrid">MobileFues Hybrid</string>
+    <string name="unity_ads">Unity Ads</string>
+    <string name="liftoff_monetize">Liftoff Monetize</string>
+    <string name="gam_banner">/23206713921/izooto_demo/com.k.deeplinkingtesting_banner</string>
+    <string name="gam_inter">/23206713921/izooto_demo/com.k.deeplinkingtesting_interstitial</string>
+
+
+
 </resources>

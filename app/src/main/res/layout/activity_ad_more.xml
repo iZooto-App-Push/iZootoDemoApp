@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/ic_gam"
+        android:scaleType="centerInside"
+        android:layout_height="150dp"/>
+
+
+    <TextView
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:padding="5dp"
+        android:gravity="center"
+        android:text="@string/more_ads_network"
+        android:textColor="@android:color/black"/>
+    <LinearLayout
+        android:layout_marginTop="@dimen/width_60dp"
+        android:id="@+id/ad_container"
+        android:layout_margin="@dimen/margin_10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/molacoAdNetwork"
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:padding="@dimen/margin_10dp"
+        android:visibility="gone"
+        android:layout_margin="@dimen/margin_20dp"
+        android:layout_height="wrap_content"
+        android:text="@string/molaco_ads_network"/>
+
+    <Button
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:layout_margin="@dimen/margin_20dp"
+        android:padding="@dimen/margin_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mobilefues_hybrid"/>
+
+    <Button
+        android:id="@+id/unityAdsNetwork"
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:padding="@dimen/margin_10dp"
+
+        android:layout_margin="@dimen/margin_20dp"
+        android:layout_height="wrap_content"
+        android:text="@string/unity_ads"/>
+
+    <Button
+        android:id="@+id/liftoff_ads_network"
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:layout_margin="@dimen/margin_20dp"
+        android:padding="@dimen/margin_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/liftoff_monetize"/>
+
+</LinearLayout>
+

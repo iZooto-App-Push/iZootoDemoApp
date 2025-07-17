@@ -16,9 +16,9 @@
 
     <item
         android:id="@+id/action_notification"
-        android:icon="@drawable/ic_notifications_white_24dp"
-        app:showAsAction="always"
-        android:title="Add">
+        android:icon="@drawable/ic_facebook"
+        app:showAsAction="ifRoom"
+        android:title="@string/add">
     </item>
 <!--    <item-->
 <!--        android:id="@+id/notification_settings"-->
@@ -28,9 +28,15 @@
 <!--    </item>-->
     <item
         android:id="@+id/not_found"
-        android:icon="@drawable/baseline_ad_units_24"
+        android:icon="@drawable/ic_gam"
         app:showAsAction="always"
-        android:title="Add">
+        android:title="@string/add">
+    </item>
+    <item
+        android:id="@+id/action_more"
+        android:icon="@drawable/promotion"
+        app:showAsAction="ifRoom"
+        android:title="@string/add">
     </item>
 
 </menu>

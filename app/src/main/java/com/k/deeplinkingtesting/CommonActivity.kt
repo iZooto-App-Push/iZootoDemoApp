@@ -36,13 +36,6 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdSize.BANNER
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.admanager.AdManagerAdRequest
-import com.google.android.gms.ads.admanager.AdManagerAdView
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAd
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback
-import com.google.android.gms.ads.nativead.MediaView
-import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.gms.ads.nativead.NativeAdView
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -52,26 +45,24 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.izooto.AppConstant
 import com.izooto.PreferenceUtil
 import com.izooto.iZooto
-import com.k.deeplinkingtesting.admob.AdMobActivity
+import com.k.deeplinkingtesting.admob.MetaAdsActivity
 import com.k.deeplinkingtesting.admob.AdUnitConfig
-
-
 import java.util.Locale
 import androidx.core.net.toUri
-import androidx.work.Configuration
 import com.adsbynimbus.NimbusAdManager
 import com.adsbynimbus.NimbusError
 import com.adsbynimbus.openrtb.request.Format
 import com.adsbynimbus.render.AdController
 import com.adsbynimbus.request.NimbusRequest
 import com.adsbynimbus.request.NimbusResponse
-import com.iab.omid.library.adsbynimbus.adsession.media.Position
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import java.io.IOException
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
+import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class CommonActivity : AppCompatActivity() {
@@ -91,7 +82,8 @@ class CommonActivity : AppCompatActivity() {
     private lateinit var nativeAdView: NativeAdView
     private var bannerAdUnitId: String = ""
     var deepLinkData : TextView? =null
-    val nimbusAdManager: NimbusAdManager = NimbusAdManager()
+    private val nimbusAdManager = NimbusAdManager()
+    private var rewardedInterstitialAd: RewardedInterstitialAd? = null
 
 
     //adManagerView
@@ -100,6 +92,11 @@ class CommonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.native_plush)
 
+
+      //  loadAd()
+
+
+
         permissionFile = findViewById(R.id.btn_permissionFIle)
         beginDebugFile = findViewById(R.id.btn_beginDebugFile)
         sendDebugFile = findViewById(R.id.btn_sendDebugFile)
@@ -107,11 +104,11 @@ class CommonActivity : AppCompatActivity() {
         permissionFile = findViewById(R.id.btn_permissionFIle)
       //  trackEvents=findViewById(R.id.trackEvents);
         nestedScrollView = findViewById(R.id.nestedScrollView)
-        adLayout = findViewById(R.id.adLayout)
+        adLayout = findViewById(R.id.mainView)
        // nativeAdView = findViewById(R.id.native_ad_view)
         ad_container_admob = findViewById(R.id.ad_container_admob)
 
-//        iZooto.promptForPushNotifications()
+        iZooto.promptForPushNotifications()
 //
 //        deepLinkData = findViewById(R.id.deepLinkData)
 //        val deepLinkDataString = intent.getStringExtra("deepLinkData")
@@ -129,13 +126,13 @@ class CommonActivity : AppCompatActivity() {
         loadBannerAds("")
       //  loadNativeAd(nativeAdView)
 
-        // iZooto.enablePulse(this,nestedScrollView, mainLayout, true)
+        iZooto.enablePulse(this,nestedScrollView, adLayout, true)
 
 
         permissionFile?.setOnClickListener { view ->
             (view as? Button)?.let {
-               // requestPermission()
-                rewardedAds()
+                requestPermission()
+               // rewardedAds()
 
             }
         }
@@ -198,11 +195,55 @@ class CommonActivity : AppCompatActivity() {
         sendButton.setOnClickListener { _: View? -> sendEmail() }
     }
 
+    private fun loadAd() {
+            RewardedInterstitialAd.load(this, "ca-app-pub-3940256099942544/5354046379",
+                AdRequest.Builder().build(), object : RewardedInterstitialAdLoadCallback() {
+                    override fun onAdLoaded(ad: RewardedInterstitialAd) {
+                        rewardedInterstitialAd = ad
+                        rewardedInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
+                            override fun onAdClicked() {
+                                // Called when a click is recorded for an ad.
+                                Log.d(TAG, "Ad was clicked.")
+                            }
 
+                            override fun onAdDismissedFullScreenContent() {
+                                // Called when ad is dismissed.
+                                // Set the ad reference to null so you don't show the ad a second time.
+                                Log.d(TAG, "Ad dismissed fullscreen content.")
+                                rewardedInterstitialAd = null
+                            }
+
+                            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                                // Called when ad fails to show.
+                                Log.e(TAG, "Ad failed to show fullscreen content.")
+                                rewardedInterstitialAd = null
+                            }
+
+                            override fun onAdImpression() {
+                                // Called when an impression is recorded for an ad.
+                                Log.d(TAG, "Ad recorded an impression.")
+                            }
+
+                            override fun onAdShowedFullScreenContent() {
+                                // Called when ad is shown.
+                                Log.d(TAG, "Ad showed fullscreen content.")
+                            }
+                        }
+                    }
+
+                    override fun onAdFailedToLoad(adError: LoadAdError) {
+                        Log.d(TAG, adError.message)
+                        rewardedInterstitialAd = null
+                    }
+                })
+
+    }
+    // nimbus sdk
     private fun loadBannerAds(bannerAdsUnitID: String) {
 
-        adLayout?.let {
-            nimbusAdManager.showAd(NimbusRequest.forBannerAd("test_banner", Format.BANNER_320_50,
+        ad_container_admob?.let {
+            nimbusAdManager.showAd(
+                NimbusRequest.forBannerAd("test_banner", Format.BANNER_320_50,
                 0), it,
                 object : NimbusAdManager.Listener {
                     override fun onAdResponse(nimbusResponse: NimbusResponse) {
@@ -215,20 +256,50 @@ class CommonActivity : AppCompatActivity() {
                     }
 
                     override fun onError(error: NimbusError) {
-                        Log.e("AdResponse","error"+error.toString())
+                        if(error.cause!=null)
+                        {
+                            Log.e(TAG,"Check nested error details here ${error.cause!!.message}")
+
+                        }
+                        else{
+                            Log.e(TAG,"Check nested error details first here ${error.errorType}")
+
+                        }
                     }
                 })
+
         }
-        nimbusAdManager.showBlockingAd(NimbusRequest.forInterstitialAd("1"), this, object : NimbusAdManager.Listener {
-            override fun onAdResponse(nimbusResponse: NimbusResponse) {
-                Log.e("AdResponse","error"+nimbusResponse.toString())            }
 
-            override fun onAdRendered(controller: AdController) {
-                Log.e("AdResponse","error"+controller.toString())            }
+        /////////////////  admob ................
 
-            override fun onError(error: NimbusError) {
-                Log.e("AdResponse","error"+error.toString())            }
-        })
+//        adLayout?.let { layout ->
+//            NimbusAdManager(
+//                container = layout,
+//                position = "banner_home",
+//                listener = object : NimbusAdManager.Listener {
+//                    override fun onAdResponse(nimbusResponse: NimbusResponse) {
+//                        super.onAdResponse(nimbusResponse)
+//                        Log.d("Nimbus", "Banner nimbusResponse"+nimbusResponse.renderInfoOverride)
+//                        Log.d("Nimbus", "Banner nimbusResponse"+nimbusResponse.bid)
+//                        Log.d("Nimbus", "Banner nimbusResponse"+nimbusResponse.companionAds)
+//                        Log.d("Nimbus", "Banner nimbusResponse"+nimbusResponse.renderInfo())
+//                        Log.d("Nimbus", "Banner nimbusResponse"+nimbusResponse.markup())
+//                        Log.d("Nimbus", "Banner nimbusResponse"+nimbusResponse.renderInfoOverride)
+//
+//                    }
+//
+//                    override fun onError(error: NimbusError) {
+//                        super.onError(error)
+//                        Log.d("Nimbus", "Banner error"+error)
+//
+//                    }
+//
+//                    override fun onAdRendered(controller: AdController) {
+//                        Log.d("Nimbus", "Banner rendered")
+//                    }
+//                }
+//            )
+//        }
 
 
 
@@ -236,44 +307,58 @@ class CommonActivity : AppCompatActivity() {
 
 
 
+//        nimbusAdManager.showBlockingAd(NimbusRequest.forInterstitialAd("1"), this, object : NimbusAdManager.Listener {
+//            override fun onAdResponse(nimbusResponse: NimbusResponse) {
+//                Log.e("AdResponse","error"+nimbusResponse.toString())            }
+//
+//            override fun onAdRendered(controller: AdController) {
+//                Log.e("AdResponse","error"+controller.toString())            }
+//
+//            override fun onError(error: NimbusError) {
+//                Log.e("AdResponse","error"+error.toString())            }
+//        })
 
-
-
-
-
-
-
-
-
-
-
-//    val defaultAdUnit = "ca-app-pub-9298860897894361/3941078262"
+//    val defaultAdUnit = getString(R.string.banner)
 //    val bannerAdUnit = if (bannerAdsUnitID.isNotEmpty()) bannerAdsUnitID else defaultAdUnit
 //    val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, getScreenWidthInDp())
-//    val adManagerAdView = AdManagerAdView(this).apply {
-//        adUnitId = bannerAdUnit
+//    val adManagerAdView = AdView(this).apply {
+//        setAdUnitId(bannerAdUnit)
 //        setAdSize(adSize)
 //    }
-//    ad_container_admob?.removeAllViews() // Ensure only one ad is shown
-//    ad_container_admob?.addView(adManagerAdView)
+//    adLayout?.removeAllViews() // Ensure only one ad is shown
+//        adLayout?.addView(adManagerAdView)
 //    val adRequest = AdManagerAdRequest.Builder().build()
 //    adManagerAdView.loadAd(adRequest)
 //    var hasRetried = false
-//    adManagerAdView.adListener = object : com.google.android.gms.ads.AdListener() {
+//    adManagerAdView.setAdListener(object : AdListener() {
 //        override fun onAdLoaded() {
-//            Log.d("AdManager", "Ad loaded successfully: $bannerAdsUnitID")
+//            Log.d("iZooto Demo  - Home Screen", "Ad loaded successfully: $defaultAdUnit")
 //        }
 //        override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
-//            Log.e("AdManager", "Failed to load ad: ${adError.message}")
+//            Log.e("YieldMonk  App - Home Screen", "Failed to load ad: ${adError.message}")
 //            if (!hasRetried) {
 //                hasRetried = true
 //               // fetchRemoteConfig()
 //               // loadBannerAds(defaultAdUnit)
 //            }
 //        }
-   // }
+//    })
 }
-
+//    private fun bannerRequest(
+//        container: ViewGroup,
+//        position: String,
+//        listener: NimbusAdManager.Listener,
+//    ) {
+//        val request = NimbusRequest.forBannerAd(
+//            position = position,
+//            format = Format.BANNER_300_250,
+//        ).apply {
+//
+//            withAdMobBanner(adUnitId = "ca-app-pub-3940256099942544/6300978111")
+//        }
+//
+//        nimbusAdManager.showAd(request, container, listener)
+//    }
     private fun initializeRemoteConfig() {
         try {
             remoteConfig = FirebaseRemoteConfig.getInstance()
@@ -297,7 +382,7 @@ class CommonActivity : AppCompatActivity() {
                         Log.d("RemoteConfig", "Banner Ad Unit ID: $bannerAdUnitId")
 
                         // Uncomment to load banner ads dynamically
-                         loadBannerAds(bannerAdUnitId)
+                        // loadBannerAds(bannerAdUnitId)
                     } else {
                         Log.e("RemoteConfig", "Fetch failed: ${task.exception?.message}")
                     }
@@ -534,21 +619,22 @@ override fun onBackPressed() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_notification -> {
-                val intent = Intent(this@CommonActivity, AdMobActivity::class.java)
+                val intent = Intent(this@CommonActivity, MetaAdsActivity::class.java)
                 startActivity(intent)
                 true
             }
 
-//            R.id.notification_settings -> {
-//                val intent = Intent(this@CommonActivity, AdMobActivity::class.java)
-//                startActivity(intent)
-//                true
-//
-//            }
-            R.id.not_found -> {
-              //  val intent = Intent(this@CommonActivity, OutBrainContentActivity::class.java)
-              //  startActivity(intent)
+            R.id.action_more -> {
+                val intent = Intent(this@CommonActivity, AdMoreActivity::class.java)
+                startActivity(intent)
                 true
+
+            }
+            R.id.not_found -> {
+                val intent = Intent(this@CommonActivity, GamAdActivity::class.java)
+                startActivity(intent)
+                true
+
 
             }
 
@@ -619,21 +705,21 @@ override fun onBackPressed() {
 
 }
 
-private fun CommonActivity.rewardedAds() {
-    nimbusAdManager.showRewardedAd(NimbusRequest.forRewardedVideo("position"), 15, this,
-        object : NimbusAdManager.Listener {
-
-            override fun onAdResponse(nimbusResponse: NimbusResponse) {
-                TODO("Ad response successfully received")
-            }
-
-            override fun onAdRendered(controller: AdController) {
-                TODO("Ad successfully loaded, attach an event listener to listen to ad events")
-            }
-
-            override fun onError(error: NimbusError) {
-                TODO("Handle error")
-            }
-        })
-
-}
+//private fun CommonActivity.rewardedAds() {
+//    nimbusAdManager.showRewardedAd(NimbusRequest.forRewardedVideo("position"), 15, this,
+//        object : NimbusAdManager.Listener {
+//
+//            override fun onAdResponse(nimbusResponse: NimbusResponse) {
+//                TODO("Ad response successfully received")
+//            }
+//
+//            override fun onAdRendered(controller: AdController) {
+//                TODO("Ad successfully loaded, attach an event listener to listen to ad events")
+//            }
+//
+//            override fun onError(error: NimbusError) {
+//                TODO("Handle error")
+//            }
+//        })
+//
+//}

@@ -1,30 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:padding="5dp"
-            android:gravity="center"
-            android:text="@string/deeplink_data"
-            android:textColor="@android:color/black"/>
-        <TextView
-            android:id="@+id/deepLinkData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:padding="5dp"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@android:color/black"/>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/gam"
+            android:scaleType="centerInside"
+            android:layout_height="150dp"/>
+
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:gravity="center"
+            android:text="GAM Ads"
+            android:textColor="@android:color/black"/>
+        <LinearLayout
+            android:layout_marginTop="@dimen/width_60dp"
+            android:id="@+id/ad_container"
+            android:layout_margin="@dimen/margin_10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/n_interstitial_ads"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:padding="@dimen/margin_10dp"
+
+            android:layout_margin="@dimen/margin_20dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nimbus_interstitial_ads"/>
+
+        <Button
+            android:id="@+id/n_rewarded_ads"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:layout_margin="@dimen/margin_20dp"
+            android:padding="@dimen/margin_10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rewarded_ads"/>
 
 </LinearLayout>
 

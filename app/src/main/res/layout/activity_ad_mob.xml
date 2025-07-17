@@ -1,29 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/notification"/>
-        <com.google.android.gms.ads.admanager.AdManagerAdView
-            android:id="@+id/adManagerView"
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/facebook"
+        />
+<!--        <com.google.android.gms.ads.admanager.AdManagerAdView-->
+<!--            android:layout_marginTop="@dimen/margin_50dp"-->
+<!--            android:id="@+id/adManagerView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:adSize="BANNER"-->
+<!--            app:adUnitId="@string/banner" />-->
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-3940256099942544/9214589741" />
+            android:text="@string/meta_ads"
+            android:visibility="visible"
+            android:gravity="center"
+            android:textSize="@dimen/height_25dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_10dp"
+            tools:ignore="SpUsage" />
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainView"
+        android:orientation="vertical"/>
+
+        <Button
+            android:id="@+id/interstitial_ads"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#22445566"
+            android:text="@string/interstitial_ads"
+            android:visibility="visible"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_10dp"/>
+<Button
+    android:id="@+id/rewarded_ads"
+    android:layout_marginTop="@dimen/margin_30dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/rewarded_ads"
+    android:visibility="visible"
+    android:background="#22445566"
+    android:textColor="@color/black"
+    android:layout_marginLeft="@dimen/margin_10dp"
+    android:layout_marginRight="@dimen/margin_10dp"/>
+
+
 
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/footerView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:layout_marginRight="@dimen/margin_10dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:orientation="vertical"/>
 
-    <!-- Bottom Toolbar -->
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
