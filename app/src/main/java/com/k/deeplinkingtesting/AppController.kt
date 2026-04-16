@@ -27,7 +27,6 @@ import com.indixital.Indixital
 import com.izooto.NotificationHelperListener
 import com.izooto.Payload
 import com.izooto.iZooto
-import com.outbrain.OBSDK.Outbrain
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -72,17 +71,15 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             * In third argument, you need to pass the environment which can be either "development", "production" or "testing". */
        // val sdkConfig = TrackierSDKConfig(this, TR_SDK_KEY, "development")
        // TrackierSDK.initialize(sdkConfig)
-        Outbrain.register(this, "DATAB2HQ71I65P5JML02NJDEE");
-        Outbrain.setTestMode(true); // Skipping all billing, statistics, information gathering, and all other action mechanisms.
-        Outbrain.testLocation("en");
+
         iZooto.initialize(this)
             .setTokenReceivedListener { token: String? -> Log.e("Token", token!!) }
-            .setLandingURLListener { landingUrl: String? ->
-                Log.e("landing URL", landingUrl!!)
-                val intent = Intent(applicationContext, MainActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            }
+//            .setLandingURLListener { landingUrl: String? ->
+//                Log.e("landing URL", landingUrl!!)
+//                val intent = Intent(applicationContext, MainActivity::class.java)
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                startActivity(intent)
+//            }
             .setNotificationReceiveListener(object : NotificationHelperListener {
                 override fun onNotificationReceived(payload: Payload) {
 
@@ -150,9 +147,7 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onMoveToForeground() {
-        currentActivity?.let {
-            appOpenAdManager.showAdIfAvailable(it)
-        }
+
     }
 
     inner class AppOpenAdManager {
@@ -192,66 +187,9 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
             }
         }
 
-        fun showAdIfAvailable(activity: Activity) {
-            showAdIfAvailable(
-                activity,
-                object : OnShowAdCompleteListener {
-                    override fun onShowAdComplete() {
-//                        Log.d("ABC", "Ad show completed.")
-                        // Empty because the user will go back to the activity that shows the ad.
-                    }
-                })
-        }
 
-        private fun showAdIfAvailable(
-            activity: Activity,
-            onShowAdCompleteListener: OnShowAdCompleteListener
-        ) {
-            // If the app open ad is already showing, do not show the ad again.
-            if (isShowingAd) {
-                Log.d("ABC", "The app open ad is already showing.")
-                return
-            }
 
-            // If the app open ad is not available yet, invoke the callback then load the ad.
-            if (!isAdAvailable()) {
-                Log.d("ABC", "The app open ad is not ready yet.")
-                onShowAdCompleteListener.onShowAdComplete()
-                loadAd(activity)
-                return
-            }
 
-            appOpenAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
-                override fun onAdDismissedFullScreenContent() {
-                    // Called when full screen content is dismissed.
-                    // Set the reference to null so isAdAvailable() returns false.
-                    Log.d("ABC", "Ad dismissed fullscreen content.")
-                    appOpenAd = null
-                    isShowingAd = false
-
-                    onShowAdCompleteListener.onShowAdComplete()
-                    loadAd(activity)
-                }
-
-                override fun onAdFailedToShowFullScreenContent(adError: AdError) {
-                    // Called when fullscreen content failed to show.
-                    // Set the reference to null so isAdAvailable() returns false.
-                    Log.d("ABC", adError.message)
-                    appOpenAd = null
-                    isShowingAd = false
-
-                    onShowAdCompleteListener.onShowAdComplete()
-                    loadAd(activity)
-                }
-
-                override fun onAdShowedFullScreenContent() {
-                    // Called when fullscreen content is shown.
-                    Log.d("ABC", "Ad showed fullscreen content.")
-                }
-            }
-            isShowingAd = true
-            appOpenAd?.show(activity)
-        }
 
 
         /** Check if ad exists and can be shown. */

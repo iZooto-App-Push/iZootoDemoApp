@@ -60,9 +60,6 @@ import com.izooto.PreferenceUtil
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.admob.AdMobActivity
 import com.k.deeplinkingtesting.admob.AdUnitConfig
-import com.k.deeplinkingtesting.admob.InLineBannerAdActivity
-import com.k.deeplinkingtesting.databinding.ActivityTempBinding
-import com.k.deeplinkingtesting.databinding.NativePulseBinding
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -140,6 +137,8 @@ class CommonActivity : AppCompatActivity() {
         permissionFile?.setOnClickListener { view ->
             (view as? Button)?.let {
                 requestPermission()
+                val tags = arrayListOf("Jaunpur")
+                iZooto.addTag(tags)
 
             }
         }
@@ -152,6 +151,8 @@ class CommonActivity : AppCompatActivity() {
                 builder1.setPositiveButton(
                     "Yes"
                 ) { dialog: DialogInterface, _: Int ->
+                    val tags = arrayListOf("Jaunpur")
+                    iZooto.addTag(tags)
                     iZooto.createDirectory(this@CommonActivity)
                     dialog.cancel()
                 }
@@ -508,39 +509,8 @@ override fun onBackPressed() {
 
 
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_notification -> {
-                val intent = Intent(this@CommonActivity, AdMobActivity::class.java)
-                startActivity(intent)
-                true
-            }
 
-//            R.id.notification_settings -> {
-//                val intent = Intent(this@CommonActivity, AdMobActivity::class.java)
-//                startActivity(intent)
-//                true
-//
-//            }
-            R.id.not_found -> {
-                val intent = Intent(this@CommonActivity, OutBrainContentActivity::class.java)
-                startActivity(intent)
-                true
-
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 
     // Handle AdView lifecycle properly
     override fun onPause() {

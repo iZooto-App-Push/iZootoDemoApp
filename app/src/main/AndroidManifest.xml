@@ -19,7 +19,9 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera.any"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
     <application
         android:name=".AppController"
         android:allowBackup="false"
@@ -29,57 +31,13 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/notification"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
+        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
         tools:replace="android:allowBackup">
-        <activity
-            android:name=".YadexAdsActivity"
-            android:theme="@style/AppTheme"
-            android:exported="false" />
-        <activity
-            android:name=".OutbrainWidgetJSActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity
-            android:name=".OutBrainContentActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ClassicWithImageActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".gridlayout.GridWithImagesActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SmartFeed.SmartFeedActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SmartFeed.SmartFeedMidFeedActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".admob.InLineBannerAdActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".VideoWidget.VideoWidgetActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SFWebView.SFWebViewRecyclerViewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SFWebView.SFWebViewScrollViewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
         <activity
             android:name=".admob.AdMobActivity"
             android:exported="false"
@@ -133,21 +91,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         
-        <activity
-            android:name=".insteam.SwipableActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Drawer.SlidingDrawerActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".productionOubtbrain.OutbrainSDKActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+
         <meta-data
             android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
             android:value="true"

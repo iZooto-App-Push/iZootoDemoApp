@@ -19,7 +19,6 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.izooto.iZooto
 import com.k.deeplinkingtesting.R
-import com.outbrain.OBSDK.Errors.OBErrorReporting
 
 
 class AdMobActivity : AppCompatActivity()
