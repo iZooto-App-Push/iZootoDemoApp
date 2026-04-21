@@ -19,9 +19,9 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-feature android:name="android.hardware.camera.any"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+
+
+
     <application
         android:name=".AppController"
         android:allowBackup="false"
@@ -33,6 +33,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
         tools:replace="android:allowBackup">
+
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -49,11 +50,10 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9298860897894361~4907509724"
-            />
-        <meta-data android:name="applovin.sdk.key"
-            android:value="MmHLJLwlhhLwuWZiNeyeLte3zfmk4GImmOIOs6U5eCW31mzSvyzXbhJuoTTGhgAmLvAnTNibCSqHrppumwVLAW"/>
-
+            android:value="ca-app-pub-9298860897894361~4907509724" />
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="MmHLJLwlhhLwuWZiNeyeLte3zfmk4GImmOIOs6U5eCW31mzSvyzXbhJuoTTGhgAmLvAnTNibCSqHrppumwVLAW" />
 
         <activity
             android:name=".SplashScreen"
@@ -63,6 +63,7 @@
             tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -72,17 +73,18 @@
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            tools:ignore="DiscouragedApi" >
+            tools:ignore="DiscouragedApi">
+
             <!-- Deep link intent -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:scheme="https"
                     android:host="demo-stage-cdn.indixital.com"
-                    />
+                    android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
@@ -90,13 +92,11 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        
 
         <meta-data
             android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
             android:value="true"
-            tools:replace="android:value"/>
-
+            tools:replace="android:value" />
     </application>
 
 </manifest>

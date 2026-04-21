@@ -65,21 +65,10 @@ class AppController : Application(), LifecycleObserver, Application.ActivityLife
         val TR_SDK_KEY: String = "24da4b0a-80af-4043-bfaf-24cbf277e642"
               // Please pass your SDK key here.
 
-        /* While Initializing the SDK, You need to pass the three parameter in the TrackierSDKConfig.
-            * In First argument, you need to pass context of the application
-            * In second argument, you need to pass the Trackier SDK api key
-            * In third argument, you need to pass the environment which can be either "development", "production" or "testing". */
-       // val sdkConfig = TrackierSDKConfig(this, TR_SDK_KEY, "development")
-       // TrackierSDK.initialize(sdkConfig)
+
 
         iZooto.initialize(this)
             .setTokenReceivedListener { token: String? -> Log.e("Token", token!!) }
-//            .setLandingURLListener { landingUrl: String? ->
-//                Log.e("landing URL", landingUrl!!)
-//                val intent = Intent(applicationContext, MainActivity::class.java)
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//                startActivity(intent)
-//            }
             .setNotificationReceiveListener(object : NotificationHelperListener {
                 override fun onNotificationReceived(payload: Payload) {
 

@@ -59,16 +59,12 @@
     <string name="trackEvents"> Track Events</string>
 
 
-
-
-
-
     <string name="yandex_app_id">13309303</string>
-<!--        <string name="banner_ad_unit" tools:ignore="TypographyDashes">demo-banner-yandex</string>-->
+    <!--        <string name="banner_ad_unit" tools:ignore="TypographyDashes">demo-banner-yandex</string>-->
     <string name="banner_ad_unit" tools:ignore="TypographyDashes">R-M-13309303-3</string>
 
     <string name="interstitial_ad_unit">R-M-13309303-4</string>
-<!--    <string name="interstitial_ad_unit">demo-interstitial-yandex</string>-->
+    <!--    <string name="interstitial_ad_unit">demo-interstitial-yandex</string>-->
     <string name="rewarded_ad_unit">demo-rewarded-yandex</string>
     <string name="native_small_ad_unit">demo-native-app-yandex</string>
     <string name="native_medium_ad_unit">demo-native-video-yandex</string>
@@ -91,4 +87,16 @@
     <string name="ad_description">Ad Description</string>
     <string name="call_to_action">Call to Action</string>
     <string name="mrec">MREC</string>
+
+    <string name="edit_text">Enter your text (≥ 20 bytes for accurate results)</string>
+    <string name="identify_language_button">Identify language</string>
+    <string name="identify_possible_languages_button">Identify possible languages</string>
+    <string name="clear_text_button">Clear text</string>
+    <string name="language">Identified language(s): %1$s</string>
+    <string name="input">Your input: %1$s</string>
+    <string name="empty_text_message">Please enter your text in order to identify the language.</string>
+    <string name="wait_message">Waiting…</string>
+    <string name="language_id_error">Failed to identify language</string>
+    <string name="language_id_context">ML Kit sample app to provide basic knowledge on using Language Identification API on Android.\nEnter your text in the text box above and press button to trigger the API.</string>
+
 </resources>
