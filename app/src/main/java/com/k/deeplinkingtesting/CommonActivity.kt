@@ -28,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
+import androidx.lifecycle.lifecycleScope
 
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
@@ -91,14 +92,16 @@ class CommonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.native_pulse)
 
-        try {
-            val backgroundScope = CoroutineScope(Dispatchers.IO)
-            backgroundScope.launch {
+        lifecycleScope.launch {
+            try {
                 MobileAds.initialize(this@CommonActivity) {}
+            } catch (e: Exception) {
+                Log.e(TAG, "Ads init failed: ${e.message}")
             }
-        } catch (ex: Exception) {
-            Log.e(TAG, "Ads execution failure " + ex.message)
         }
+
+
+
        // adManagerAdView = findViewById(R.id.adManagerView)
 
         permissionFile = findViewById(R.id.btn_permissionFIle)

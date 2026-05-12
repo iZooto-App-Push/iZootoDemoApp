@@ -3,6 +3,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.k.deeplinkingtesting.admob.AdMobActivity
+import com.k.deeplinkingtesting.chatSystem.ChatActivity
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

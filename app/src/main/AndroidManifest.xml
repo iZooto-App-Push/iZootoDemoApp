@@ -92,11 +92,26 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".chatSystem.ChatActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
             android:value="true"
             tools:replace="android:value" />
+        <service
+            android:name=".chatSystem.MyFirebaseService"
+            android:exported="false">
+
+            <intent-filter>
+                <!-- Required for Firebase Messaging -->
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+
+        </service>
     </application>
 
 </manifest>
