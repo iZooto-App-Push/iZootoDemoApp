@@ -1,0 +1,78 @@
+# File: .github/workflows/android-ci-cd.yml
+
+name: Android CI/CD
+
+on:
+  push:
+    branches:
+      - add_chat_system
+  pull_request:
+    branches:
+      - add_chat_system
+  workflow_dispatch:
+
+concurrency:
+  group: android-ci-cd-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  JAVA_VERSION: '17'
+  DISTRIBUTION: 'temurin'
+
+jobs:
+  build-test:
+    name: Build, Lint, Unit Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout source code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup Java
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          distribution: ${{ env.DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: gradle
+
+      # Give execute permission to Gradle wrapper
+      - name: Grant execute permission to gradlew
+        run: chmod +x gradlew
+
+      # Validate Gradle wrapper for security
+      - name: Validate Gradle Wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      # Run Android Lint
+      - name: Run Lint
+        run: ./gradlew lintDebug
+
+      # Run Unit Tests
+      - name: Run Unit Tests
+        run: ./gradlew testDebugUnitTest
+
+      # Build Debug APK
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+
+      # Upload APK artifact
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+
+      # Upload test reports (always, even if build fails)
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-and-lint-reports
+          path: |
+            app/build/reports/
+            app/build/test-results/
